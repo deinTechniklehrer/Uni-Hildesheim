@@ -334,6 +334,11 @@ footer.foot{margin-top:50px;font-size:.85rem;color:var(--muted);border-top:1px s
 .agenda li{display:grid;grid-template-columns:minmax(0,120px) minmax(0,1fr);gap:12px;align-items:baseline;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px 14px}
 .agenda li b{font-family:var(--f-head);font-size:1.2rem;color:var(--link)}
 .agenda li.cur{border:2px solid var(--yellow);background:var(--yellow-soft)}
+.slauf{border:2px solid var(--yellow);background:var(--yellow-soft);padding:10px 14px;border-radius:6px;margin:10px 0}
+.slauf b.t{font-family:var(--f-head);font-size:1.15rem;display:block;margin-bottom:2px}
+.slauf+.slauf{margin-top:8px}
+.cols2{columns:2;column-gap:28px} .cols2 li{break-inside:avoid}
+@media (max-width:700px){.cols2{columns:1}}
 .big{font-size:1.25rem;font-weight:600} .big2 li{font-size:1.15rem;margin:.35em 0} .huge{font-family:var(--f-head);font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.15;font-weight:700;color:var(--link);margin:.3em 0}
 .muted{color:var(--muted)}
 .sl-reveal summary{cursor:pointer;display:inline-block;background:var(--yellow);color:#14232f;font-weight:700;padding:8px 18px;border-radius:4px;list-style:none}
@@ -372,7 +377,7 @@ const COURSE = {
   sub: 'Universität Hildesheim · Institut für Technik · WiSe 2026/27',
   dozent: 'Daniel Beyrodt · Fachmoderator AWT, RLSB Hannover',
   links: [
-    ['TaskCard Technikdidaktisches Kolloquium', 'https://bit.ly/technikdidaktik', 'bit.ly/technikdidaktik'],
+    ['Kursseite (TaskCard) mit Präsentationen und Material', 'https://t1p.de/tdk-26', 't1p.de/tdk-26'],
     ['TaskCard Netzwerk Techniklehrkräfte', 'https://bit.ly/techniklehrer', 'bit.ly/techniklehrer']
   ],
   kompass: 'https://claude.ai/artifact/JeP5ch2iWAs4VbtkfK9V1u'
@@ -387,52 +392,11 @@ FIG.ropohl = `<figure class="fig"><div class="dimfig">
 <div class="dcol nat"><h4>Naturale Dimension</h4><span>ökologisch</span><span>ingenieur&shy;wissenschaftlich</span><span>physikalisch</span><span>chemisch</span><span>biologisch</span></div>
 </div><figcaption>Dimensionen und Erkenntnisperspektiven der Technik. Neu gezeichnet nach Ropohl (2009), Bild 1, S. 32 (Erstauflage 1979).</figcaption></figure>`;
 
-FIG.weite = `<figure class="fig"><svg viewBox="0 0 620 300" role="img" aria-label="Drei ineinanderliegende Kreise: enger, mittelweiter und weiter Technikbegriff">
-<ellipse cx="200" cy="150" rx="190" ry="140" style="fill:var(--paper);stroke:var(--muted);stroke-width:2"/>
-<ellipse cx="200" cy="165" rx="130" ry="100" style="fill:var(--nat-bg);stroke:var(--accent);stroke-width:3"/>
-<ellipse cx="200" cy="185" rx="70" ry="55" style="fill:var(--yellow-soft);stroke:var(--yellow);stroke-width:3"/>
-<text x="200" y="182" text-anchor="middle" style="fill:var(--ink);font:700 15px var(--f-body)">eng</text>
-<text x="200" y="200" text-anchor="middle" style="fill:var(--ink);font:13px var(--f-body)">Sachtechnik</text>
-<text x="200" y="100" text-anchor="middle" style="fill:var(--ink);font:700 15px var(--f-body)">mittelweit</text>
-<text x="200" y="40" text-anchor="middle" style="fill:var(--ink);font:700 15px var(--f-body)">weit</text>
-<line x1="330" y1="60" x2="400" y2="60" style="stroke:var(--muted);stroke-width:1.5"/>
-<line x1="320" y1="120" x2="400" y2="120" style="stroke:var(--accent);stroke-width:1.5"/>
-<line x1="262" y1="190" x2="400" y2="190" style="stroke:var(--yellow);stroke-width:2"/>
-<text x="408" y="55" style="fill:var(--ink);font:14px var(--f-body)">alles kunstfertige,</text><text x="408" y="72" style="fill:var(--ink);font:14px var(--f-body)">zweckorientierte Handeln</text>
-<text x="408" y="115" style="fill:var(--ink);font:14px var(--f-body)">Artefakte + alle Handlungen</text><text x="408" y="132" style="fill:var(--ink);font:14px var(--f-body)">mit ihnen (Ropohl)</text>
-<text x="408" y="185" style="fill:var(--ink);font:14px var(--f-body)">alle künstlich</text><text x="408" y="202" style="fill:var(--ink);font:14px var(--f-body)">hergestellten Dinge</text>
-</svg><figcaption>Begriffsweite von „Technik“. Eigene Darstellung nach Binder (2014), S. 2.</figcaption></figure>`;
-
 FIG.ropohlDef = `<div class="three">
 <div><i>a</i><b>Sachsysteme</b>die nutzenorientierten, künstlichen, gegenständlichen Gebilde (Artefakte)</div>
 <div><i>b</i><b>Entstehung</b>menschliche Handlungen und Einrichtungen, in denen Sachsysteme entstehen</div>
 <div><i>c</i><b>Verwendung</b>menschliche Handlungen, in denen Sachsysteme verwendet werden</div></div>
 <p class="cite">„Technik umfasst (a) die Menge der nutzenorientierten, künstlichen, gegenständlichen Gebilde (Artefakte oder Sachsysteme), (b) die Menge menschlicher Handlungen und Einrichtungen, in denen Sachsysteme entstehen und (c) die Menge menschlicher Handlungen, in denen Sachsysteme verwendet werden.“ (Ropohl 2009, S. 31)</p>`;
-
-FIG.nwT = `<div class="tscroll"><table class="mt"><thead><tr><th></th><th>Naturwissenschaft</th><th>Technik</th></tr></thead><tbody>
-<tr><th>Gegenstand</th><td>was von Natur aus da ist</td><td>was vom Menschen künstlich geschaffen wird – was sein soll</td></tr>
-<tr><th>Fragerichtung</th><td>kausal: Ursache → Wirkung</td><td>final: Sinn und Zweck</td></tr>
-<tr><th>Hauptmethoden</th><td>analytisch, erklärend</td><td>synthetisch, problemlösend</td></tr>
-<tr><th>Praxis</th><td>Experimentieren zur Erkenntnisgewinnung</td><td>Gestaltung der Lebensumwelt durch Herstellung und Gebrauch</td></tr>
-<tr><th>Bewertung</th><td>richtig oder falsch</td><td>gut oder schlecht</td></tr></tbody></table></div>
-<p class="cite">Nach Brandt (2011), VDI Berlin-Brandenburg: Technikunterricht versus Naturwissenschaftlicher Unterricht, S. 4.</p>`;
-
-const LAENDER = [
-  ['Baden-Württemberg*', 1,1,1,1, 0,0,1,0], ['Bayern', 1,1,1,1, 0,0,1,1], ['Berlin', 0,1,1,0, 0,0,1,0], ['Brandenburg', 0,1,1,0, 0,0,0,0],
-  ['Bremen', 0,1,0,0, 0,0,1,0], ['Hamburg', 0,1,1,0, 1,0,1,0], ['Hessen', 0,0,0,0, 0,0,1,0], ['Mecklenburg-Vorpommern', 0,1,1,0, 0,0,1,0],
-  ['Niedersachsen', 1,1,1,0, 0,0,1,0], ['Nordrhein-Westfalen', 1,0,1,0, 0,1,0,1], ['Rheinland-Pfalz', 0,1,1,0, 0,0,1,0], ['Saarland', 0,1,1,1, 1,0,1,0],
-  ['Sachsen', 0,1,1,0, 0,0,1,0], ['Sachsen-Anhalt', 0,1,1,0, 1,0,1,0], ['Schleswig-Holstein', 1,0,1,0, 1,0,1,0], ['Thüringen', 1,1,1,0, 0,0,1,0]
-];
-FIG.laender = (() => {
-  const c = v => v ? '<span class="dot f" title="ja"></span>' : '';
-  const cv = v => v ? '<span class="dot v" title="ja"></span>' : '';
-  const rows = LAENDER.map(r => `<tr${r[0] === 'Niedersachsen' ? ' class="ni"' : ''}><td>${r[0]}</td>${r.slice(1).map((v, i) => i % 2 === 0 ? `<td>${c(v)}</td>` : `<td>${cv(v)}</td>`).join('')}</tr>`).join('');
-  return `<figure class="fig"><div class="tscroll"><table class="states"><thead>
-<tr><th rowspan="2">Land</th><th colspan="2">Technik Sek I</th><th colspan="2">Informatik Sek I</th><th colspan="2">Technik Sek II</th><th colspan="2">Informatik Sek II</th></tr>
-<tr><th>Fach</th><th>Verbund</th><th>Fach</th><th>Verbund</th><th>Fach</th><th>Verbund</th><th>Fach</th><th>Verbund</th></tr></thead><tbody>${rows}</tbody></table></div>
-<p class="cite" style="margin-top:8px"><span class="dot f"></span> als Schulfach &nbsp; <span class="dot v"></span> im Fächerverbund. Angebote laut Lehrplänen und Stundentafeln, teils nur als Wahlpflichtfach. *Bildungspläne 2016.</p>
-<figcaption>Technik und Informatik an allgemeinbildenden Schulen. Neu gezeichnet nach der Grafik aus dem Seminarmaterial (Quelle laut Grafik: Lehrpläne der Länder/eigene Recherchen, Stand etwa 2016). Nicht aktuell – siehe Aufgabe „Ist die Übersicht noch aktuell?“.</figcaption></figure>`;
-})();
 
 FIG.mptu = `<figure class="fig"><svg viewBox="0 0 640 330" role="img" aria-label="Drei Erkenntnisperspektiven nach Schmayl führen zu vier Zielperspektiven nach Sachs">
 <text x="10" y="22" style="fill:var(--muted);font:600 13px var(--f-body);letter-spacing:.06em">ERKENNTNISPERSPEKTIVEN (Schmayl) – Blick auf die Sache Technik</text>
@@ -455,76 +419,6 @@ FIG.matrix = `<figure class="fig"><div class="tscroll"><table class="matrix">
 <tr class="th"><td colspan="5">Unterrichtsinhalte/Themen: Bautechnik · Maschinentechnik · Produktionstechnik · Energietechnik · Informationstechnik · Textiltechnik</td></tr>
 </table></div><figcaption>Handlungs- und Problemfelder des mehrperspektivischen Technikunterrichts. Neu gezeichnet nach Wilkening/Schmayl (1984), Folie aus dem Seminarmaterial.</figcaption></figure>`;
 
-FIG.methoden = `<div class="grid3">
-<div class="tile y"><h4>Projektmethode</h4><p>früher Werkaufgabe; komplexe Vorhaben, von der Gruppe geplant und durchgeführt</p></div>
-<div class="tile"><h4>Erfindendes Konstruieren</h4><p>eigene technische Lösung für ein Problem entwickeln</p></div>
-<div class="tile"><h4>Nachvollziehendes Fertigen</h4><p>ein vorgegebenes Produkt nach Plan herstellen</p></div>
-<div class="tile"><h4>Lehrgangsmäßiges Instruieren</h4><p>Verfahren und Fertigkeiten schrittweise vermitteln</p></div>
-<div class="tile"><h4>Forschendes Experimentieren</h4><p>technische Zusammenhänge im Versuch untersuchen</p></div>
-<div class="tile"><h4>Analysieren der Realtechnik</h4><p>vorhandene Technik untersuchen, zerlegen, erkunden</p></div></div>
-<p class="cite">Methodensystem des mpTu nach Bienhaus (2008), S. 5. Kurzbeschreibungen: eigene Formulierung.</p>`;
-
-FIG.ansaetze = `<figure class="fig"><svg viewBox="0 0 640 420" role="img" aria-label="Entwicklung vom Werkunterricht zum Technikunterricht und Verzweigung in drei Modelle und Ansätze">
-<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" style="fill:var(--muted)"/></marker></defs>
-<rect x="215" y="8" width="210" height="48" rx="6" style="fill:var(--paper);stroke:var(--line);stroke-width:2"/><text x="320" y="28" text-anchor="middle" style="fill:var(--ink);font:600 14px var(--f-body)">Werkunterricht handwerk-</text><text x="320" y="45" text-anchor="middle" style="fill:var(--ink);font:600 14px var(--f-body)">licher und musischer Prägung</text>
-<text x="20" y="98" style="fill:var(--muted);font:13px var(--f-body)">polytechnischer Unterricht</text><text x="20" y="114" style="fill:var(--muted);font:13px var(--f-body)">in sozialistischen Ländern</text>
-<line x1="185" y1="104" x2="250" y2="118" style="stroke:var(--muted);stroke-width:1.5" marker-end="url(#ar)"/>
-<text x="460" y="98" style="fill:var(--muted);font:13px var(--f-body)">Hinführung zur Arbeits-</text><text x="460" y="114" style="fill:var(--muted);font:13px var(--f-body)">und Wirtschaftswelt</text>
-<line x1="320" y1="56" x2="320" y2="112" style="stroke:var(--muted);stroke-width:2" marker-end="url(#ar)"/>
-<rect x="230" y="116" width="180" height="32" rx="6" style="fill:var(--card);stroke:var(--accent);stroke-width:2"/><text x="320" y="137" text-anchor="middle" style="fill:var(--ink);font:600 14px var(--f-body)">Technisches Werken</text>
-<line x1="320" y1="148" x2="320" y2="168" style="stroke:var(--muted);stroke-width:2" marker-end="url(#ar)"/>
-<rect x="230" y="170" width="180" height="32" rx="6" style="fill:var(--accent)"/><text x="320" y="191" text-anchor="middle" style="fill:var(--accent-ink);font:700 15px var(--f-body)">Technikunterricht</text>
-<line x1="540" y1="122" x2="540" y2="232" style="stroke:var(--muted);stroke-width:1.5" marker-end="url(#ar)"/>
-<text x="540" y="250" text-anchor="middle" style="fill:var(--muted);font:600 13px var(--f-body)">Arbeitslehre</text>
-<path d="M320 202 L105 262 M320 202 L320 262 M320 202 L535 262" style="stroke:var(--muted);stroke-width:2;fill:none"/>
-<rect x="20" y="264" width="170" height="52" rx="6" style="fill:var(--nat-bg);stroke:var(--nat);stroke-width:2"/><text x="105" y="286" text-anchor="middle" style="fill:var(--ink);font:600 14px var(--f-body)">fachspezifisches</text><text x="105" y="303" text-anchor="middle" style="fill:var(--ink);font:600 14px var(--f-body)">Modell</text>
-<rect x="235" y="264" width="170" height="52" rx="6" style="fill:var(--yellow-soft);stroke:var(--yellow);stroke-width:2"/><text x="320" y="286" text-anchor="middle" style="fill:var(--ink);font:600 14px var(--f-body)">mehrperspektivisches</text><text x="320" y="303" text-anchor="middle" style="fill:var(--ink);font:600 14px var(--f-body)">Modell</text>
-<rect x="450" y="264" width="170" height="52" rx="6" style="fill:var(--soz-bg);stroke:var(--soz);stroke-width:2"/><text x="535" y="286" text-anchor="middle" style="fill:var(--ink);font:600 14px var(--f-body)">gesellschafts-</text><text x="535" y="303" text-anchor="middle" style="fill:var(--ink);font:600 14px var(--f-body)">orientiertes Modell</text>
-<line x1="105" y1="316" x2="105" y2="348" style="stroke:var(--muted);stroke-width:2" marker-end="url(#ar)"/><line x1="320" y1="316" x2="320" y2="348" style="stroke:var(--muted);stroke-width:2" marker-end="url(#ar)"/><line x1="535" y1="316" x2="535" y2="348" style="stroke:var(--muted);stroke-width:2" marker-end="url(#ar)"/>
-<rect x="20" y="350" width="170" height="56" rx="6" style="fill:var(--card);stroke:var(--nat);stroke-width:2"/><text x="105" y="373" text-anchor="middle" style="fill:var(--ink);font:700 14px var(--f-body)">allgemeintechnolo-</text><text x="105" y="391" text-anchor="middle" style="fill:var(--ink);font:700 14px var(--f-body)">gischer Ansatz (AtA)</text>
-<rect x="235" y="350" width="170" height="56" rx="6" style="fill:var(--card);stroke:var(--yellow);stroke-width:2"/><text x="320" y="373" text-anchor="middle" style="fill:var(--ink);font:700 14px var(--f-body)">mehrperspektivischer</text><text x="320" y="391" text-anchor="middle" style="fill:var(--ink);font:700 14px var(--f-body)">Ansatz (MpA)</text>
-<rect x="450" y="350" width="170" height="56" rx="6" style="fill:var(--card);stroke:var(--soz);stroke-width:2"/><text x="535" y="373" text-anchor="middle" style="fill:var(--ink);font:700 14px var(--f-body)">arbeitsorientierter</text><text x="535" y="391" text-anchor="middle" style="fill:var(--ink);font:700 14px var(--f-body)">Ansatz (AoA)</text>
-</svg><figcaption>Vom Werkunterricht zu den technikdidaktischen Ansätzen. Neu gezeichnet nach der Abbildung aus Schmayl/Wilkening (1995), Seminarmaterial.</figcaption></figure>`;
-
-FIG.huettner = `<div class="layers">
-<div class="lv1"><b>Theorieebene</b><span>Forschungsmethoden · Rahmenziel · technische Bildungsschwerpunkte (4 Anwendungsfelder, 3 Leitlinien) · Quellen der Bildungsinhalte</span></div>
-<div class="lv2"><b>Analyseebene</b><span>Bildungsinhalte auswählen · Bildungsgehalt bestimmen · didaktische Elemente ergründen · anthropogene Voraussetzungen ermitteln</span></div>
-<div class="lv3"><b>Planungsebene</b><span>Unterrichtsplanung theoretisch erörtern · Handlungsorientierungen erarbeiten</span></div>
-<div class="lv4"><b>Unterrichtliche Interaktionsebene</b><span>Lehr- und Lernhandlungen · Lernorganisation (Methoden, Lernziele, Medien, Bedingungen) · Lernkontrolle</span></div>
-</div><p class="cite">Technikdidaktisches Interaktionsmodell nach Hüttner, Kap. 2.5 (Auszug im Seminarmaterial). Die Theorieebene durchdringt alle anderen und wird durch Rückkopplung selbst bereichert.</p>`;
-
-FIG.berlin = `<div class="flow">
-<div class="st"><b>Bedingungsfelder</b><span>anthropogene Voraussetzungen (Was bringen die Lernenden mit?) · soziokulturelle Voraussetzungen</span></div><div class="ar">→</div>
-<div class="st"><b>Entscheidungsfelder</b><span>Ziele/Intention · Inhalt · Methode · Medien – wechselseitig abhängig</span></div><div class="ar">→</div>
-<div class="st"><b>Folgen</b><span>anthropogene und soziokulturelle Folgen des Unterrichts</span></div></div>
-<p class="cite">Berliner Modell (Heimann, Otto & Schulz), nach dem Skript Mackeprang (2004), Einführung in die Technikdidaktik, Modul 1.</p>`;
-
-FIG.reduktion = `<figure class="fig"><svg viewBox="0 0 560 300" role="img" aria-label="Didaktischer Reduktionsraum mit horizontaler Achse abstrakt bis anschaulich und vertikaler Achse schwer bis einfach">
-<defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10z" style="fill:var(--accent)"/></marker></defs>
-<rect x="90" y="30" width="400" height="220" style="fill:var(--paper);stroke:var(--line);stroke-width:2"/>
-<line x1="110" y1="60" x2="460" y2="60" style="stroke:var(--accent);stroke-width:3" marker-end="url(#ar2)"/>
-<line x1="110" y1="60" x2="110" y2="230" style="stroke:var(--accent);stroke-width:3" marker-end="url(#ar2)"/>
-<text x="285" y="50" text-anchor="middle" style="fill:var(--ink);font:700 15px var(--f-body)">horizontale Reduktion</text>
-<text x="100" y="22" style="fill:var(--muted);font:13px var(--f-body)">abstrakt</text><text x="440" y="22" style="fill:var(--muted);font:13px var(--f-body)">anschaulich</text>
-<text x="40" y="66" style="fill:var(--muted);font:13px var(--f-body)">schwer</text><text x="40" y="236" style="fill:var(--muted);font:13px var(--f-body)">einfach</text>
-<text x="128" y="150" style="fill:var(--ink);font:700 15px var(--f-body)">vertikale</text><text x="128" y="168" style="fill:var(--ink);font:700 15px var(--f-body)">Reduktion</text>
-<circle cx="110" cy="60" r="8" style="fill:var(--bad)"/><text x="122" y="88" style="fill:var(--ink);font:13px var(--f-body)">Ausgangsaussage</text>
-<circle cx="380" cy="190" r="10" style="fill:var(--ok)"/><text x="300" y="220" style="fill:var(--ink);font:13px var(--f-body)">Ziel: einfacher, anschaulicher,</text><text x="300" y="236" style="fill:var(--ink);font:13px var(--f-body)">aber nicht verfälscht</text>
-</svg><figcaption>Didaktischer Reduktionsraum. Vereinfacht nach Walker (2009), DGTB-Vortrag, mit Bezug auf Hering und Grüner.</figcaption></figure>
-<div class="grid2"><div class="tile"><h4>Vertikal</h4><p>Übergang zu einer Aussage mit geringerem Gültigkeitsumfang, die leichter fasslich ist – ein Ausschnitt aus dem allgemeinen Fall.</p></div>
-<div class="tile"><h4>Horizontal</h4><p>Gleicher Gültigkeitsumfang, aber konkreter: Worte statt Symbole, Prinzipskizzen, Beispiele, Versuche, Analogien.</p></div></div>`;
-
-FIG.lage = `<div class="grid2">
-<div class="tile r"><h4>Personal & Unterricht</h4><ul class="il"><li>Lehrkräftemangel: Kürzungen im WPK-Bereich der praktischen Fächer</li><li>Zahl ausgebildeter Techniklehrkräfte nimmt ab</li><li>Schwierigkeiten bei BBS-Kooperationen</li></ul></div>
-<div class="tile r"><h4>Fachräume</h4><ul class="il"><li>Ausstattung verschlechtert sich an vielen Schulen</li><li>Werkräume werden teils zu Klassenräumen</li><li>Maschinenschein: Angebote der Kompetenzzentren reichen nicht</li></ul></div>
-<div class="tile g"><h4>Digitalisierung im Fach</h4><ul class="il"><li>hohe Nachfrage nach Fortbildungen zu Arduino und 3D-Druck (meist mit Tinkercad)</li><li>großes Interesse an Lasercuttern</li><li>n-21: Projektschulen Mensch-Roboter-Kollaboration und Additive Fertigung</li></ul></div>
-<div class="tile g"><h4>Curricula & Erlasse</h4><ul class="il"><li>IGS: neues KC Arbeit-Wirtschaft-Technik (MK 2023)</li><li>IGS-Erlass v. 01.08.2026: Projektunterricht in jedem Schuljahrgang (Nr. 4.3), Beteiligung der Schüler:innen an Planung und Gestaltung (Nr. 4.5)</li><li>KC Technik Realschule weiter von 2010</li></ul></div>
-<div class="tile y"><h4>MakerSpaces</h4><ul class="il"><li>Interesse an allgemein- und berufsbildenden Schulen</li><li>oft naiv umgesetzt: erst teure Geräte, dann die Frage nach dem Konzept</li><li>Badges als Leistungsdokumentation</li></ul></div>
-<div class="tile g"><h4>KI-Lernplattformen</h4><ul class="il"><li>KI-Kompetenz als eigenes Lernziel, z. B. AI Badge in drei Leveln für Jg. 7–9</li><li>Schul-KI mit Zugängen über die Lehrkräfte, z. B. fobizz</li><li>offene Fragen: Datenschutz, Prüfungskultur, Verlernen</li></ul></div>
-<div class="tile y"><h4>Digitale Lernmaterialien</h4><ul class="il"><li>Lehrkräfte bauen eigene interaktive Lernplattformen, oft mit KI-Unterstützung</li><li>Fragen nach Qualität, Lizenz, Datenschutz und Rolle der Lehrkraft</li></ul></div>
-</div>
-<p class="cite">Beobachtungen aus Fachberatung und Fachmoderation (landesweiter Austausch, Netzwerktagung AWT, Jahrestagung der didaktischen Leitungen, Fortbildungen, DGTB, Netzwerke). Stand der Einzelpunkte: WiSe 2024/25, Curricula und KI ergänzt 10/2026.</p>`;
-
 FIG.robotik = `<div class="vs">
 <div class="bad"><h4>Robotik-Fachraum</h4><dl><dt>Ausgangspunkt</dt><dd>Gerät, Technologie</dd><dt>Nutzung</dt><dd>Kurs zum Gerät</dd><dt>Ausstattung</dt><dd>Klassensätze Hightech</dd><dt>Lehrkraft</dt><dd>Instruktion</dd><dt>Ergebnis</dt><dd>gleiche Produkte</dd><dt>Risiko</dt><dd>„Gerätefriedhof“</dd></dl></div>
 <div class="good"><h4>Raum für Projektlernen</h4><dl><dt>Ausgangspunkt</dt><dd>Problem oder Idee</dd><dt>Nutzung</dt><dd>Projekte aller Fächer und Gruppen</dd><dt>Ausstattung</dt><dd>Technologiemix analog und digital</dd><dt>Lehrkraft</dt><dd>Lernbegleitung</dd><dt>Ergebnis</dt><dd>individuelle Prototypen</dd><dt>Risiko</dt><dd>Überforderung ohne Rahmen</dd></dl></div></div>
@@ -545,347 +439,217 @@ FIG.digital = `<div class="flow">
 <div class="st"><b>5 Teilen</b><span>offene Lizenz (CC BY-NC-SA), Übersicht für das Kollegium</span></div></div>
 <p class="cite">Arbeitsweise bei den Lernplattformen von deinTechniklehrer (z. B. Arduino/Tinkercad, 3D-Druck, MakerSpace-Kompass – und diese Plattform). Eigene Darstellung.</p>`;
 
-FIG.funktionen = `<div class="three">
-<div><b>Schüler:innen</b>Bestätigung und Ermutigung, Lernförderung, Unterstützung der Selbsteinschätzung, Lernbegleitung</div>
-<div><b>Erziehungsberechtigte</b>Information über Lernentwicklung, Leistungsstand, besondere Lernleistungen und Schwierigkeiten</div>
-<div><b>Lehrkräfte</b>Auskunft über die Wirksamkeit der Lernprozesse und nötige Anpassungen; Grundlage der Förderung</div></div>
-<p class="cite">Nach RdErl. „Die Arbeit in den Schuljahrgängen 5 bis 10 der IGS“ v. 01.08.2026, Nr. 7.1–7.3; ähnlich KGS-Erlass v. 03.08.2015, Nr. 6.1–6.3.</p>`;
-
-FIG.rahmen = `<figure class="fig"><svg viewBox="0 0 520 220" role="img" aria-label="Zwei Holzrahmen mit Eckverbindungen, der rechte mit Spalt an einer Ecke">
-<g><rect x="20" y="20" width="200" height="180" style="fill:none;stroke:var(--hum);stroke-width:16"/><rect x="12" y="12" width="216" height="196" style="fill:none;stroke:var(--ink);stroke-width:1.5"/><rect x="28" y="28" width="184" height="164" style="fill:none;stroke:var(--ink);stroke-width:1.5"/>
-<text x="120" y="115" text-anchor="middle" style="fill:var(--ink);font:700 16px var(--f-body)">Rahmen A</text></g>
-<g transform="translate(270 0)"><rect x="20" y="20" width="200" height="180" style="fill:none;stroke:var(--hum);stroke-width:16"/><rect x="12" y="12" width="216" height="196" style="fill:none;stroke:var(--ink);stroke-width:1.5"/><rect x="28" y="28" width="184" height="164" style="fill:none;stroke:var(--ink);stroke-width:1.5"/>
-<line x1="212" y1="12" x2="228" y2="28" style="stroke:var(--bad);stroke-width:3"/><circle cx="220" cy="20" r="14" style="fill:none;stroke:var(--bad);stroke-width:2"/>
-<text x="120" y="115" text-anchor="middle" style="fill:var(--ink);font:700 16px var(--f-body)">Rahmen B</text></g></svg>
-<figcaption>Zwei Werkstücke „Rahmen mit Eckverbindung“ aus Kiefer. Skizze nach einem Foto aus dem Seminarmaterial.</figcaption></figure>`;
-
-/* --- Sitzungen --- */
-const MODULES = [
-{ id: 'start', nav: 'Start', no: '•', kind: 'start' },
-{ id: 's1', nav: 'Technikbegriff', no: '1', title: 'Was ist Technik?', eyebrow: 'Sitzung 1',
-  lead: 'Du klärst, was mit „Technik“ gemeint ist – bei Ropohl, im Kerncurriculum und für Schüler:innen der 6. Klasse.',
-  meta: ['ca. 90 Min.', 'Material: Ropohl 2009 (Download), KC Technik RS 2010, KC AWT IGS'],
-  leit: ['Wie definiert Ropohl Technik – und wie erklärst du das einem Kind?', 'Welche Dimensionen hat Technik?', 'Welchen Technikbegriff haben die niedersächsischen Kerncurricula?'],
-  body: [
-`<div class="sec">Impuls</div>
-<div class="quote"><p>„Ein Computer wird erst wirklicher Computer, wenn er zum Teil einer Mensch-Maschine-Einheit geworden ist. […] erst die Arbeitseinheit von Mensch und Computer bringt die Textverarbeitung zuwege. Da freilich im benutzten Computer immer schon die Arbeit anderer Menschen verkörpert ist […], bezeichne ich sie als soziotechnisches System.“</p><cite>Ropohl (2009): Allgemeine Technologie, S. 58</cite></div>
-<h2>Ropohls Technikbegriff</h2>
-${FIG.ropohlDef}
-${FIG.weite}`,
-  { id: 's1a1', type: 'text', title: 'Ropohl für die 6. Klasse', q: 'Beschreibe in eigenen Worten, wie Ropohl „Technik“ definiert. <b>Bedingung:</b> Schüler:innen der 6. Klasse sollen deine Definition verstehen.',
-    info: `<p>Das ist <b>didaktische Reduktion</b>: vereinfachen, ohne zu verfälschen.</p>${FIG.reduktion}`,
-    eh: ['Alle drei Teile sind enthalten: Dinge, die Menschen herstellen (a), das Herstellen (b) und das Benutzen (c).', 'Ein Alltagsbeispiel aus der Welt der Kinder (Fahrrad, Handy, Toaster) macht die drei Teile sichtbar.', 'Kurze Sätze, keine Fachwörter ohne Erklärung („Artefakt“, „Sachsystem“).', 'Nicht verfälscht: Technik ist nicht nur Elektronik oder „Geräte“ – auch ein Holzlöffel und das Benutzen gehören dazu.', 'Typ der Reduktion benannt: eher horizontal (Beispiel) oder vertikal (Ausschnitt)?'] },
-`<h2>Dimensionen der Technik</h2>${FIG.ropohl}`,
-  { id: 's1a2', type: 'sort', title: 'Perspektiven zuordnen', q: 'Ordne die Erkenntnisperspektiven der richtigen Dimension zu. Tippe erst auf einen Begriff, dann auf die Dimension.',
-    bins: ['Soziale Dimension', 'Humane Dimension', 'Naturale Dimension'],
-    items: [['ökonomisch', 0], ['juridisch', 0], ['politologisch', 0], ['soziologisch', 0], ['ethisch', 1], ['ästhetisch', 1], ['psychologisch', 1], ['physiologisch', 1], ['anthropologisch', 1], ['ökologisch', 2], ['chemisch', 2], ['ingenieurwissenschaftlich', 2], ['biologisch', 2]],
-    explain: 'Nach Ropohl (2009), Bild 1. Binder (2014, S. 3) betont: Wer Technik nur ingenieur- oder naturwissenschaftlich betrachtet, versteht z. B. beim Pkw weder Design noch Straßenverkehrsordnung noch Umweltfolgen.' },
-  { id: 's1a3', type: 'mc', title: 'Wie weit ist Ropohls Begriff?', q: 'Welcher Begriffsweite nach Binder entspricht Ropohls Definition?', opts: ['eng – nur die künstlich hergestellten Dinge', 'mittelweit – Artefakte und alle Handlungen mit ihnen', 'weit – alles kunstfertige, zweckorientierte Handeln'], ans: [1], fixed: true,
-    explain: 'Binder (2014, S. 2) ordnet die mittelweite Verwendung Ropohl zu: Technikgenese, -distribution, -nutzung und -auflösung gehören dazu.' },
-  { id: 's1a4', type: 'grid', title: 'Ein Gegenstand, drei Dimensionen', q: 'Wähle einen Gegenstand (z. B. E-Scooter, Smartphone, Wärmepumpe). Formuliere je Dimension eine Frage, die man im Unterricht stellen könnte.',
-    pre: { id: 'obj', label: 'Mein Gegenstand' }, cols: ['Frage für den Unterricht', 'Perspektive(n)'], rows: ['Soziale Dimension', 'Humane Dimension', 'Naturale Dimension'],
-    eh: ['Beispiel E-Scooter: Wer haftet bei Unfällen, wer darf wo fahren? (sozial – juridisch, politologisch)', 'Warum fühlen sich manche auf dem Scooter cool, andere unsicher? (human – psychologisch, ästhetisch)', 'Wie lange hält der Akku, wie wird er recycelt? (natural – ingenieurwissenschaftlich, ökologisch)'] },
-`<h2>Der Technikbegriff im Kerncurriculum</h2>
-<div class="grid2"><div class="tile"><h4>KC Technik Realschule (2010)</h4><p>Kap. 1 „Bildungsbeitrag des Faches Technik“, S. 7 f.</p></div>
-<div class="tile y"><h4>KC AWT IGS (MK 2023)</h4><p>Kap. 1 „Bildungsbeitrag“, S. 5 f., und Kap. 2.2 „Technisches und textiltechnisches Themenfeld“, S. 11</p></div></div>
-<p class="cite">Beide Kerncurricula stehen als PDF auf dem Niedersächsischen Bildungsserver (nibis.de).</p>`,
-  { id: 's1a5', type: 'text', title: 'Technik im KC', q: 'Erkläre, wie die beiden Kerncurricula den Begriff „Technik“ bzw. das Fach beschreiben.',
-    eh: ['KC RS: Technik als Hilfsmittel zur Gestaltung und Umgestaltung der Lebenswelt; vier Handlungsbereiche (Arbeiten und Produzieren, Energie und Technik, Information und Kommunikation, Natur und Technik).', 'KC RS: Technik entsteht in gesellschaftlichen Zusammenhängen (sozial, politisch, ökonomisch, ökologisch, ethisch); Teil der kulturellen Identität; Chancen und Risiken; Beitrag zur BNE-Gestaltungskompetenz.', 'KC AWT: „Technik ist ein wesentlicher Bestandteil unserer Kultur“; der Mensch verändert die Natur mithilfe der Technik; Digitalität und KI verlangen technisches Grundverständnis.', 'KC AWT: Strukturelemente Stoff, Energie, Information; Technik ist Teil eines integrierten Fachs mit Fokus auf den Übergang Schule–Beruf.'] },
-  { id: 's1a6', type: 'grid', title: 'KC und Ropohl vergleichen', q: 'Nenne und erläutere Gemeinsamkeiten und Unterschiede zwischen dem Technikbegriff der Kerncurricula und Ropohls Dimensionen.', cols: ['KC Technik RS', 'KC AWT IGS'], rows: ['Gemeinsamkeiten mit Ropohl', 'Unterschiede zu Ropohl'],
-    eh: ['Gemeinsam: Technik ist menschengemacht und kulturell bedeutsam; soziale (gesellschaftlich, ökonomisch, politisch) und humane Bezüge (ethisch, ästhetisch) tauchen auf, ebenso die Natur.', 'Unterschied: Ropohl beschreibt analytisch, was Technik ist; die KCs sind normativ und sagen, was Schüler:innen können sollen.', 'Unterschied: Das KC AWT strukturiert über Stoff, Energie, Information – das ist die Systematik des allgemeintechnologischen Ansatzes (→ Termin 2), nicht Ropohls drei Dimensionen.', 'Entstehung und Verwendung (b, c) sind bei Ropohl gleichrangig mit den Sachsystemen; in den KCs steht das Herstellen und Bedienen im Vordergrund.'] }
-]},
-{ id: 's2', nav: 'Fächerkanon', no: '2', title: 'Technik im Fächerkanon', eyebrow: 'Sitzung 2',
-  lead: 'Jedes Schulfach muss begründen, warum es da ist. Du prüfst die Begründung für Technik – und ob Technik nicht in Physik aufgehen könnte.',
-  meta: ['ca. 90 Min.', 'Material: Binder 2014, Brandt/VDI 2011, Schulversuch RBG, Video Harald Lesch'],
-  leit: ['Wie begründet sich das Fach Technik?', 'Ist Technik angewandte Naturwissenschaft?', 'Eigenes Fach, Fächerverbund oder Projekt?'],
-  body: [
-`<div class="sec">Impuls</div>
-<div class="quote"><p>„Grundsätzlich muss jedes Schulfach im allgemeinbildenden Schulwesen seine Notwendigkeit darlegen können. Es muss Intentionen (Absichten, Zielrichtungen) beschreiben und sie den Lernenden und der Gesellschaft gegenüber begründen können.“</p><cite>Binder (2014): Theorien und Modelle der Technikdidaktik, S. 7</cite></div>
-<div class="quote"><p>„Technische Bildung steht unter der leitenden Zielsetzung des mündigen, selbstbestimmten Menschen, der fähig ist, in technisch geprägten Lebenssituationen sachkompetent zu handeln und sich verantwortungsbewusst zu entscheiden.“</p><cite>Wilkening et al. (1977), S. 12, zit. n. Binder (2014), S. 8</cite></div>
-<div class="card"><b>Video:</b> Harald Lesch zum Fächerkanon – <a href="https://youtu.be/Wj-KTcxjLqs" target="_blank" rel="noopener">youtu.be/Wj-KTcxjLqs</a></div>`,
-  { id: 's2a1', type: 'text', title: 'Intentionen des Fachs', q: 'Arbeite mithilfe des Kerncurriculums heraus, welche Intentionen das Fach Technik hat und wie sie begründet werden.',
-    eh: ['Intentionen (KC RS, S. 7 f.): technische Objekte entwickeln, herstellen, bedienen; Entwicklungen bewerten; Probleme innovativ lösen; Teamarbeit; ethische Maßstäbe; verantwortlich handeln; Gestaltungskompetenz (BNE); Medienkompetenz; berufliche Orientierung.', 'Begründungen: Technik prägt Gesellschaft und kulturelle Identität; Chancen und Risiken müssen erkannt, bewertet und beherrscht werden.', 'Vergleich mit Wilkening: Mündigkeit, sachkompetentes Handeln und verantwortungsbewusstes Entscheiden.'] },
-  { id: 's2a2', type: 'text', talk: true, title: 'Was würde Harald Lesch sagen?', q: 'Überlege, wie Harald Lesch zum Fach Technik stehen könnte. Notiere zwei Argumente für das Gespräch.' },
-`<h2>Ist Technik angewandte Naturwissenschaft?</h2>${FIG.nwT}
-<div class="merke"><b class="t">Binder (2014, S. 3)</b>Die Aussage, Technik sei „angewandte Naturwissenschaften“, ist eine Verkürzung: Technische Lösungen folgen Naturgesetzen, aber vor allem humanen und sozialen Sinnzusammenhängen.</div>`,
-  { id: 's2a3', type: 'assign', title: 'Naturwissenschaft oder Technik?', q: 'Ordne die Merkmale zu.', opts: ['Naturwissenschaft', 'Technik'],
-    rows: [['fragt nach Ursache und Wirkung', 0], ['fragt nach Sinn und Zweck', 1], ['bewertet nach „gut oder schlecht“', 1], ['bewertet nach „richtig oder falsch“', 0], ['arbeitet synthetisch und problemlösend', 1], ['untersucht, was von Natur aus da ist', 0], ['entwickelt eine Schiffsschraube oder ein Windrad', 1], ['analysiert Rotationsbewegungen', 0]],
-    explain: 'Nach Brandt (2011), S. 4–6. Das Beispiel Windrad/Rotationsbewegung stammt ebenfalls aus dem VDI-Papier.' },
-`<h2>Ein Fall aus Hildesheim</h2>
-<div class="card"><p><b>Schulversuch der Robert-Bosch-Gesamtschule Hildesheim (ab 2009):</b> Aus AWT und Naturwissenschaften wird AW, Physik/Technik und Naturwissenschaften. Ab Jahrgang 8 lernen alle Schüler:innen im Fach „Physik/Technik“ – praxisorientiert, mit Fischertechnik-Modellen, einem selbst gebauten Elektromotor und einer Hausinstallation. Partner: Robert Bosch GmbH, Handwerkskammer, Institut für Physik und Technik der Uni Hildesheim.</p><p class="cite">Müller, S.: Die Einrichtung des neuen Unterrichtsfachs „Physik/Technik“. Ein Projekttagebuch. Website der RBG, abgerufen 28.10.2016.</p></div>`,
-  { id: 's2a4', type: 'text', talk: true, title: 'Physik und Technik zusammenlegen?', q: 'Wie findest du den Schulversuch? Würdest du die Fächer Physik und Technik zusammenlegen? Begründe.' },
-  { id: 's2a5', type: 'mc', title: 'Und der VDI?', q: 'Würde der VDI (Brandt 2011) Technik und Naturwissenschaften zusammenlegen?', opts: ['Ja – Technik ist im Physikunterricht gut aufgehoben.', 'Nein – Integration in Physik/Chemie ist „kontraproduktiv“, weil die Fragestellungen gegensätzlich sind.', 'Der VDI äußert sich dazu nicht.'], ans: [1], fixed: true,
-    explain: 'Brandt (2011, S. 3): Ein Fach „Natur und Technik“, das eigenständigen Technikunterricht entbehrlich macht, sei kontraproduktiv und stärke die technische Bildung nicht.' },
-`<h2>Technik in den Bundesländern</h2>${FIG.laender}`,
-  { id: 's2a6', type: 'pick', title: 'Du entscheidest', q: 'Du darfst entscheiden, wie Technik unterrichtet wird. Wähle eine Möglichkeit und begründe – mit mindestens einem Bezug auf Binder, Brandt oder das KC.',
-    opts: ['als eigenständiges Fach', 'im Fächerverbund mit Wirtschaft (AWT)', 'im Fächerverbund mit Naturwissenschaften', 'im Fächerverbund mit Informatik', 'nur integriert in Projekte', 'gar nicht'] },
-  { id: 's2a7', type: 'fields', title: 'Ist die Übersicht noch aktuell?', q: 'Die Länderübersicht ist rund zehn Jahre alt. Prüfe für Niedersachsen und ein zweites Bundesland den aktuellen Stand – in der Primärquelle (Stundentafel, Erlass, Kerncurriculum).',
-    hint: 'Beispiel Niedersachsen: Informatik ist seit dem Schuljahr 2023/24 Pflichtfach (MK, Pressemitteilung v. 04.02.2020). Welche Jahrgänge? Und was gilt für Technik an IGS, KGS und Oberschule?',
-    fields: [['nds', 'Niedersachsen: aktueller Stand'], ['nds_q', 'Fundstelle (Primärquelle, Stand)', 1], ['land2', 'Zweites Bundesland: aktueller Stand'], ['land2_q', 'Fundstelle (Primärquelle, Stand)', 1]] }
-]},
-{ id: 's3', nav: 'Mehrperspektivisch', no: '3', title: 'Der mehrperspektivische Technikunterricht', eyebrow: 'Sitzung 3',
-  lead: 'Der mehrperspektivische Ansatz (mpTu) prägt die Technikdidaktik bis heute. Du lernst sein Gerüst kennen und suchst es im Kerncurriculum.',
-  meta: ['ca. 90 Min.', 'Material: Bienhaus 2008, KC Technik RS 2010'],
-  leit: ['Was unterscheidet Erkenntnis- von Zielperspektiven?', 'Welche Inhaltsfelder hat der mpTu?', 'Wie mehrperspektivisch ist das Kerncurriculum?'],
-  body: [
-`<div class="sec">Input</div>${FIG.mptu}
-<div class="merke"><b class="t">Mehrperspektivisch ≠ mehrdimensional</b>„Mehrperspektivisch“ meint nicht, möglichst viele Wissenschaften zu berücksichtigen – dann wäre „mehrdimensional“ passender. Gemeint ist ein Unterricht, der die Zielperspektiven verfolgt (Bienhaus 2008, S. 3).</div>`,
-  { id: 's3a1', type: 'text', title: 'Zwei Begriffe klären', q: 'Lies den Auszug „Technikdidaktik – der mehrperspektivische Ansatz“ von Bienhaus. Erkläre die Begriffe <b>Erkenntnisperspektive</b> und <b>Zielperspektive</b> und nenne die jeweiligen Perspektiven.',
-    eh: ['Erkenntnisperspektiven (Schmayl): Blickrichtungen auf den Gegenstand Technik; sie stecken das thematische Terrain ab – Sachperspektive, human-soziale Perspektive, Sinn- und Wertperspektive.', 'Zielperspektiven (Sachs 1992): Richtziele des Unterrichts – technische Kenntnisse und Strukturzusammenhänge, technisches Handeln, Bedeutung und Bewertung technischer Sachverhalte, vorberufliche Orientierung.', 'Zusammenhang: Zielperspektive 1 und 2 erschließen die Sachdimension, 3 die human-soziale Dimension; 3 setzt 1 und 2 voraus und ist die anspruchsvollste.'] },
-  { id: 's3a2', type: 'sort', title: 'Welche Perspektive?', q: 'Ordne die Aussagen den drei Erkenntnisperspektiven nach Schmayl zu.', bins: ['Sachperspektive', 'human-soziale Perspektive', 'Sinn- und Wertperspektive'],
-    items: [['Funktionsabläufe und Wirkbedingungen', 0], ['technische Regeln und Naturgesetze', 0], ['Bedienungswissen', 0], ['Technik als „Urhumanum“', 1], ['gesellschaftliche Vorbedingungen technischen Handelns', 1], ['Abhängigkeit des Menschen von seinen Hervorbringungen', 1], ['Technik ist nicht wertneutral', 2], ['Folgen abschätzen, Verantwortung übernehmen', 2]],
-    explain: 'Nach Bienhaus (2008), S. 2 f.' },
-  { id: 's3a3', type: 'mc', title: 'Allgegenwärtig', q: 'Welche Zielperspektive ist laut Bienhaus „im Unterricht allgegenwärtig“ und in die anderen eingebunden?', opts: ['technische Kenntnisse und Strukturzusammenhänge', 'technisches Handeln', 'Bedeutung und Bewertung technischer Sachverhalte', 'vorberufliche Orientierung'], ans: [3], fixed: true,
-    explain: 'Bienhaus (2008), S. 4. Gegen Ende der Schulzeit bekommt sie im Kontext der Berufswahl besonderes Gewicht.' },
-  { id: 's3a4', type: 'mc', title: 'Die Anspruchsvollste', q: 'Welche Zielperspektive nennt Bienhaus die anspruchsvollste?', opts: ['technische Kenntnisse und Strukturzusammenhänge', 'technisches Handeln', 'Bedeutung und Bewertung technischer Sachverhalte', 'vorberufliche Orientierung'], ans: [2], fixed: true,
-    explain: 'Sie setzt technische Handlungsfähigkeit und technisches Wissen voraus und richtet sich auf human-soziale und normative Sachverhalte (Bienhaus 2008, S. 4).' },
-  { id: 's3a5', type: 'grid', title: 'Erkenntnisperspektiven im KC', q: 'Analysiere, wo sich die Erkenntnisperspektiven nach Schmayl im KC Technik für die Realschule wiederfinden.', cols: ['Fundstelle im KC (Seite, Zitat)', 'Wie stark vertreten?'], rows: ['Sachperspektive', 'human-soziale Perspektive', 'Sinn- und Wertperspektive'],
-    eh: ['Sach: „Auf der Sachebene befähigt das Fach dazu, technische Objekte zu entwickeln und herzustellen …“ (S. 7) – stark, prägt auch die Kompetenzbereiche.', 'Human-sozial: „Die Erfindung, Konstruktion und Anwendung technischer Mittel geschah und geschieht in gesellschaftlichen Zusammenhängen …“ (S. 7).', 'Sinn und Wert: „ethische Maßstäbe entwickeln“, Risiken „erkennen, bewerten und beherrschen“ (S. 7).', 'Prüfe in den erwarteten Kompetenzen, ob die Perspektiven dort ähnlich gewichtet sind wie im Bildungsbeitrag.'] },
-`<h2>Inhaltsfelder des mpTu</h2>${FIG.matrix}`,
-  { id: 's3a6', type: 'grid', title: 'Inhaltsfelder im KC', q: 'Vergleiche: Welche Handlungs- und Problemfelder des mpTu kommen im KC Technik RS vor, welche nicht?', cols: ['im KC?', 'Beleg / Bemerkung'], colTypes: ['sel', 'text'], selOpts: ['–', 'ja', 'teilweise', 'nein'],
-    rows: ['Arbeit und Produktion', 'Bauen und Wohnen', 'Versorgung und Entsorgung', 'Transport und Verkehr', 'Information und Kommunikation'],
-    eh: ['Abgleich über die Handlungsbereiche des KC RS (S. 7): „Arbeiten und Produzieren“ ↔ Arbeit und Produktion; „Information und Kommunikation“ ↔ gleichnamig; „Energie und Technik“ ↔ Teil von Versorgung und Entsorgung.', 'Bauen und Wohnen sowie Transport und Verkehr haben keinen eigenen Handlungsbereich – prüfe, ob sie in den Kompetenzen versteckt vorkommen.', 'Neu im KC: „Natur und Technik“ – im mpTu-Schema kein eigenes Feld.'] }
-]},
-{ id: 's4', nav: 'Methoden & Modelle', no: '4', title: 'Methoden und weitere Modelle', eyebrow: 'Sitzung 4',
-  lead: 'Vom Methodensystem des mpTu über Maker Education bis zu den großen Ansätzen der Technikdidaktik und dem Interaktionsmodell.',
-  meta: ['ca. 90 Min.', 'Material: Bienhaus 2008, Binder 2014 (Kap. 4), Hüttner Kap. 2.5, Ingold/Maurer 2019'],
-  leit: ['Reicht die Projektmethode für guten Technikunterricht?', 'Ist Maker Education eine neue Methode?', 'Welche Ansätze stecken im heutigen Kerncurriculum?'],
-  body: [
-`<div class="sec">Methodensystem</div>${FIG.methoden}`,
-  { id: 's4a1', type: 'assign', title: 'Welche Methode ist das?', q: 'Ordne die Unterrichtssituationen den Methoden des mpTu zu.', opts: ['Projektmethode', 'Erfindendes Konstruieren', 'Nachvollziehendes Fertigen', 'Lehrgangsmäßiges Instruieren', 'Forschendes Experimentieren', 'Analysieren der Realtechnik'],
-    rows: [['Die Klasse plant über sechs Wochen eine Sitzecke für den Schulhof und setzt sie um.', 0], ['Schüler:innen entwickeln eine eigene Halterung, die ein Tablet in zwei Winkeln hält.', 1], ['Alle bauen nach Bauplan ein Vogelhaus.', 2], ['Die Lehrkraft führt das Weichlöten Schritt für Schritt ein.', 3], ['Gruppen testen, welches Material die größte Last trägt.', 4], ['Ein alter Toaster wird zerlegt, um seine Funktion zu verstehen.', 5]],
-    explain: 'Die Beispiele sind eigene Formulierungen; im Unterricht mischen sich die Methoden oft – das ist ja der Sinn eines Methoden<b>systems</b>.' },
-  { id: 's4a2', type: 'fields', title: 'Reicht die Projektmethode?', q: 'Notiere Vor- und Nachteile der Projektmethode. Begründe dann deine Meinung zur These: <b>„Die Projektmethode reicht aus, um guten Technikunterricht zu machen.“</b>',
-    fields: [['pro', 'Vorteile'], ['contra', 'Nachteile'], ['these', 'Meine Meinung zur These']],
-    eh: ['Bienhaus (2008, S. 5): Es kann keine Universalmethode geben – gegen die Auffassung, mit der Projektmethode (früher Werkaufgabe) sei „die allein selig machende Methode“ gefunden.', 'Ein Methodensystem ist ein Beziehungsgeflecht sich ergänzender Methoden.', 'Die human-soziale Dimension braucht eigene Verfahren (Studien, Dokumentationen, Erkundungen an außerschulischen Lernorten).', 'Pro Projekt: Motivation, Selbstständigkeit, Komplexität, Bezug zum IGS-Erlass Nr. 4.3. Contra: Zeit, fehlende Grundlagen ohne Lehrgang, ungleiche Beteiligung.'] },
-`<h2>Maker Education – eine neue Methode?</h2>
-<div class="quote"><p>„Alles, was Schule anfasst, wird zu Schule.“</p><cite>Deinet (2002), zit. n. Ingold & Maurer (2019): Making in der Schule. In: Chance MakerSpace, S. 60</cite></div>
-<p>Ingold und Maurer sehen Schnittmengen von Making mit Projektunterricht, praktischem und handlungsorientiertem Lernen und mit der Reformpädagogik (Pestalozzi, Montessori, Kerschensteiner, Dewey). Reibungspunkte entstehen bei Fehlerkultur, Bewertung, Taktung und Raum.</p>`,
-  { id: 's4a3', type: 'text', talk: true, title: 'Making einordnen', q: 'Ist Maker Education eine neue Methode – oder alter Wein in neuen Schläuchen? Vergleiche Making mit der Projektmethode und dem erfindenden Konstruieren.',
-    eh: ['Gemeinsam: Problem- oder Ideenorientierung, eigene Lösungen, Handlungsorientierung – erfindendes Konstruieren ist dem Making sehr nah.', 'Neu am Making: offener Zugang zu Werkzeugen und Material, digitale Fabrikation, Iteration (Prototyp – Test – Redesign), Teilen der Ergebnisse, Fehler als Lernchance.', 'Ingold/Maurer (2019): Gefahr der „Verschulung“ – Making wird auf Materialboxen und Doppelstunden reduziert.'] },
-`<h2>Ansätze der Technikdidaktik</h2>${FIG.ansaetze}
-<div class="grid3"><div class="tile"><h4>AtA</h4><p>ingenieurwissenschaftlich; Grundfunktionen (Wandeln, Speichern, Übertragen) und Systemattribute (Stoff, Energie, Information); stark in NRW</p></div>
-<div class="tile y"><h4>MpA</h4><p>Technik als Kulturphänomen; alle drei Erkenntnisperspektiven; Sachs, Schmayl, Schulte, Wiesmüller, Schlagenhauf, Mackeprang</p></div>
-<div class="tile r"><h4>AoA</h4><p>Leitbegriff Arbeit (Arbeitslehre); Technik als Teil von Verbünden wie AWT oder WAT; Berufsorientierung, Praktika; Verband GATWU</p></div></div>
-<p class="cite">Nach Binder (2014), Kap. 4.2–4.4, S. 20 f.</p>`,
-  { id: 's4a4', type: 'assign', title: 'Welcher Ansatz?', q: 'Ordne die Merkmale dem passenden Ansatz zu.', opts: ['allgemeintechnologisch (AtA)', 'mehrperspektivisch (MpA)', 'arbeitsorientiert (AoA)'],
-    rows: [['Lehrplan nach Grundfunktionen: Wandeln, Speichern, Übertragen', 0], ['Systemattribute Stoff, Energie, Information', 0], ['Technik als Kulturphänomen, Spiegel menschlichen Handelns', 1], ['alle drei Erkenntnisperspektiven einbeziehen', 1], ['Technik unter dem Aspekt ihres Einflusses auf das Arbeitsleben', 2], ['Ziel sind Fächerverbünde wie AWT oder WAT', 2], ['Professuren mit Ingenieuren besetzt, Wissenschaftseuphorie der 1970er', 0], ['Betriebspraktika und Berufsorientierung als Schwerpunkt', 2]],
-    explain: 'Binder (2014), S. 20 f. Kritik: Der AtA bildet humane und gesellschaftliche Wechselwirkungen nicht ab; die Arbeitslehre klärt ihren Gegenstand „Arbeit“ nicht eindeutig.' },
-  { id: 's4a5', type: 'text', talk: true, title: 'Welche Ansätze stecken im KC AWT?', q: 'Das KC AWT für die IGS nennt „die technischen Strukturelemente Stoff, Energie, Information“ als grundlegend (S. 11) und verbindet Arbeit, Hauswirtschaft, Wirtschaft und Technik zu einem Fach. Welche technikdidaktischen Ansätze erkennst du?',
-    eh: ['AtA: Stoff, Energie, Information als Strukturelemente.', 'AoA: Fächerverbund AWT, Fokus auf den Übergang Schule–Beruf, Berufswahlkompetenz.', 'MpA-Elemente: Technik als Teil der Kultur, Technikfolgenabschätzung, Verknüpfung mit gesellschaftlichen und politischen Fragen.', 'Fazit: ein Mischansatz – spannend für die Frage, was von einer eigenständigen Technikdidaktik bleibt.'] },
-`<h2>Das Interaktionsmodell nach Hüttner</h2>${FIG.huettner}`,
-  { id: 's4a6', type: 'sort', title: 'Ebenen zuordnen', q: 'Lies den Text zum Interaktionsmodell. Ordne die Elemente den vier Ebenen zu.', bins: ['Theorieebene', 'Analyseebene', 'Planungsebene', 'Interaktionsebene'],
-    items: [['Forschungsmethoden', 0], ['Rahmenziel', 0], ['Leitlinien: historisch, gegenwärtig, Trends', 0], ['anthropogene Voraussetzungen ermitteln', 1], ['Bildungsgehalt bestimmen', 1], ['Handlungsorientierungen erarbeiten', 2], ['Unterrichtsplanung theoretisch erörtern', 2], ['Medieneinsatz', 3], ['Lernkontrolle', 3], ['Lehr- und Lernhandlungen', 3]],
-    explain: 'Nach Hüttner, Kap. 2.5. Die Theorieebene durchdringt alle anderen Ebenen und wird durch Rückkopplung bereichert.' },
-  { id: 's4a7', type: 'fields', title: 'Modell strukturieren', q: 'Strukturiere das Modell mit einer Methode deiner Wahl (empfohlen: Mindmap, z. B. in Notability). Halte hier fest:',
-    fields: [['methode', 'Gewählte Methode', 1], ['erk', 'Meine drei wichtigsten Erkenntnisse'], ['frage', 'Eine offene Frage für das Gespräch']] },
-`<details class="info"><summary>Zum Vergleich: das Berliner Modell</summary><div class="ib">${FIG.berlin}</div></details>`,
-  { id: 's4a8', type: 'text', talk: true, title: 'Berlin trifft Hüttner', q: 'Welche Felder des Berliner Modells findest du im Interaktionsmodell wieder? Wo geht Hüttner darüber hinaus?',
-    eh: ['Bedingungsfelder ↔ anthropogene Voraussetzungen (Analyseebene) und „Bedingungen“ der Lernorganisation.', 'Entscheidungsfelder (Ziele, Inhalt, Methode, Medien) ↔ Lernorganisation auf der Interaktionsebene.', 'Folgen ↔ Lernkontrolle.', 'Darüber hinaus: eine fachspezifische Theorieebene mit Rahmenziel, Anwendungsfeldern und Leitlinien der Technikentwicklung.'] }
-]},
-{ id: 's5', nav: 'Aktuelle Entwicklungen', no: '5', title: 'Aktuelle Entwicklungen im Technikunterricht', eyebrow: 'Sitzung 5 · Gespräch',
-  lead: 'Ein Blick aus der Praxis: Was bewegt Fachbereiche und Fachräume? Zwei Schwerpunkte vertiefst du: MakerSpaces und selbst entwickelte digitale Lernmaterialien.',
-  meta: ['ca. 90 Min., als Gespräch', 'Material: Ingold/Maurer/Trüby 2019 (Download), MakerSpace-Kompass'],
-  leit: ['Wo steht der Technikunterricht in Niedersachsen?', 'Warum wird ein MakerSpace selten zum guten Konzept, wenn er als Robotik-Fachraum startet?', 'Was macht ein gutes selbst entwickeltes digitales Lernmaterial aus?'],
-  body: [
-`<div class="sec">Lagebild</div>${FIG.lage}`,
-  { id: 's5a1', type: 'thesen', title: 'Thesen für das Gespräch', q: 'Positioniere dich zu den Thesen und notiere jeweils ein Argument. Wir starten das Gespräch mit der These, bei der du am unsichersten bist.',
-    items: ['Der Lehrkräftemangel trifft die praktischen Fächer stärker als andere.', '3D-Druck und Arduino machen den Technikunterricht moderner.', 'Ein MakerSpace ohne Konzept wird zum Gerätefriedhof.', 'Technik sollte im Fächerverbund AWT aufgehen.', 'Lehrkräfte sollten digitale Lernmaterialien selbst entwickeln, statt fertige zu nutzen.', 'Badges können Noten im Technikunterricht ergänzen.'] },
-`<h2>Schwerpunkt A: MakerSpace statt Robotik-Fachraum</h2>
-<p>Viele Schulen verstehen einen MakerSpace als Raum mit Robotern, 3D-Druckern und Lasercuttern. So landet er als teurer Fachraum im Katalog. Die Maker-Bewegung meint etwas anderes: Menschen kommen zusammen, entwickeln Ideen und setzen sie mit vorhandenen Werkzeugen und Materialien um.</p>
-${FIG.robotik}
-<div class="merke"><b class="t">Robotik in der Schule</b>Im Vordergrund steht meist das Programmieren von Robotern, weniger deren Konstruktion – mit vorkonfektionierten Modulen und fertigen Sets. Projekte, die Physical Computing mit der Konstruktion eigener Produkte verbinden, sind eher die Ausnahme (Ingold & Maurer 2019, S. 72 f.).</div>
-<h3 style="margin-top:22px">Neun Handlungsfelder – nur zwei betreffen Raum und Ausstattung</h3>${FIG.hf}
-<div class="card"><b>Vertiefen:</b> Im <a href="${COURSE.kompass}" target="_blank" rel="noopener">MakerSpace-Kompass</a> findest du die Handlungsfelder mit Leitfragen, Reibungspunkten und Werkstätten (Zonenplaner, Projekt-Canvas, Nutzungskonzept-Check). Beispiel aus der Praxis: An der KGS Gronau wurde der Maschinenraum zum MakerSpace.</div>`,
-  { id: 's5a2', type: 'mc', title: 'Schnellcheck', q: 'Wie viele der neun Handlungsfelder nach Maurer & Ingold betreffen Raum und Ausstattung?', opts: ['zwei', 'vier', 'sechs', 'alle neun'], ans: [0], fixed: true, explain: 'Raumgestaltung (6) und Material- und Geräteausstattung (7). Trotzdem wird die Ausstattung oft zuerst gefragt – weil Fördergeld fließt.' },
-  { id: 's5a3', type: 'fields', title: 'Fallanalyse: der neue MakerSpace', q: '<b>Fall:</b> Eine Gesamtschule kauft aus Fördermitteln 15 Robotik-Sets, zwei 3D-Drucker und einen Lasercutter und nennt einen umgebauten Raum „MakerSpace“. Nach einem Jahr nutzen ihn zwei Lehrkräfte im Wahlpflichtkurs Technik. Analysiere den Fall mit den neun Handlungsfeldern.',
-    fields: [['hf', 'Welche Handlungsfelder wurden vernachlässigt? (mit Begründung)'], ['schritte', 'Drei nächste Schritte, die du der Schulleitung empfiehlst']],
-    eh: ['Vernachlässigt: Ziele und Making-Kompetenzen (1), Haltung (2), Didaktik (3), Curriculum (5), Weiterbildung (8), Organisation und Einbindung (9) – berücksichtigt wurden nur 6 und 7.', 'Folge: Making bleibt punktuell und an einzelne Lehrkräfte gebunden; Gefahr „Gerätefriedhof“.', 'Schritte: Ziele und Projektideen mit Fachgruppen und Schüler:innen klären (IGS-Erlass Nr. 4.5), Nutzungskonzept und Zeitfenster festlegen, kollegiumsinterne Maker-Nachmittage, Raum für alle Fächer öffnen; Maschinenarbeit bleibt nach RiSU im Fachraum.'] },
-`<h2>Schwerpunkt B: Digitale Lernmaterialien selbst entwickeln</h2>
-<p>Lehrkräfte bauen zunehmend eigene interaktive Lernumgebungen – nicht mehr nur Arbeitsblätter, sondern Plattformen mit Aufgaben, Rückmeldung und Export. KI-Werkzeuge senken die technische Hürde deutlich. Damit verschiebt sich die Frage: Nicht mehr „Kann ich das bauen?“, sondern „Ist das gut – und darf ich das teilen?“</p>
-${FIG.digital}
-<div class="grid2"><div class="tile g"><h4>Chancen</h4><ul class="il"><li>passgenau zum eigenen Unterricht und KC</li><li>direkte Rückmeldung, Differenzierung</li><li>teilbar im Kollegium und darüber hinaus (OER)</li></ul></div>
-<div class="tile r"><h4>Grenzen</h4><ul class="il"><li>fachliche Prüfung bleibt Aufgabe der Lehrkraft – auch bei KI-Unterstützung</li><li>Datenschutz: keine Konten, keine Schülerdaten auf fremden Servern</li><li>Urheberrecht: Bilder, Texte, Grafiken nur mit klarer Lizenz</li></ul></div></div>
-<p class="cite">Rahmen: KMK (2021): Lehren und Lernen in der digitalen Welt – ergänzende Empfehlung zur Strategie „Bildung in der digitalen Welt“ (2016), Beschluss v. 09.12.2021; KC AWT IGS, Kap. 2.4 „Medienkompetenz im AWT-Unterricht“, S. 14.</p>`,
-  { id: 's5a4', type: 'checks', title: 'Qualitätscheck einer Lernplattform', q: 'Prüfe eine digitale Lernplattform (z. B. diese hier, den MakerSpace-Kompass oder ein Angebot eines Schulbuchverlags) mit der Prüfliste.',
-    pre: { id: 'pf', label: 'Geprüfte Plattform' },
-    items: ['Lernziele und KC-Bezug sind erkennbar.', 'Inhalte sind fachlich korrekt und belegt.', 'Aufgaben geben direkte, nachvollziehbare Rückmeldung.', 'Es gibt Differenzierung (Hilfen, Tipps, verschiedene Niveaus).', 'Ergebnisse lassen sich sichern (Export, PDF).', 'Kein Konto nötig, keine personenbezogenen Daten auf fremden Servern.', 'Lesbar auf Tablet und Handy, gute Kontraste, große Schrift.', 'Lizenz ist klar (z. B. CC BY-NC-SA).', 'Die Rolle der Lehrkraft im Unterricht ist mitgedacht.'],
-    after: 'Prüfliste: eigene Zusammenstellung, keine Norm.', note: 'Kommentar: Was würdest du verbessern?' },
-  { id: 's5a5', type: 'fields', title: 'Mein digitales Lernmaterial', q: 'Skizziere ein eigenes digitales Lernmaterial für den Technikunterricht. Es dient als Grundlage für das Gespräch – und vielleicht für dein Referat.',
-    fields: [['thema', 'Thema und Jahrgang', 1], ['kc', 'Bezug zum Kerncurriculum (erwartete Kompetenz)'], ['ziele', 'Lernziele'], ['aufg', 'Aufgabentypen und Rückmeldung'], ['einsatz', 'Einsatz im Unterricht (Phase, Sozialform, Ergebnissicherung)'], ['ki', 'Wo hilft KI beim Erstellen – und wie prüfst du das Ergebnis?'], ['lizenz', 'Lizenz und Weitergabe', 1]] }
-]},
-{ id: 's6', nav: 'Leistungsbewertung', no: '6', title: 'Leistungsbewertung im Technikunterricht', eyebrow: 'Sitzung 6',
-  lead: 'Werkstück, Prozess, Theorie: Was bewertest du im Technikunterricht – und wofür eigentlich?',
-  meta: ['ca. 90 Min.', 'Material: IGS-Erlass v. 01.08.2026 (Nr. 7), KGS-Erlass v. 03.08.2015 (Nr. 6)'],
-  leit: ['Wozu dient Leistungsbewertung?', 'Wie bewertest du Prozess und Produkt fair?', 'Brauchen wir Noten?'],
-  body: [
-`<div class="sec">Impuls</div>
-<div class="quote"><p>„Klassenbildung sowie Lehrereinsatz sind entscheidende Rahmenbedingungen für den Unterricht. Es ist Aufgabe der Schule, zwischen den Klassen eines Schuljahrgangs einen annähernd gleichen Leistungsstand sicherzustellen.“</p><cite>MK Niedersachsen (2014): Orientierungsrahmen Schulqualität in Niedersachsen, Qualitätsmerkmal 3.3, S. 11</cite></div>
-<h2>Wozu dient Leistungsbewertung?</h2>${FIG.funktionen}
-<div class="quote"><p>„Die Leistungsbewertung muss den Verlauf eines Lernprozesses berücksichtigen und dokumentieren und darf sich nicht ausschließlich auf punktuelle Leistungsmessung beziehen.“</p><cite>RdErl. „Die Arbeit in den Schuljahrgängen 5 bis 10 der IGS“ v. 01.08.2026, Nr. 7.2</cite></div>
-<p>Grundlage sind laut IGS-Erlass (Nr. 7.3): Beobachtungen des Lernprozesses, schriftliche <b>bzw. alternative</b> Leistungsnachweise, mündliche und fachspezifische Leistungen. Mündliche und fachspezifische Leistungen haben besonderes Gewicht.</p>`,
-  { id: 's6a1', type: 'sort', title: 'Für wen?', q: 'Für wen erfüllt die Leistungsbewertung welche Funktion? Ordne zu.', bins: ['Schüler:innen', 'Erziehungsberechtigte', 'Lehrkräfte'],
-    items: [['Bestätigung und Ermutigung', 0], ['Unterstützung bei der Selbsteinschätzung', 0], ['Lernförderung', 0], ['Information über die Lernentwicklung', 1], ['Information über besondere Lernschwierigkeiten', 1], ['Auskunft über die Wirksamkeit der Lernprozesse', 2], ['Hinweise auf nötige Anpassungen', 2]],
-    explain: 'IGS-Erlass v. 01.08.2026, Nr. 7.1 und 7.3.' },
-`<h2>Ein Fall aus dem Fachraum</h2>
-<div class="grid2"><div class="tile"><span class="k">4</span><p>1. Halbjahr, Thema Arduino</p></div><div class="tile"><span class="k">1</span><p>2. Halbjahr, Thema Holztechnik</p></div></div>
-<p>Die Lehrkraft gibt als Gesamtnote eine <b>3+</b>.</p>`,
-  { id: 's6a2', type: 'text', title: 'Ist die 3+ gerecht?', q: 'Nimm Stellung zur Gesamtnote. Beziehe dich auf den Erlass.',
-    eh: ['Ein rechnerischer Mittelwert ist nicht vorgeschrieben; der Erlass verlangt, den Lernprozess zu berücksichtigen (Nr. 7.2) – nicht nur punktuelle Messung.', 'Unterschiedliche Themen = unterschiedliche Kompetenzbereiche: Ist die 4 in Arduino eine Schwäche im Programmieren oder ein Problem der Einstiegsphase?', 'Lernentwicklung: Eine Steigerung zum Jahresende kann stärker gewichtet werden – wenn das transparent und vorher geregelt ist.', 'Gewichtung und Kriterien gehören in den schuleigenen Arbeitsplan bzw. die Beschlüsse der Fachkonferenz.'] },
-`${FIG.rahmen}`,
-  { id: 's6a3', type: 'grid', title: 'Bewertungsraster für ein Werkstück', q: 'Entwirf ein Bewertungsraster für den Rahmen mit Eckverbindung. Denke an Produkt <b>und</b> Prozess.', cols: ['Kriterium', 'Woran erkennst du es? (Indikator)', 'Gewicht'], colTypes: ['text', 'text', 'text'], rows: ['1', '2', '3', '4', '5'],
-    eh: ['Produkt: Maßhaltigkeit, Rechtwinkligkeit, Passung der Eckverbindung (kein Spalt wie bei Rahmen B), Oberfläche.', 'Prozess: Arbeitsplanung, sachgerechter und sicherer Werkzeuggebrauch, Umgang mit Fehlern, Dokumentation (z. B. Lerntagebuch).', 'Gewichtung offenlegen, bevor gearbeitet wird; Selbsteinschätzung der Schüler:innen einbauen.'] },
-  { id: 's6a4', type: 'assign', title: 'Formativ oder summativ?', q: 'Ordne zu.', opts: ['formativ (begleitend, lernfördernd)', 'summativ (abschließend, bilanzierend)'],
-    rows: [['Rückmeldegespräch während der Arbeit am Werkstück', 0], ['Klassenarbeit am Ende der Einheit', 1], ['Lerntagebuch mit Kommentar der Lehrkraft', 0], ['Note für das fertige Werkstück', 1], ['Zwischencheck mit Selbsteinschätzung', 0]],
-    explain: 'Formative Bewertung steuert das Lernen, summative zieht Bilanz. Beide haben im Technikunterricht ihren Platz.' },
-  { id: 's6a5', type: 'text', talk: true, title: 'Noten abschaffen?', q: 'Sollten Noten im Technikunterricht abgeschafft werden? Was können Badges (z. B. Open Badges) leisten – und was nicht?' }
-]},
-{ id: 's7', nav: 'Referat & Ausarbeitung', no: '7', title: 'Impulsreferat und Ausarbeitung', eyebrow: 'Leistungsnachweis',
-  lead: 'Du wählst ein Thema, hältst ein Impulsreferat mit anschließender Diskussion und schreibst eine Ausarbeitung mit Diskussionsergebnissen und Ausblick.',
-  meta: ['Ausarbeitung: Abgabe zum Ende des Semesters', 'Note: Ausarbeitung'],
-  leit: ['Welches Thema interessiert dich wirklich?', 'Welche Primärquellen trägst du zusammen?', 'Welche Thesen bringst du in die Diskussion?'],
-  body: [
-  { id: 's7a1', type: 'pick', title: 'Mein Thema', q: 'Wähle ein Thema (oder schlage ein eigenes vor) und begründe kurz deine Wahl.', other: true,
-    opts: ['Leistungsbewertung und Leistungskontrollen im Technikunterricht', 'Guter Unterricht – guter Technikunterricht', 'Fachraumkonzepte', 'Binnendifferenzierung im Technikunterricht', 'Förderansätze und Inklusion im Technikunterricht', 'exreTu – expliziter reflexiver Technikunterricht', 'Interessen- und Motivationsforschung (Technik, MINT)', 'Das Neustädter Modell', 'Initiativen zur Technikförderung (z. B. JeT, n-21)', 'Die Reparaturaufgabe im Technikunterricht', 'Kostenlose Unterrichtsmaterialien (z. B. Siemens Stiftung) kritisch prüfen', 'Außerschulische Lernorte als Ergänzung', 'Technikunterricht im föderalen Vergleich', 'Technikunterricht im internationalen Vergleich', 'Unterstützung durch Firmen und Stiftungen', 'NEU: MakerSpace statt Robotik-Fachraum', 'NEU: Digitale Lernmaterialien selbst entwickeln – mit KI', 'NEU: Das KC AWT IGS – was bleibt von der Technikdidaktik?', 'NEU: Didaktische Reduktion am Beispiel Mikrocontroller', 'NEU: BNE im Technikunterricht'] },
-`<h2>So baust du das Impulsreferat auf</h2>
-<div class="flow"><div class="st"><b>Einstieg</b><span>Fall, Bild, Frage oder Zahl – mit Quelle</span></div><div class="ar">→</div><div class="st"><b>Klärung</b><span>Begriffe und Modelle aus der Technikdidaktik</span></div><div class="ar">→</div><div class="st"><b>Befunde</b><span>Was sagen Primärquellen und Studien?</span></div><div class="ar">→</div><div class="st"><b>Thesen</b><span>2–3 strittige Thesen als Startpunkt der Diskussion</span></div></div>
-<div class="merke"><b class="t">Quellen</b>Belege Fakten aus der Primärquelle: Erlass, Kerncurriculum, Originalstudie, Herstellerangabe. Nenne Fundstelle und Stand. Unterscheide „belegt“ von „eine Studie deutet an“.</div>`,
-  { id: 's7a2', type: 'fields', title: 'Referat oder Vortrag planen', q: 'Plane deinen Beitrag für Termin 3. Den Plan besprechen wir vorher kurz.',
-    info: `<p><b>Aufbau</b> nach den Hinweisen für Studierende: Einleitung (Fragestellung) · Gliederung · Begriffsdefinitionen · wissenschaftliche Ausführungen oder Positionen · kritische Auseinandersetzung (z. B. Praxisberichte) · Fazit mit Ansätzen für die Diskussion · Diskussionsfragen mit Impulsen.</p><p><b>Gute Diskussionsfragen</b> provozieren Widerspruch oder Nachdenken und sind relevant für die Praxis. Besonders geeignet: Fragen zur Diskrepanz zwischen wissenschaftlichen Erkenntnissen und der Praxis in der Schule.</p><p><b>Formal:</b> Quellen korrekt angeben (Internetquellen mit Datum des letzten Zugriffs, nicht nur als Link), Zitation z. B. nach ISO 690, Quellenangaben auf der jeweiligen Folie.</p>`,
-    fields: [['weg', 'Mein Weg: Referat (20 Min. + Ausarbeitung) oder Vortrag (40 Min.)', 1], ['frage', 'Wissenschaftliche Fragestellung', 1], ['q1', 'Quelle 1 (vollständige Angabe)', 1], ['q2', 'Quelle 2', 1], ['q3', 'Quelle 3', 1], ['gliederung', 'Gliederung'], ['thesen', 'Fazit und Diskussionsfragen mit Impulsen']] },
-  { id: 's7a3', type: 'fields', title: 'Ausarbeitung gliedern (Weg Referat)', q: 'Nach der Diskussion: Halte die Ergebnisse fest und plane die Ausarbeitung (über 10 Seiten). Beim Vortrag (40 Min.) entfällt die Ausarbeitung – halte dann nur die Diskussionsergebnisse fest.',
-    info: `<p><b>Möglicher Aufbau der Ausarbeitung:</b> Einleitung (Fragestellung) · Begriffsdefinitionen · theoretische Grundlagen · Hypothesen (Fragestellung) · inhaltliche Überprüfung · Ergebnisse, Schlussfolgerungen · Reflexion des methodischen Vorgehens · Fazit zur Fragestellung.</p><p><b>Diskussion integrieren:</b> Ziel ist, die Diskrepanz zwischen Fachwissenschaft und schulischer Praxis darzustellen. Begriffe und Grundlagen = Theorieteil des Referats; Diskussionsfragen und ihre Intention unter „Hypothesen“; der Diskussionsinhalt ist die inhaltliche Überprüfung; in der Reflexion bewertest du die Auswahl der Diskussionsfragen.</p><p><b>Formal:</b> Inhalts-, Literatur- und Abbildungsverzeichnis, übersichtliches Layout, Zitation z. B. nach ISO 690, Eigenständigkeitserklärung.</p>`,
-    fields: [['erg', 'Diskussionsergebnisse'], ['offen', 'Offene Fragen'], ['ausblick', 'Ausblick: Was bedeutet das für deinen späteren Technikunterricht?'], ['gliederung', 'Gliederung der Ausarbeitung']] }
-]},
-{ id: 'test', nav: 'Abschluss-Check', no: '✓', kind: 'test' },
-{ id: 'material', nav: 'Material', no: '§', kind: 'material' },
-{ id: 'export', nav: 'Export', no: '↓', kind: 'export' }
-];
-
-/* --- Abschluss-Check --- */
+/* --- Abschluss-Check (Ergänzung: Wiederholung vor Referat und Ausarbeitung) --- */
 const TEST = [
   { q: 'Welche drei Teile umfasst Ropohls Technikbegriff?', opts: ['Sachsysteme, ihre Entstehung und ihre Verwendung', 'Stoff, Energie und Information', 'Werkzeuge, Maschinen und Automaten', 'Wandeln, Speichern und Übertragen'], ans: 0 },
+  { q: 'Was meint Ropohl mit einem soziotechnischen System?', opts: ['eine Mensch-Maschine-Einheit, in der auch die Arbeit anderer Menschen steckt', 'eine Maschine, die die Gesellschaft steuert', 'ein soziales Netzwerk im Internet', 'eine technische Norm'], ans: 0 },
   { q: 'Zu welcher Dimension gehört bei Ropohl die juridische Perspektive?', opts: ['humane Dimension', 'soziale Dimension', 'naturale Dimension'], ans: 1 },
-  { q: 'Was unterscheidet Technik nach Brandt (VDI) von Naturwissenschaft?', opts: ['Technik fragt final nach Sinn und Zweck.', 'Technik fragt kausal nach Ursache und Wirkung.', 'Technik bewertet nach richtig oder falsch.', 'Es gibt keinen Unterschied.'], ans: 0 },
-  { q: 'Welche Erkenntnisperspektiven unterscheidet Schmayl?', opts: ['Sach-, human-soziale und Sinn- und Wertperspektive', 'soziale, humane und naturale Perspektive', 'Theorie-, Analyse-, Planungs- und Interaktionsperspektive', 'Haushalt, Betrieb, Öffentlichkeit, Freizeit'], ans: 0 },
-  { q: 'Welche Zielperspektive ist laut Bienhaus allgegenwärtig?', opts: ['technisches Handeln', 'vorberufliche Orientierung', 'Bedeutung und Bewertung', 'technische Kenntnisse'], ans: 1 },
-  { q: 'Welcher Ansatz strukturiert nach Stoff, Energie und Information?', opts: ['mehrperspektivischer Ansatz', 'arbeitsorientierter Ansatz', 'allgemeintechnologischer Ansatz', 'Berliner Modell'], ans: 2 },
-  { q: 'Wie sieht Bienhaus die Projektmethode?', opts: ['als die allein richtige Methode', 'als eine Methode im Methodensystem, keine Universalmethode', 'als veraltet', 'als Methode nur für die Sekundarstufe II'], ans: 1 },
-  { q: 'Auf welcher Ebene des Interaktionsmodells liegt die Lernkontrolle?', opts: ['Theorieebene', 'Analyseebene', 'Planungsebene', 'unterrichtliche Interaktionsebene'], ans: 3 },
-  { q: 'Wie viele der neun Handlungsfelder nach Maurer & Ingold betreffen Raum und Ausstattung?', opts: ['eins', 'zwei', 'fünf', 'neun'], ans: 1 },
-  { q: 'Was verlangt der IGS-Erlass (2026) von der Leistungsbewertung?', opts: ['Sie stützt sich vor allem auf Klassenarbeiten.', 'Sie berücksichtigt und dokumentiert den Verlauf des Lernprozesses.', 'Sie ist nur in Hauptfächern Pflicht.', 'Sie ersetzt Noten durch Badges.'], ans: 1 }
+  { q: 'Was unterscheidet Technik nach dem VDI-Papier (Brandt 2011) von Naturwissenschaft?', opts: ['Technik fragt final nach Sinn und Zweck.', 'Technik fragt kausal nach Ursache und Wirkung.', 'Technik bewertet nach richtig oder falsch.', 'Es gibt keinen Unterschied.'], ans: 0 },
+  { q: 'Welche Erkenntnisperspektiven unterscheidet Schmayl?', opts: ['Sach-, human-soziale und Sinn- und Wertperspektive', 'soziale, humane und naturale Perspektive', 'Haushalt, Betrieb, Öffentlichkeit, Freizeit', 'Wandeln, Speichern, Übertragen'], ans: 0 },
+  { q: 'Welche Zielperspektive ist laut Bienhaus „allgegenwärtig“?', opts: ['technisches Handeln', 'vorberufliche Orientierung', 'Bedeutung und Bewertung technischer Sachverhalte', 'technische Kenntnisse und Strukturzusammenhänge'], ans: 1 },
+  { q: 'Was ist kein Inhaltsfeld des mehrperspektivischen Technikunterrichts?', opts: ['Arbeit und Produktion', 'Transport und Verkehr', 'Natur und Technik', 'Bauen und Wohnen'], ans: 2 },
+  { q: 'Wie viele der neun Handlungsfelder für schulische MakerSpaces betreffen Raum und Ausstattung?', opts: ['eins', 'zwei', 'fünf', 'neun'], ans: 1 }
 ];
 
 /* --- Material --- */
 const LIT = [
-  { t: 'Ropohl, G. (2009): Allgemeine Technologie. Eine Systemtheorie der Technik. 3. Aufl. Karlsruhe: Universitätsverlag Karlsruhe.', s: 'Lizenz CC BY-NC-ND 3.0 DE · Definition S. 31, Bild 1 S. 32, Computer-Zitat S. 58', a: 'dl', f: 'material/Ropohl_2009_Allgemeine-Technologie.pdf' },
-  { t: 'Ingold, S./Maurer, B./Trüby, D. (Hrsg.) (2019): Chance MakerSpace. Making trifft auf Schule. München: kopaed.', s: 'Lizenz CC BY 4.0 · darin Ingold/Maurer: Making in der Schule, S. 59 ff.', a: 'dl', f: 'material/Ingold-Maurer-Trueby_2019_Chance-MakerSpace.pdf' },
-  { t: 'Binder, M. (2014): Theorien und Modelle der Technikdidaktik. Skript, PH Weingarten, Stand 17.09.2014.', s: 'Termin 1 und 2', a: 'mail' },
-  { t: 'Bienhaus, W. (2008): Technikdidaktik – der mehrperspektivische Ansatz. PH Karlsruhe.', s: 'Termin 2', a: 'mail' },
-  { t: 'Brandt, S. (2011): Technikunterricht versus Naturwissenschaftlicher Unterricht. VDI Berlin-Brandenburg.', s: 'Termin 1', a: 'mail' },
-  { t: 'Müller, S.: Die Einrichtung des neuen Unterrichtsfachs „Physik/Technik“. Robert-Bosch-Gesamtschule Hildesheim (abgerufen 28.10.2016).', s: 'Termin 1', a: 'mail' },
-  { t: 'Hüttner, A.: Interaktionsmodell als weiterentwickelter technikdidaktischer Modellansatz (Kap. 2.5, Auszug).', s: 'Termin 2', a: 'mail' },
-  { t: 'Mackeprang, H. (2004): Einführung in die Technikdidaktik, Modul 1 (Skript): Berliner und Hamburger Modell.', s: 'Termin 2', a: 'mail' },
-  { t: 'Walker, F. (2009): Automatisierungstechnik im Technikunterricht. Anwendung der didaktischen Reduktion. Vortrag, DGTB.', s: 'Termin 2, Referatsthema', a: 'mail' },
+  { t: 'Ropohl, G. (2009): Allgemeine Technologie. Eine Systemtheorie der Technik. 3. Aufl. Karlsruhe: Universitätsverlag Karlsruhe.', s: 'Lizenz CC BY-NC-ND 3.0 DE · Definition S. 31, Bild 1 S. 32, Computer-Zitat S. 58 · Paket 1', a: 'dl', f: 'material/Ropohl_2009_Allgemeine-Technologie.pdf' },
+  { t: 'Nds. Kultusministerium (2010): Kerncurriculum für die Realschule, Schuljahrgänge 5–10, Technik.', s: 'nibis.de · Bildungsbeitrag S. 7 f. · Paket 1 und 2', a: 'web' },
+  { t: 'Binder, M. (2014): Theorien und Modelle der Technikdidaktik. Skript, PH Weingarten.', s: 'Fächerkanon S. 7 · Paket 1', a: 'mail' },
+  { t: 'Lesch, H.: Video zum Fächerkanon. YouTube, youtu.be/Wj-KTcxjLqs', s: 'Paket 1', a: 'web' },
+  { t: 'Müller, S.: Die Einrichtung des neuen Unterrichtsfachs „Physik/Technik“. Ein Projekttagebuch. Robert-Bosch-Gesamtschule Hildesheim.', s: 'Text zum Schulversuch · Paket 1', a: 'mail' },
+  { t: 'Brandt, S. (2011): Technikunterricht versus Naturwissenschaftlicher Unterricht. VDI Berlin-Brandenburg.', s: 'Paket 1', a: 'mail' },
+  { t: 'Bienhaus, W. (2008): Technikdidaktik – der mehrperspektivische Ansatz. PH Karlsruhe.', s: 'Paket 2', a: 'mail' },
+  { t: 'Ingold, S./Maurer, B./Trüby, D. (Hrsg.) (2019): Chance MakerSpace. Making trifft auf Schule. München: kopaed.', s: 'Lizenz CC BY 4.0 · Termin 3', a: 'dl', f: 'material/Ingold-Maurer-Trueby_2019_Chance-MakerSpace.pdf' },
   { t: 'Maurer, B./Ingold, S. (2021): Making und Schule – Synergien, Reibungspunkte, Handlungsbedarf (Teil 6). doi:10.13140/RG.2.2.15683.73760', s: 'Termin 3', a: 'web' },
-  { t: 'Nds. Kultusministerium (2010): Kerncurriculum für die Realschule, Schuljahrgänge 5–10, Technik.', s: 'nibis.de', a: 'web' },
-  { t: 'Nds. Kultusministerium (2023): Kerncurriculum für die IGS, Schuljahrgänge 5–10, Arbeit-Wirtschaft-Technik.', s: 'nibis.de', a: 'web' },
-  { t: 'RdErl. d. MK „Die Arbeit in den Schuljahrgängen 5 bis 10 der IGS“ v. 01.08.2026 – VORIS 22410.', s: 'Termin 3', a: 'web' },
-  { t: 'RdErl. d. MK „Die Arbeit in den Schuljahrgängen 5 bis 10 der KGS“ v. 03.08.2015 – VORIS 22410.', s: 'Termin 3', a: 'web' },
-  { t: 'KMK (2021): Lehren und Lernen in der digitalen Welt. Ergänzende Empfehlung zur Strategie „Bildung in der digitalen Welt“, Beschluss v. 09.12.2021.', s: 'Termin 3', a: 'web' }
+  { t: 'Nds. Kultusministerium (2023): Kerncurriculum für die IGS, Schuljahrgänge 5–10, Arbeit-Wirtschaft-Technik.', s: 'nibis.de · Termin 3', a: 'web' }
 ];
 
 const START_TASKS = [
-  { id: 'st1', type: 'text', title: 'Was ist Technik?', q: 'Schreib spontan zwei, drei Sätze: Was ist Technik für dich? Im ersten Termin vergleichen wir das mit Ropohl.', short: true },
-  { id: 'st2', type: 'text', title: 'Warum Technikunterricht?', q: 'Warum sollten alle Schüler:innen Technikunterricht haben? Nenne zwei Gründe – darauf kommen wir im ersten Termin zurück.', short: true }
+  { id: 'st1', type: 'text', title: 'Was ist Technik?', q: 'Schreib spontan zwei, drei Sätze: Was ist Technik für dich? Im ersten Termin vergleichen wir das mit Ropohl.', short: true }
 ];
 
-/* ================= TERMINE: Präsentation im Termin, Aufgabenpaket danach ================= */
+/* ================= AUFGABEN – eng an den Aufgabenfolien des Kurses (TK_Aufgaben_01 und _02) =================
+   Schreibaufträge wie auf den Folien. extra: true = ergänzender Selbstcheck (ohne eigene Nummer). */
+const AUFGABEN = [
+
+/* ---------- Paket 1: Technikbegriff und Technik im Fächerkanon ---------- */
+{ id: 'a1_ropohl', type: 'text', title: 'Ropohls Technikbegriff für die 6. Klasse',
+  q: 'Beschreibe in eigenen Worten, wie Ropohl „Technik“ definiert. <b>Bedingung:</b> Schüler:innen der 6. Klasse sollen deine Definition verstehen.',
+  info: FIG.ropohlDef,
+  eh: ['Alle drei Teile sind enthalten: die Dinge, die Menschen herstellen (a), das Herstellen (b) und das Benutzen (c).', 'Ein Alltagsbeispiel aus der Welt der Kinder (Fahrrad, Handy, Toaster) macht die drei Teile sichtbar.', 'Kurze Sätze, keine Fachwörter ohne Erklärung („Artefakt“, „Sachsystem“, „soziotechnisch“).', 'Nicht verfälscht: Technik ist nicht nur Elektronik oder „Geräte“ – auch ein Holzlöffel und das Benutzen gehören dazu.', 'Das Computer-Zitat steckt drin: Erst Mensch und Gerät zusammen „machen“ Technik – und im Gerät steckt die Arbeit anderer Menschen.'] },
+
+{ id: 'a1_dim', type: 'sort', extra: true, title: 'Dimensionen und Erkenntnisperspektiven',
+  q: 'Zur Folie „Dimensionen und Erkenntnisperspektiven der Technik“: Ordne die Perspektiven der richtigen Dimension zu. Tippe erst auf einen Begriff, dann auf die Dimension.',
+  bins: ['Soziale Dimension', 'Humane Dimension', 'Naturale Dimension'],
+  items: [['ökonomisch', 0], ['juridisch', 0], ['politologisch', 0], ['soziologisch', 0], ['ethisch', 1], ['ästhetisch', 1], ['psychologisch', 1], ['physiologisch', 1], ['anthropologisch', 1], ['ökologisch', 2], ['physikalisch', 2], ['ingenieurwissenschaftlich', 2], ['biologisch', 2]],
+  explain: 'Nach Ropohl (2009), Bild 1, S. 32 (Erstauflage 1979).' },
+
+{ id: 'a1_kc', type: 'text', title: 'Der Technikbegriff im KC',
+  q: 'Erkläre, wie das Kerncurriculum den Begriff „Technik“ bzw. das Fach Technik beschreibt.',
+  hint: 'Kerncurriculum Technik für die Realschule (Nds. Kultusministerium 2010), Kap. 1 „Bildungsbeitrag des Faches Technik“, S. 7 f. – als PDF auf nibis.de.',
+  eh: ['Technik als Hilfsmittel des Menschen zur Gestaltung und Umgestaltung seiner Lebenswelt.', 'Technik entsteht in gesellschaftlichen Zusammenhängen (sozial, politisch, ökonomisch, ökologisch, ethisch) und ist Teil der kulturellen Identität.', 'Technik bringt Chancen und Risiken; diese sollen erkannt, bewertet und beherrscht werden.', 'Das Fach gliedert sich in vier Handlungsbereiche: Arbeiten und Produzieren, Energie und Technik, Information und Kommunikation, Natur und Technik.'] },
+
+{ id: 'a1_vergleich', type: 'fields', title: 'KC und Ropohl vergleichen',
+  q: 'Nenne und erläutere Gemeinsamkeiten und Unterschiede der Definition des Technikbegriffs und den Dimensionen von Technik zwischen dem KC und Günter Ropohl.',
+  fields: [['gem', 'Gemeinsamkeiten'], ['unt', 'Unterschiede']],
+  eh: ['Gemeinsam: Technik ist menschengemacht und dient Zwecken; soziale (gesellschaftlich, ökonomisch, politisch), humane (ethisch) und naturale Bezüge (ökologisch) tauchen in beiden auf.', 'Unterschied: Ropohl beschreibt analytisch, was Technik ist; das KC ist normativ und sagt, was Schüler:innen können sollen.', 'Unterschied: Bei Ropohl stehen Entstehung und Verwendung gleichrangig neben den Sachsystemen; im KC stehen Herstellen und Bedienen im Vordergrund.', 'Unterschied: Das KC ordnet nach Handlungsbereichen, nicht nach Dimensionen; humane Perspektiven wie ästhetisch oder psychologisch sind schwächer vertreten.'] },
+
+{ id: 'a1_intentionen', type: 'text', title: 'Intentionen und Begründungen des Fachs',
+  q: 'Arbeite mithilfe des Kerncurriculums heraus, welche Intentionen und ihre Begründungen das Fach Technik hat.',
+  hint: 'Binder (2014, S. 7): Jedes Schulfach muss „Intentionen (Absichten, Zielrichtungen) beschreiben und sie den Lernenden und der Gesellschaft gegenüber begründen können“.',
+  eh: ['Intentionen (KC RS, S. 7 f.): technische Objekte entwickeln, herstellen und bedienen; technische Entwicklungen bewerten; Probleme innovativ lösen; im Team arbeiten; ethische Maßstäbe entwickeln; verantwortlich handeln.', 'Weitere Beiträge: Gestaltungskompetenz im Sinne einer Bildung für nachhaltige Entwicklung, Medienkompetenz, berufliche Orientierung.', 'Begründungen: Technik prägt Gesellschaft und kulturelle Identität; ihre Chancen und Risiken müssen erkannt, bewertet und beherrscht werden.'] },
+
+{ id: 'a1_lesch', type: 'text', talk: true, title: 'Harald Lesch und das Fach Technik',
+  q: 'Schau dir das Video von Harald Lesch zum Fächerkanon an (<a href="https://youtu.be/Wj-KTcxjLqs" target="_blank" rel="noopener">youtu.be/Wj-KTcxjLqs</a>). Überlege, wie Harald Lesch zum Fach Technik stehen könnte.' },
+
+{ id: 'a1_schulversuch', type: 'text', talk: true, title: 'Der Schulversuch der Robert-Bosch-Gesamtschule',
+  q: 'Lies den Text zum Schulversuch (Anhang der Mail). Was ist deine Meinung zum Schulversuch?',
+  hint: 'Ab 2009: Aus AWT und Naturwissenschaften werden AW, Technik/Physik und Naturwissenschaften. Achte auf die Begründung der Schule (Fachkräftemangel, Einstellung der Schüler:innen zu Physik und Technik) und auf die Unterrichtsmodule.' },
+
+{ id: 'a1_physik', type: 'text', talk: true, title: 'Physik und Technik zusammenlegen?',
+  q: 'Würdest du die Fächer Physik und Technik zusammenlegen? Begründe deine Meinung.' },
+
+{ id: 'a1_vdi', type: 'text', title: 'Und der VDI?',
+  q: 'Würde der VDI Technik und Naturwissenschaften zusammenlegen? Begründe deine Meinung.',
+  hint: 'Brandt (2011): Technikunterricht versus Naturwissenschaftlicher Unterricht, VDI Berlin-Brandenburg (Anhang der Mail).',
+  eh: ['Nein: Ein Fach „Natur und Technik“, das einen eigenständigen Technikunterricht entbehrlich macht, nennt das VDI-Papier „kontraproduktiv“ (Brandt 2011, S. 3).', 'Begründung: Naturwissenschaft fragt kausal nach Ursache und Wirkung und bewertet nach richtig oder falsch; Technik fragt final nach Sinn und Zweck, arbeitet synthetisch und bewertet nach gut oder schlecht.', 'Forderung: ein eigenständiges, einheitlich benanntes Fach Technik mit eigens ausgebildeten Lehrkräften.'] },
+
+{ id: 'a1_nwt', type: 'assign', extra: true, title: 'Naturwissenschaft oder Technik?',
+  q: 'Ordne die Merkmale zu – so, wie das VDI-Papier unterscheidet.', opts: ['Naturwissenschaft', 'Technik'],
+  rows: [['fragt nach Ursache und Wirkung', 0], ['fragt nach Sinn und Zweck', 1], ['bewertet nach „gut oder schlecht“', 1], ['bewertet nach „richtig oder falsch“', 0], ['arbeitet synthetisch und problemlösend', 1], ['untersucht, was von Natur aus da ist', 0], ['entwickelt ein Windrad', 1], ['analysiert Rotationsbewegungen', 0]],
+  explain: 'Nach Brandt (2011), S. 4–6.' },
+
+{ id: 'a1_kanon', type: 'pick', title: 'Technik im Fächerkanon',
+  q: 'Du darfst entscheiden, wie Technik unterrichtet wird. Für welche Möglichkeit würdest du dich entscheiden? Begründe deine Meinung.',
+  opts: ['als eigenständiges Fach', 'im Fächerverbund mit Wirtschaft', 'im Fächerverbund mit Naturwissenschaften', 'im Fächerverbund mit Informatik', 'nur integriert in Projekte', 'gar nicht'] },
+
+/* ---------- Paket 2: Der mehrperspektivische Technikunterricht ---------- */
+{ id: 'a2_begriffe', type: 'text', title: 'Erkenntnisperspektive und Zielperspektive',
+  q: 'Lies den Auszug „Technikdidaktik – der mehrperspektivische Ansatz“ von Bienhaus. Erkläre die Begriffe <b>Erkenntnisperspektive</b> und <b>Zielperspektive</b> und nenne die jeweiligen Perspektiven.',
+  eh: ['Erkenntnisperspektiven (Schmayl): Blickrichtungen auf den Gegenstand Technik; sie stecken das thematische Terrain ab – Sachperspektive, human-soziale Perspektive, Sinn- und Wertperspektive.', 'Zielperspektiven (Sachs 1992): Richtziele des Unterrichts – technische Kenntnisse und Strukturzusammenhänge, technisches Handeln, Bedeutung und Bewertung technischer Sachverhalte, vorberufliche Orientierung.', 'Zusammenhang: Zielperspektive 1 und 2 erschließen die Sachdimension, 3 die human-soziale; 3 setzt 1 und 2 voraus und ist die anspruchsvollste; die vorberufliche Orientierung ist „allgegenwärtig“.'],
+},
+
+{ id: 'a2_sort', type: 'sort', extra: true, title: 'Welche Erkenntnisperspektive?',
+  q: 'Ordne die Aussagen aus dem Bienhaus-Text den drei Erkenntnisperspektiven nach Schmayl zu.', bins: ['Sachperspektive', 'human-soziale Perspektive', 'Sinn- und Wertperspektive'],
+  items: [['Funktionsabläufe und Wirkbedingungen', 0], ['technische Regeln und Naturgesetze', 0], ['Bedienungswissen', 0], ['Technik als „Urhumanum“', 1], ['gesellschaftliche Vorbedingungen technischen Handelns', 1], ['Abhängigkeit des Menschen von seinen Hervorbringungen', 1], ['Technik ist nicht wertneutral', 2], ['Folgen abschätzen, Verantwortung übernehmen', 2]],
+  explain: 'Nach Bienhaus (2008), S. 2 f.' },
+
+{ id: 'a2_kc', type: 'grid', title: 'Erkenntnisperspektiven im Kerncurriculum',
+  q: 'Analysiere, in welcher Form die Erkenntnisperspektiven nach Schmayl im Kerncurriculum Technik für die Realschule wiederzufinden sind.',
+  cols: ['Fundstelle im KC (Seite, Zitat)', 'In welcher Form? Wie stark?'], rows: ['Sachperspektive', 'human-soziale Perspektive', 'Sinn- und Wertperspektive'],
+  eh: ['Sach: „Auf der Sachebene befähigt das Fach dazu, technische Objekte zu entwickeln und herzustellen …“ (S. 7) – stark, prägt auch die Kompetenzbereiche.', 'Human-sozial: „Die Erfindung, Konstruktion und Anwendung technischer Mittel geschah und geschieht in gesellschaftlichen Zusammenhängen …“ (S. 7).', 'Sinn und Wert: „ethische Maßstäbe entwickeln“, Risiken „erkennen, bewerten und beherrschen“ (S. 7).', 'Form: im Bildungsbeitrag ausdrücklich; prüfe in den erwarteten Kompetenzen, ob die drei Perspektiven dort ähnlich gewichtet sind.'] },
+
+{ id: 'a2_felder', type: 'grid', title: 'Inhaltsfelder im Kerncurriculum',
+  q: 'Vergleiche, welche Inhaltsfelder des mehrperspektivischen Technikunterrichts im Kerncurriculum Technik für die Realschule vorkommen und welche nicht. Die Übersicht der Inhaltsfelder findest du auf der Folie danach.',
+  cols: ['im KC?', 'Beleg / Bemerkung'], colTypes: ['sel', 'text'], selOpts: ['–', 'ja', 'teilweise', 'nein'],
+  rows: ['Arbeit und Produktion', 'Bauen und Wohnen', 'Versorgung und Entsorgung', 'Transport und Verkehr', 'Information und Kommunikation'],
+  info: FIG.matrix,
+  eh: ['Abgleich über die Handlungsbereiche des KC RS (S. 7): „Arbeiten und Produzieren“ ↔ Arbeit und Produktion; „Information und Kommunikation“ ↔ gleichnamig; „Energie und Technik“ ↔ Teil von Versorgung und Entsorgung.', 'Bauen und Wohnen sowie Transport und Verkehr haben keinen eigenen Handlungsbereich – prüfe, ob sie in den Kompetenzen versteckt vorkommen.', 'Neu im KC: „Natur und Technik“ – im mpTu-Schema kein eigenes Feld.'] },
+
+{ id: 'a2_thema', type: 'pick', title: 'Mein Thema für Referat oder Vortrag',
+  q: 'Wähle ein Thema aus der Liste oder schlage ein eigenes vor und begründe kurz deine Wahl.', other: true,
+  opts: ['Leistungsbewertung (mündlich/schriftlich) und Leistungskontrollen im Technikunterricht', 'Guter Unterricht – guter Technikunterricht', 'Fachraumkonzepte', 'Binnendifferenzierung im Technikunterricht', 'Förderansätze für den Technikunterricht – Inklusion', 'exreTu (expliziter reflexiver Technikunterricht)', 'Interessen- und Motivationsforschung Technikunterricht (und MINT)', 'Das Neustädter Modell', 'Initiativen zur Technikförderung (z. B. JeT, n-21)', 'Die Reparaturaufgabe im Technikunterricht', 'Kostenlose Unterrichtsmaterialien (z. B. Siemens Stiftung)', 'Moderne Entwicklungen des Technikunterrichts', 'Außerschulische Lernorte als Ergänzung zum Technikunterricht', 'Technikunterricht im föderalen Vergleich', 'Technikunterricht im internationalen Vergleich', 'Spenden und Unterstützung durch Firmen und Stiftungen', 'MakerSpace: Technikunterricht durch Making Education?', 'Digitale Lernmaterialien für den Technikunterricht selbst entwickeln'] },
+
+{ id: 'a2_plan', type: 'fields', title: 'Referat oder Vortrag planen',
+  q: 'Plane deinen Beitrag für Termin 3. Schick mir den Plan mit dem Export von Paket 2.',
+  info: `<p><b>Aufbau</b> nach den Hinweisen für Studierende: Einleitung (Fragestellung) · Gliederung · Begriffsdefinitionen · wissenschaftliche Ausführungen oder Positionen · kritische Auseinandersetzung (z. B. Praxisberichte) · Fazit mit Ansätzen für die Diskussion · Diskussionsfragen mit Impulsen.</p><p><b>Gute Diskussionsfragen</b> provozieren Widerspruch oder Nachdenken und sind relevant für die Praxis. Besonders geeignet: Fragen zur Diskrepanz zwischen wissenschaftlichen Erkenntnissen und der Praxis in der Schule.</p><p><b>Formal:</b> Quellen korrekt angeben (Internetquellen mit Datum des letzten Zugriffs, nicht nur als Link), Zitation z. B. nach ISO 690, Quellenangaben auf der jeweiligen Folie.</p>`,
+  fields: [['weg', 'Mein Weg: Referat (20 Min. + Ausarbeitung) oder Vortrag (40 Min.)', 1], ['frage', 'Wissenschaftliche Fragestellung', 1], ['q1', 'Quelle 1 (vollständige Angabe)', 1], ['q2', 'Quelle 2', 1], ['q3', 'Quelle 3', 1], ['gliederung', 'Gliederung'], ['thesen', 'Fazit und Diskussionsfragen mit Impulsen']] },
+
+/* ---------- Paket 3: Diskussionsergebnisse und Ausarbeitung ---------- */
+{ id: 'a3_gespraech', type: 'text', title: 'Aktuelle Entwicklungen: dein Fazit',
+  q: 'Halte nach dem Gespräch fest: Welche Entwicklung im Technikunterricht hältst du für die wichtigste – und was bedeutet sie für deinen späteren Unterricht?' },
+
+{ id: 'a3_ausarbeitung', type: 'fields', title: 'Diskussionsergebnisse und Ausblick',
+  q: 'Halte die Ergebnisse der Diskussion zu deinem Referat fest und plane die Ausarbeitung (über 10 Seiten). Beim Vortrag (40 Min.) entfällt die Ausarbeitung – halte dann nur die Diskussionsergebnisse fest.',
+  info: `<p><b>Möglicher Aufbau der Ausarbeitung:</b> Einleitung (Fragestellung) · Begriffsdefinitionen · theoretische Grundlagen · Hypothesen (Fragestellung) · inhaltliche Überprüfung · Ergebnisse, Schlussfolgerungen · Reflexion des methodischen Vorgehens · Fazit zur Fragestellung.</p><p><b>Diskussion integrieren:</b> Ziel ist, die Diskrepanz zwischen Fachwissenschaft und schulischer Praxis darzustellen. Begriffe und Grundlagen = Theorieteil des Referats; Diskussionsfragen und ihre Intention unter „Hypothesen“; der Diskussionsinhalt ist die inhaltliche Überprüfung; in der Reflexion bewertest du die Auswahl der Diskussionsfragen.</p><p><b>Formal:</b> Inhalts-, Literatur- und Abbildungsverzeichnis, übersichtliches Layout, Zitation z. B. nach ISO 690, Eigenständigkeitserklärung.</p>`,
+  fields: [['erg', 'Diskussionsergebnisse'], ['offen', 'Offene Fragen'], ['ausblick', 'Ausblick: Was bedeutet das für deinen späteren Technikunterricht?'], ['gliederung', 'Gliederung der Ausarbeitung']] }
+];
+
+/* ================= TERMINE: Präsentation im Termin, Aufgabenpaket danach =================
+   Aufbau wie im Kurs WiSe 2023/24: Einführung, Aufgaben 1 (Technikbegriff), Aufgaben 2 (mpTu), Gespräch aktuelle Entwicklungen, Referat. */
 const TASK = {};
-MODULES.forEach(m => (m.body || []).forEach(b => { if (typeof b === 'object') TASK[b.id] = b; }));
+AUFGABEN.forEach(t => TASK[t.id] = t);
 START_TASKS.forEach(t => TASK[t.id] = t);
 
 /* Datum je Termin als 'JJJJ-MM-TT' eintragen. Steht ein Datum in der Zukunft, ist das Aufgabenpaket bis dahin gesperrt. null = immer offen. */
 const TERMINE_DATEN = { t1: null, t2: null, t3: null };
 
 const S_ = (t, h) => ({ t, h });
+const AUF = (nr, text) => `<div class="slauf"><b class="t">Aufgabe ${nr}</b>${text}</div>`;
 const agenda = (items, cur) => `<ol class="agenda">${items.map((x, i) => `<li${i === cur ? ' class="cur"' : ''}><b>Termin ${i + 1}</b><span>${x}</span></li>`).join('')}</ol>`;
-const AG = ['Technikbegriff · Technik im Fächerkanon', 'Mehrperspektivischer Technikunterricht · Methoden und Modelle', 'Aktuelle Entwicklungen · Leistungsbewertung · Impulsreferat'];
+const AG = ['Einführung · Technikbegriff · Technik im Fächerkanon', 'Besprechung Paket 1 · Der mehrperspektivische Technikunterricht', 'Besprechung Paket 2 · Aktuelle Entwicklungen · Referat und Diskussion'];
+const THEMEN = ['Leistungsbewertung (mündlich/schriftlich) und Leistungskontrollen im Technikunterricht', 'Guter Unterricht → guter Technikunterricht', 'Fachraumkonzepte', 'Binnendifferenzierung im Technikunterricht', 'Förderansätze für den Technikunterricht → Inklusion', 'exreTu (expliziter reflexiver Technikunterricht)', 'Interessen- und Motivationsforschung Technikunterricht (und MINT)', 'Das Neustädter Modell', 'Initiativen zur Technikförderung (z. B. JeT, n-21)', 'Die Reparaturaufgabe im Technikunterricht', 'Kostenlose Unterrichtsmaterialien (z. B. Siemens Stiftung)', 'Moderne Entwicklungen des Technikunterrichts', 'Außerschulische Lernorte als Ergänzung', 'Technikunterricht im föderalen Vergleich', 'Technikunterricht im internationalen Vergleich', 'Spenden und Unterstützung durch Firmen und Stiftungen', 'MakerSpace: Technikunterricht durch Making Education?', 'Digitale Lernmaterialien selbst entwickeln'];
+const KURSSEITE = `<p class="big">Kursseite: <a href="https://t1p.de/tdk-26" target="_blank" rel="noopener">t1p.de/tdk-26</a></p><p class="muted">Dort: Präsentationen als PDF und in der Spalte „Aufgaben“ der Link zu dieser Lernplattform.</p>`;
 
 const TERMINE = [
-{ id: 't1', nr: 1, file: 'praesentationen/TdK_Termin-1_Technik-und-Technikunterricht', title: 'Technik und Technikunterricht', lead: 'Was ist Technik – und warum braucht die Schule ein eigenes Fach dafür?',
-  leit: ['Wie definiert Ropohl Technik?', 'Welche Dimensionen hat Technik?', 'Wie begründet sich das Fach – und ist Technik angewandte Naturwissenschaft?'],
+{ id: 't1', nr: 1, file: 'praesentationen/TdK_Termin-1_Einfuehrung-Technikbegriff', title: 'Einführung und Technikbegriff', lead: 'Was ist ein Kolloquium, wie bekommst du deine Leistungspunkte – und was ist eigentlich Technik?',
+  leit: ['Wie definiert Ropohl Technik?', 'Wie beschreibt das Kerncurriculum das Fach?', 'Wie soll Technik im Fächerkanon unterrichtet werden?'],
   slides: [
     S_('Technikdidaktisches Kolloquium', `<p class="big">WiSe 2026/27 · Universität Hildesheim</p><p>Dozent: Daniel Beyrodt · Fachmoderator AWT, RLSB Hannover</p>${agenda(AG, 0)}`),
     S_('Was ist ein Kolloquium?', `<div class="revealbox"><p class="big muted">… ?</p><details class="sl-reveal"><summary>Auflösen</summary><p class="huge">ein wissenschaftliches Gespräch</p></details></div>`),
-    S_('So läuft das Kolloquium', `<div class="flow"><div class="st"><b>Termin</b><span>Input und Gespräch</span></div><div class="ar">→</div><div class="st"><b>Aufgabenpaket</b><span>auf der Plattform, bis zum nächsten Termin</span></div><div class="ar">→</div><div class="st"><b>Export</b><span>Ergebnisse als Word/PDF vor dem Termin schicken</span></div><div class="ar">→</div><div class="st"><b>Nächster Termin</b><span>Besprechung + neuer Input</span></div></div>
-<div class="grid3"><div class="tile"><span class="k">3 LP</span><p>= 90 Std. bei 2 SWS, 30 Std. Präsenz</p></div><div class="tile y"><span class="k">A</span><p>Referat (20 Min.) + Diskussion + Ausarbeitung (über 10 Seiten)</p></div><div class="tile g"><span class="k">B</span><p>Vortrag (40 Min.) + Diskussion, keine Ausarbeitung</p></div></div><p class="muted">In beiden Fällen: Präsentation als PDF vor Beginn einreichen.</p>
-<p class="muted">Bei Krankheit: Abmeldung bis 7:00 Uhr am selben Tag per Mail.</p>`),
+    S_('Inhalt', `<ol class="il big2"><li>Der Technikbegriff / „Grundbegriffe technischer Bildung“</li><li>Der mehrperspektivische Technikunterricht</li><li>Gespräch: aktuelle Entwicklungen im Technikunterricht</li><li>Referat und Diskussion zu einem Wahlthema</li></ol>`),
+    S_('Leistungspunktvergabe', `<div class="grid3"><div class="tile"><span class="k">3 LP</span><p>aktive Teilnahme: Aufgaben, Gespräche, Referat</p></div><div class="tile y"><span class="k">A</span><p>Referat (20 Min.) + Diskussion + Ausarbeitung mit Diskussionsergebnissen und Ausblick (über 10 Seiten)</p></div><div class="tile g"><span class="k">B</span><p>Vortrag (40 Min.) + Diskussion, keine Ausarbeitung</p></div></div><p class="muted">In beiden Fällen: Präsentation als PDF vor Beginn einreichen. Bei Krankheit: Abmeldung bis 7:00 Uhr am selben Tag per Mail.</p>`),
     S_('Was ist Technik?', `<p class="huge">Was ist Technik – für dich?</p><p class="muted">Spontan, in zwei Sätzen.</p>`),
-    S_('Ein Computer …', `<div class="quote"><p>„Ein Computer wird erst wirklicher Computer, wenn er zum Teil einer Mensch-Maschine-Einheit geworden ist. […] erst die Arbeitseinheit von Mensch und Computer bringt die Textverarbeitung zuwege. Da freilich im benutzten Computer immer schon die Arbeit anderer Menschen verkörpert ist […], bezeichne ich sie als soziotechnisches System.“</p><cite>Ropohl (2009): Allgemeine Technologie, S. 58</cite></div>`),
-    S_('Ropohls Technikbegriff', FIG.ropohlDef),
-    S_('Wie weit ist der Begriff?', FIG.weite),
-    S_('Dimensionen der Technik', FIG.ropohl),
-    S_('Der Technikbegriff im Kerncurriculum', `<div class="grid2"><div class="tile"><h4>KC Technik Realschule (2010)</h4><p>„Bildungsbeitrag des Faches Technik“, S. 7 f.</p></div><div class="tile y"><h4>KC AWT IGS (MK 2023)</h4><p>„Bildungsbeitrag“, S. 5 f.; „Technisches und textiltechnisches Themenfeld“, S. 11</p></div></div><p class="big">Wie beschreiben die KCs Technik – und was ist anders als bei Ropohl?</p>`),
-    S_('Technik im Fächerkanon', `<div class="quote"><p>„Grundsätzlich muss jedes Schulfach im allgemeinbildenden Schulwesen seine Notwendigkeit darlegen können. Es muss Intentionen (Absichten, Zielrichtungen) beschreiben und sie den Lernenden und der Gesellschaft gegenüber begründen können.“</p><cite>Binder (2014): Theorien und Modelle der Technikdidaktik, S. 7</cite></div>`),
-    S_('Leitziel technischer Bildung', `<div class="quote"><p>„Technische Bildung steht unter der leitenden Zielsetzung des mündigen, selbstbestimmten Menschen, der fähig ist, in technisch geprägten Lebenssituationen sachkompetent zu handeln und sich verantwortungsbewusst zu entscheiden.“</p><cite>Wilkening et al. (1977), S. 12, zit. n. Binder (2014), S. 8</cite></div><p>Video: Harald Lesch zum Fächerkanon – <a href="https://youtu.be/Wj-KTcxjLqs" target="_blank" rel="noopener">youtu.be/Wj-KTcxjLqs</a></p>`),
-    S_('Ist Technik angewandte Naturwissenschaft?', FIG.nwT + `<div class="merke"><b class="t">Binder (2014, S. 3)</b>„Angewandte Naturwissenschaften“ ist eine Verkürzung: Technik folgt Naturgesetzen, aber vor allem humanen und sozialen Sinnzusammenhängen.</div>`),
-    S_('Ein Fall aus Hildesheim', `<p class="big">Schulversuch der Robert-Bosch-Gesamtschule (ab 2009)</p><div class="flow"><div class="st"><b>vorher</b><span>AWT + Naturwissenschaften</span></div><div class="ar">→</div><div class="st"><b>Schulversuch</b><span>AW · Physik/Technik · Naturwissenschaften</span></div></div><ul class="il"><li>ab Jg. 8 für alle: Fischertechnik-Modelle, eigener Elektromotor, Hausinstallation</li><li>Partner: Robert Bosch GmbH, Handwerkskammer, Uni Hildesheim</li></ul><p class="big">Würdest du Physik und Technik zusammenlegen?</p><p class="cite">Müller, S.: Projekttagebuch, Website der RBG, abgerufen 28.10.2016</p>`),
-    S_('Technik in den Bundesländern', FIG.laender),
-    S_('Du entscheidest', `<p class="big">Wie soll Technik unterrichtet werden?</p><ol class="il big2" type="a"><li>als eigenständiges Fach</li><li>im Fächerverbund mit Wirtschaft</li><li>im Fächerverbund mit Naturwissenschaften</li><li>im Fächerverbund mit Informatik</li><li>nur integriert in Projekte</li><li>gar nicht</li></ol>`),
-    S_('Bis Termin 2: Aufgabenpaket 1', `<div class="grid2"><div class="tile"><h4>Teil A · Technikbegriff</h4><p>Ropohl für Klasse 6, Dimensionen zuordnen, KC und Ropohl vergleichen</p></div><div class="tile y"><h4>Teil B · Fächerkanon</h4><p>Intentionen im KC, Naturwissenschaft oder Technik, Schulversuch, deine Entscheidung, Länder-Check</p></div></div><p class="big">Plattform → Termin 1 → Aufgaben. Ergebnisse vor Termin 2 als Word oder PDF exportieren.</p>`)
+    S_('Termine', `<div class="flow"><div class="st"><b>Termin 1</b><span>Einführung · Aufgabenpaket 1 bekommen</span></div><div class="ar">→</div><div class="st"><b>Termin 2</b><span>Aufgabenpaket 1 besprechen · Aufgabenpaket 2</span></div><div class="ar">→</div><div class="st"><b>Termin 3</b><span>Aufgabenpaket 2 besprechen · Gespräch über aktuelle Entwicklungen · Referat + Diskussion</span></div><div class="ar">→</div><div class="st"><b>Danach</b><span>Ausarbeitung (Weg A)</span></div></div><p class="muted">Zwischen den Terminen bearbeitest du die Aufgaben auf der Lernplattform und schickst sie vorher als Word oder PDF.</p>`),
+    S_('Mögliche Seminarthemen', `<ul class="il cols2">${THEMEN.map(t => `<li>${t}</li>`).join('')}</ul><p class="muted">Auch ein eigenes Thema ist möglich.</p>`),
+    S_('Ein Computer …', `<div class="quote"><p>„Ein Computer wird erst wirklicher Computer, wenn er zum Teil einer Mensch-Maschine-Einheit geworden ist. Wenn Text geschrieben wird, tut das nicht allein der Mensch, aber es ist auch nicht allein der Computer, der den Text schreibt; erst die Arbeitseinheit von Mensch und Computer bringt die Textverarbeitung zuwege. Da freilich im benutzten Computer immer schon die Arbeit anderer Menschen verkörpert ist […], bezeichne ich sie als soziotechnisches System.“</p><cite>Ropohl (2009): Allgemeine Technologie. Eine Systemtheorie der Technik, S. 58</cite></div>`),
+    S_('Ropohls Technikbegriff', FIG.ropohlDef + AUF('1.1', 'Beschreibe in eigenen Worten, wie Ropohl „Technik“ definiert. <b>Bedingung:</b> Schüler:innen der 6. Klasse sollen deine Definition verstehen.')),
+    S_('Dimensionen und Erkenntnisperspektiven der Technik', FIG.ropohl),
+    S_('Der Technikbegriff im Kerncurriculum', AUF('1.2', 'Erkläre, wie das Kerncurriculum den Begriff „Technik“ bzw. das Fach Technik beschreibt.<br><span class="cite">→ „Bildungsbeitrag des Faches Technik“ (Nds. Kultusministerium 2010, KC Technik Realschule, S. 7 f.)</span>') + AUF('1.3', 'Nenne und erläutere Gemeinsamkeiten und Unterschiede der Definition des Technikbegriffs und den Dimensionen von Technik zwischen dem KC und Günter Ropohl.')),
+    S_('Grundbegriffe technischer Bildung', `<div class="quote"><p>„Der sogenannte ‚Fächerkanon‘ der Schulfächer erfüllt eine wenig beachtete Funktion für die Orientierung junger Menschen: Er gliedert die Welt, die sie sonst eher diffus wahrnehmen, in Bereiche. […] Sie stellt aber auch eine Ordnung dar, die aus Traditionen heraus entstanden ist. Das heißt, dass sie prinzipiell hinterfragt werden kann (und muss). Grundsätzlich muss jedes Schulfach im allgemeinbildenden Schulwesen seine Notwendigkeit darlegen können. Es muss Intentionen (Absichten, Zielrichtungen) beschreiben und sie den Lernenden und der Gesellschaft gegenüber begründen können.“</p><cite>Binder (2014): Theorien und Modelle der Technikdidaktik, S. 7</cite></div>`),
+    S_('Harald Lesch zum Fächerkanon', `<p class="big">Video: <a href="https://youtu.be/Wj-KTcxjLqs" target="_blank" rel="noopener">youtu.be/Wj-KTcxjLqs</a></p>` + AUF('1.4', 'Arbeite mithilfe des Kerncurriculums heraus, welche Intentionen und ihre Begründungen das Fach Technik hat.') + AUF('1.5', 'Überlege, wie Harald Lesch zum Fach Technik stehen könnte.')),
+    S_('Schulversuch der Robert-Bosch-Gesamtschule', `<div class="flow"><div class="st"><b>vorher</b><span>AWT und NW</span></div><div class="ar">→</div><div class="st"><b>Schulversuch</b><span>AW, Technik/Physik und NW</span></div></div>` + AUF('1.6', 'Lies den Text zum Schulversuch (Anhang der Mail). Was ist deine Meinung zum Schulversuch?') + AUF('1.7', 'Würdest du die Fächer Physik und Technik zusammenlegen? Begründe deine Meinung.') + AUF('1.8', 'Würde der VDI Technik und Naturwissenschaften zusammenlegen? Begründe deine Meinung.')),
+    S_('Technik im Fächerkanon', `<p class="big">Du darfst entscheiden, wie Technik unterrichtet wird:</p><ol class="il big2" type="a"><li>als eigenständiges Fach</li><li>im Fächerverbund mit Wirtschaft</li><li>im Fächerverbund mit Naturwissenschaften</li><li>im Fächerverbund mit Informatik</li><li>nur integriert in Projekte</li><li>gar nicht</li></ol>` + AUF('1.9', 'Für welche Möglichkeit würdest du dich entscheiden? Begründe deine Meinung.')),
+    S_('Bis Termin 2: Aufgabenpaket 1', `<div class="grid2"><div class="tile"><h4>Technikbegriff · Aufgaben 1.1–1.3</h4><p>Ropohl für die 6. Klasse, Technikbegriff im KC, KC und Ropohl vergleichen</p></div><div class="tile y"><h4>Technik im Fächerkanon · Aufgaben 1.4–1.9</h4><p>Intentionen, Harald Lesch, Schulversuch, Physik und Technik, VDI, deine Entscheidung</p></div></div><p class="big">Lernplattform → Termin 1 → „Nach dem Termin“. Vor Termin 2 als Word oder PDF exportieren und schicken.</p>`),
+    S_('Kursseite und Lernplattform', KURSSEITE)
   ],
   paket: { teile: [
-    { t: 'Teil A · Technikbegriff', ids: ['s1a1', 's1a2', 's1a3', 's1a4', 's1a5', 's1a6'], slides: [4, 8] },
-    { t: 'Teil B · Technik im Fächerkanon', ids: ['s2a1', 's2a2', 's2a3', 's2a5', 's2a4', 's2a6', 's2a7'], slides: [9, 14] }
+    { t: 'Technikbegriff', ids: ['a1_ropohl', 'a1_dim', 'a1_kc', 'a1_vergleich'], slides: [7, 10] },
+    { t: 'Technik im Fächerkanon', ids: ['a1_intentionen', 'a1_lesch', 'a1_schulversuch', 'a1_physik', 'a1_vdi', 'a1_nwt', 'a1_kanon'], slides: [11, 14] }
   ] } },
-{ id: 't2', nr: 2, file: 'praesentationen/TdK_Termin-2_Mehrperspektivisch-Methoden-Modelle', title: 'Mehrperspektivisch, Methoden und Modelle', lead: 'Das Gerüst der Technikdidaktik: Perspektiven, Inhaltsfelder, Methodensystem und die großen Ansätze.',
-  leit: ['Was unterscheidet Erkenntnis- von Zielperspektiven?', 'Reicht die Projektmethode – und ist Making eine neue Methode?', 'Welche Ansätze stecken im heutigen Kerncurriculum?'],
+
+{ id: 't2', nr: 2, file: 'praesentationen/TdK_Termin-2_Mehrperspektivischer-Technikunterricht', title: 'Der mehrperspektivische Technikunterricht', lead: 'Wir besprechen Aufgabenpaket 1. Danach geht es um den mehrperspektivischen Technikunterricht (mpTu) – und um dein Referat.',
+  leit: ['Was unterscheidet Erkenntnis- von Zielperspektiven?', 'Wie mehrperspektivisch ist das Kerncurriculum?', 'Welches Thema nimmst du für dein Referat?'],
   slides: [
     S_('Termin 2', agenda(AG, 1)),
-    S_('Rückblick: Aufgabenpaket 1', `<ul class="il big2"><li>Deine Ropohl-Definition für Klasse 6 – vorlesen und prüfen: vereinfacht, aber nicht verfälscht?</li><li>KC und Ropohl: Was fehlt im Kerncurriculum?</li><li>Deine Entscheidung zum Fächerkanon – und dein stärkstes Argument</li></ul>`),
-    S_('Der mehrperspektivische Technikunterricht', FIG.mptu),
-    S_('Mehrperspektivisch ≠ mehrdimensional', `<div class="merke"><b class="t">Bienhaus (2008, S. 3)</b>„Mehrperspektivisch“ meint nicht, möglichst viele Wissenschaften zu berücksichtigen – dann wäre „mehrdimensional“ passender. Gemeint ist ein Unterricht, der die Zielperspektiven verfolgt.</div><div class="merke"><b class="t">Richtziel</b>Mündigkeit, um in einer von Technik geprägten Welt sachangemessen, human und solidarisch handeln zu können (Bienhaus 2008, S. 6).</div>`),
-    S_('Inhaltsfelder', FIG.matrix),
-    S_('Das Methodensystem', FIG.methoden),
-    S_('These', `<p class="huge">„Die Projektmethode reicht aus, um guten Technikunterricht zu machen.“</p><p class="muted">Stimmst du zu?</p>`),
-    S_('Maker Education – eine neue Methode?', `<div class="quote"><p>„Alles, was Schule anfasst, wird zu Schule.“</p><cite>Deinet (2002), zit. n. Ingold & Maurer (2019), S. 60</cite></div><ul class="il"><li>Schnittmengen: Projektunterricht, handlungsorientiertes Lernen, Reformpädagogik (Pestalozzi, Montessori, Kerschensteiner, Dewey)</li><li>Reibungspunkte: Fehlerkultur, Bewertung, Taktung, Raum</li></ul>`),
-    S_('Ansätze der Technikdidaktik', FIG.ansaetze),
-    S_('AtA · MpA · AoA', `<div class="grid3"><div class="tile"><h4>AtA</h4><p>ingenieurwissenschaftlich; Grundfunktionen (Wandeln, Speichern, Übertragen), Systemattribute (Stoff, Energie, Information); stark in NRW</p></div><div class="tile y"><h4>MpA</h4><p>Technik als Kulturphänomen; alle drei Erkenntnisperspektiven</p></div><div class="tile r"><h4>AoA</h4><p>Leitbegriff Arbeit; Verbünde wie AWT oder WAT; Berufsorientierung</p></div></div><p class="big">Und das KC AWT IGS? „Stoff, Energie, Information“ (S. 11) …</p><p class="cite">Nach Binder (2014), S. 20 f.</p>`),
-    S_('Das Interaktionsmodell nach Hüttner', FIG.huettner),
-    S_('Zum Vergleich: das Berliner Modell', FIG.berlin),
-    S_('Didaktische Reduktion', FIG.reduktion),
-    S_('Bis Termin 3: Aufgabenpaket 2', `<div class="grid3"><div class="tile"><h4>Teil A · mpTu</h4><p>Begriffe klären, Perspektiven zuordnen, KC analysieren</p></div><div class="tile y"><h4>Teil B · Methoden & Modelle</h4><p>Methoden zuordnen, Projektmethode, Ansätze, Interaktionsmodell</p></div><div class="tile g"><h4>Teil C · Vorbereitung</h4><p>Thesen für das Gespräch, Referatsthema wählen, Referat planen</p></div></div>`)
+    S_('Besprechung: Technikbegriff', `<div class="grid3"><div class="tile"><span class="k">1.1</span><p>Deine Definition für die 6. Klasse: vorlesen und prüfen – vereinfacht, aber nicht verfälscht?</p></div><div class="tile"><span class="k">1.2</span><p>Wie beschreibt das KC Technik?</p></div><div class="tile y"><span class="k">1.3</span><p>KC und Ropohl: Was ist gleich, was fehlt?</p></div></div>`),
+    S_('Besprechung: Technik im Fächerkanon', `<div class="grid3"><div class="tile"><span class="k">1.4</span><p>Intentionen und Begründungen des Fachs</p></div><div class="tile"><span class="k">1.5</span><p>Harald Lesch und das Fach Technik</p></div><div class="tile"><span class="k">1.6</span><p>Der Schulversuch der RBG</p></div><div class="tile"><span class="k">1.7</span><p>Physik und Technik zusammenlegen?</p></div><div class="tile"><span class="k">1.8</span><p>Und der VDI?</p></div><div class="tile y"><span class="k">1.9</span><p>Deine Entscheidung (a–f) und dein stärkstes Argument</p></div></div>`),
+    S_('Der mehrperspektivische Technikunterricht (mpTu)', `<p class="huge">Der mehrperspektivische Technikunterricht</p><p class="big">nach Wilkening und Schmayl</p><p class="muted">Grundlage: Bienhaus (2008): Technikdidaktik – der mehrperspektivische Ansatz</p>`),
+    S_('Erkenntnisperspektive und Zielperspektive', AUF('2.1', 'Lies den Auszug „Technikdidaktik – der mehrperspektivische Ansatz“ von Bienhaus. Erkläre die Begriffe <b>Erkenntnisperspektive</b> und <b>Zielperspektive</b> und nenne die jeweiligen Perspektiven.')),
+    S_('Erkenntnisperspektiven im Kerncurriculum', AUF('2.2', 'Analysiere, in welcher Form die Erkenntnisperspektiven nach Schmayl im Kerncurriculum Technik für die Realschule wiederzufinden sind.')),
+    S_('Inhaltsfelder im Kerncurriculum', AUF('2.3', 'Vergleiche, welche Inhaltsfelder des mehrperspektivischen Technikunterrichts im Kerncurriculum Technik für die Realschule vorkommen und welche nicht.<br><span class="cite">Auf der nächsten Folie findest du eine Übersicht der Inhaltsfelder des mpTu.</span>')),
+    S_('Mehrperspektivische Technikdidaktik: Inhaltsfelder', FIG.matrix),
+    S_('Dein Referat in Termin 3', `<div class="grid2"><div class="tile y"><h4>Weg A · Referat</h4><p>20 Min. + Diskussion + Ausarbeitung (über 10 Seiten)</p></div><div class="tile g"><h4>Weg B · Vortrag</h4><p>40 Min. + Diskussion, keine Ausarbeitung</p></div></div>` + AUF('2.4', 'Wähle ein Thema aus der Liste der Seminarthemen oder schlage ein eigenes vor.') + AUF('2.5', 'Plane deinen Beitrag: Fragestellung, Quellen, Gliederung, Diskussionsfragen.')),
+    S_('Bis Termin 3: Aufgabenpaket 2', `<div class="grid2"><div class="tile"><h4>mpTu · Aufgaben 2.1–2.3</h4><p>Erkenntnis- und Zielperspektive, Perspektiven im KC, Inhaltsfelder im KC</p></div><div class="tile y"><h4>Referat · Aufgaben 2.4–2.5</h4><p>Thema wählen, Beitrag planen</p></div></div>${KURSSEITE}`)
   ],
   paket: { teile: [
-    { t: 'Teil A · Mehrperspektivischer Technikunterricht', ids: ['s3a1', 's3a2', 's3a3', 's3a4', 's3a5', 's3a6'], slides: [2, 4] },
-    { t: 'Teil B · Methoden und Modelle', ids: ['s4a1', 's4a2', 's4a3', 's4a4', 's4a5', 's4a6', 's4a7', 's4a8'], slides: [5, 12] },
-    { t: 'Teil C · Vorbereitung auf Termin 3', ids: ['s5a1', 's7a1', 's7a2'], slides: null }
+    { t: 'Der mehrperspektivische Technikunterricht', ids: ['a2_begriffe', 'a2_sort', 'a2_kc', 'a2_felder'], slides: [3, 7] },
+    { t: 'Vorbereitung auf Termin 3: Referat', ids: ['a2_thema', 'a2_plan'], slides: [8, 8] }
   ] } },
-{ id: 't3', nr: 3, file: 'praesentationen/TdK_Termin-3_Aktuelle-Entwicklungen-Leistungsbewertung-Referat', title: 'Aktuelle Entwicklungen, Leistungsbewertung, Referat', lead: 'Ein Blick aus der Praxis, die Frage nach fairer Bewertung – und dein Impulsreferat.',
-  leit: ['Wo steht der Technikunterricht in Niedersachsen?', 'Warum wird ein MakerSpace selten zum guten Konzept, wenn er als Robotik-Fachraum startet?', 'Was macht gute selbst entwickelte digitale Lernmaterialien aus?', 'Wie bewertest du Prozess und Produkt fair?'],
+
+{ id: 't3', nr: 3, file: 'praesentationen/TdK_Termin-3_Aktuelle-Entwicklungen-Referat', title: 'Aktuelle Entwicklungen, Referat und Diskussion', lead: 'Wir besprechen Aufgabenpaket 2, sprechen über aktuelle Entwicklungen im Technikunterricht – und du hältst dein Referat.',
+  leit: ['Wo steht der Technikunterricht in Niedersachsen?', 'Warum wird ein MakerSpace selten zum guten Konzept, wenn er als Robotik-Fachraum startet?', 'Was macht gute selbst entwickelte digitale Lernmaterialien aus?'],
   slides: [
     S_('Termin 3', agenda(AG, 2)),
-    S_('Rückblick: Aufgabenpaket 2', `<ul class="il big2"><li>Erkenntnis- und Zielperspektiven – in eigenen Worten</li><li>Reicht die Projektmethode?</li><li>Welche Ansätze stecken im KC AWT?</li><li>Deine offene Frage zum Interaktionsmodell</li></ul>`),
-    S_('Woher kommt das Lagebild?', `<div class="grid3"><div class="tile"><h4>Fachberatung</h4><p>landesweiter Austausch</p></div><div class="tile"><h4>Fachmoderation AWT</h4><p>Dienstbesprechungen der Fachbereichsleitungen</p></div><div class="tile"><h4>Tagungen</h4><p>Netzwerktagung AWT, Jahrestagung der didaktischen Leitungen, DGTB</p></div><div class="tile"><h4>Fortbildungen</h4><p>Kompetenzzentren, NLQ</p></div><div class="tile"><h4>Netzwerke</h4><p>Netzwerk Techniklehrkräfte</p></div></div>`),
-    S_('Lagebild Technikunterricht', FIG.lage),
-    S_('MakerSpace statt Robotik-Fachraum', `<p>Im Schulalltag wird ein MakerSpace oft als Raum mit Robotern, 3D-Druckern und Lasercuttern verstanden – und landet als teurer Fachraum im Katalog. Die Maker-Bewegung meint: Menschen kommen zusammen, entwickeln Ideen und setzen sie mit vorhandenen Werkzeugen und Materialien um.</p>${FIG.robotik}`),
-    S_('Neun Handlungsfelder – zwei betreffen Raum und Ausstattung', FIG.hf + `<div class="merke"><b class="t">Robotik in der Schule</b>Meist Programmieren fertiger Sets statt eigener Konstruktion (Ingold & Maurer 2019, S. 72 f.).</div>`),
-    S_('Digitale Lernmaterialien selbst entwickeln', `<p>Lehrkräfte bauen eigene interaktive Lernumgebungen, oft mit KI-Unterstützung. Die Frage verschiebt sich von „Kann ich das bauen?“ zu „Ist das gut – und darf ich das teilen?“</p>${FIG.digital}`),
-    S_('Chancen und Grenzen', `<div class="grid2"><div class="tile g"><h4>Chancen</h4><ul class="il"><li>passgenau zu Unterricht und KC</li><li>direkte Rückmeldung, Differenzierung</li><li>teilbar (OER)</li></ul></div><div class="tile r"><h4>Grenzen</h4><ul class="il"><li>fachliche Prüfung bleibt bei der Lehrkraft</li><li>Datenschutz: keine Konten, keine Schülerdaten</li><li>Urheberrecht: nur klar lizenzierte Inhalte</li></ul></div></div><p class="cite">Rahmen: KMK (2021): Lehren und Lernen in der digitalen Welt, Beschluss v. 09.12.2021; KC AWT IGS, Kap. 2.4, S. 14.</p>`),
-    S_('Thesen', `<ol class="il big2"><li>Der Lehrkräftemangel trifft die praktischen Fächer stärker als andere.</li><li>3D-Druck und Arduino machen den Technikunterricht moderner.</li><li>Ein MakerSpace ohne Konzept wird zum Gerätefriedhof.</li><li>Technik sollte im Fächerverbund AWT aufgehen.</li><li>Lehrkräfte sollten digitale Lernmaterialien selbst entwickeln.</li><li>Badges können Noten ergänzen.</li></ol>`),
-    S_('Leistungsbewertung im Technikunterricht', `<div class="quote"><p>„Klassenbildung sowie Lehrereinsatz sind entscheidende Rahmenbedingungen für den Unterricht. Es ist Aufgabe der Schule, zwischen den Klassen eines Schuljahrgangs einen annähernd gleichen Leistungsstand sicherzustellen.“</p><cite>MK Niedersachsen (2014): Orientierungsrahmen Schulqualität, QM 3.3, S. 11</cite></div><p class="huge">Wozu dient Leistungsbewertung?</p>`),
-    S_('Funktionen der Leistungsbewertung', FIG.funktionen + `<div class="quote"><p>„Die Leistungsbewertung muss den Verlauf eines Lernprozesses berücksichtigen und dokumentieren und darf sich nicht ausschließlich auf punktuelle Leistungsmessung beziehen.“</p><cite>IGS-Erlass v. 01.08.2026, Nr. 7.2</cite></div>`),
-    S_('Ein Fall aus dem Fachraum', `<div class="grid2"><div class="tile"><span class="k">4</span><p>1. Halbjahr: Arduino</p></div><div class="tile"><span class="k">1</span><p>2. Halbjahr: Holztechnik</p></div></div><p class="huge">Gesamtnote: 3+ ?</p>${FIG.rahmen}`),
-    S_('Formativ, summativ – oder gar keine Noten?', `<div class="grid2"><div class="tile"><h4>formativ</h4><p>begleitend, lernfördernd: Rückmeldegespräch, Lerntagebuch, Zwischencheck</p></div><div class="tile y"><h4>summativ</h4><p>abschließend, bilanzierend: Klassenarbeit, Note für das Werkstück</p></div></div><p class="big">Noten abschaffen? Was leisten Badges?</p><p class="cite">IGS-Erlass Nr. 7.3: auch „alternative Leistungsnachweise“.</p>`),
-    S_('Impulsreferat und Diskussion', `<p class="huge">Bühne frei</p><div class="flow"><div class="st"><b>Einstieg</b></div><div class="ar">→</div><div class="st"><b>Klärung</b></div><div class="ar">→</div><div class="st"><b>Befunde</b></div><div class="ar">→</div><div class="st"><b>Diskussion</b><span>Fragen mit Impulsen</span></div></div><div class="grid2"><div class="tile y"><h4>Referat</h4><p>20 Min. + Diskussion + Ausarbeitung (über 10 Seiten)</p></div><div class="tile g"><h4>Vortrag</h4><p>40 Min. + Diskussion, keine Ausarbeitung</p></div></div>`),
-    S_('Nach Termin 3: Aufgabenpaket 3 und Ausarbeitung', `<div class="grid2"><div class="tile"><h4>Vertiefungen</h4><p>MakerSpace-Fall, Qualitätscheck einer Lernplattform, eigenes digitales Lernmaterial, Leistungsbewertung</p></div><div class="tile y"><h4>Bei Referat: Ausarbeitung</h4><p>Diskussionsergebnisse und Ausblick, über 10 Seiten – Abgabe zum Ende des Semesters</p></div></div>`)
+    S_('Besprechung: Aufgabenpaket 2', `<div class="grid3"><div class="tile"><span class="k">2.1</span><p>Erkenntnis- und Zielperspektiven in eigenen Worten</p></div><div class="tile"><span class="k">2.2</span><p>Wie mehrperspektivisch ist das KC?</p></div><div class="tile y"><span class="k">2.3</span><p>Welche Inhaltsfelder fehlen im KC – und warum?</p></div></div>`),
+    S_('Aktuelle Entwicklungen im Technikunterricht', `<p class="big">Woher kommt das Lagebild?</p><div class="grid3"><div class="tile"><h4>Fachberatung</h4><p>Austausch landesweit</p></div><div class="tile"><h4>Fachmoderation AWT</h4><p>Dienstbesprechungen der Fachbereichsleitungen</p></div><div class="tile"><h4>Tagungen</h4><p>Netzwerktagung AWT, Jahrestagung der didaktischen Leitungen</p></div><div class="tile"><h4>Fortbildungen</h4><p>Kompetenzzentren, NLQ</p></div><div class="tile"><h4>DGTB</h4><p>Deutsche Gesellschaft für Technische Bildung</p></div><div class="tile"><h4>Netzwerke</h4><p>Netzwerk Techniklehrkräfte</p></div></div>`),
+    S_('Probleme in Schulen', `<ul class="il big2"><li>Lehrkräftemangel: Kürzungen im WPK-Bereich in praktischen Fächern</li><li>Schwierigkeiten mit BBS-Kooperationen</li><li>Anzahl ausgebildeter Lehrkräfte im Fach Technik nimmt ab</li><li>Fachraumausstattung verschlechtert sich an vielen Schulen</li><li>Werkräume werden teilweise zu Klassenräumen umfunktioniert</li></ul><p class="cite">Beobachtungen aus Fachberatung und Fachmoderation, Stand 2024.</p>`),
+    S_('Digitalisierung im Fach Technik', `<div class="grid3"><div class="tile"><h4>n-21 „Masterplan Digitalisierung“</h4><ul class="il"><li>54 Projektschulen Mensch-Roboter-Kollaboration (Robonatives)</li><li>19 Projektschulen Additive Fertigung (3D-Druck)</li></ul></div><div class="tile"><h4>3D-Druck</h4><ul class="il"><li>NLQ: Moodle-Selbstlernkurs „3D-Druck ohne Vorkenntnisse“</li><li>viele Fortbildungen, meist mit Tinkercad</li></ul></div><div class="tile y"><h4>Nachfrage</h4><ul class="il"><li>mehr Interesse an Digitalisierungsthemen</li><li>Fortbildungen zu Arduino und 3D-Druck</li><li>großes Interesse an Lasercuttern</li></ul></div></div><p class="cite">Zahlen der Projektschulen: Stand Januar 2024 (Seminarfolien WiSe 2023/24).</p>`),
+    S_('Lehrkräfteausbildung und Kerncurricula', `<div class="grid2"><div class="tile"><h4>Lehrkräfteausbildung an der Universität</h4><ul class="il"><li>Digitalisierung im Fach Technik implementiert</li><li>keine steigenden Studierendenzahlen im Fach Technik</li></ul></div><div class="tile y"><h4>Kerncurricula und Erlasse</h4><ul class="il"><li>KC Technik (Realschule): keine Neuauflage geplant (Stand 01/2024)</li><li>IGS: KC Arbeit-Wirtschaft-Technik (MK 2023)</li><li>IGS-Erlass v. 01.08.2026: Projektunterricht in jedem Schuljahrgang (Nr. 4.3)</li></ul></div></div>`),
+    S_('Fort- und Weiterbildung der Lehrkräfte', `<div class="grid2"><div class="tile"><h4>Kompetenzzentren</h4><ul class="il"><li>Angebote zum Erwerb des Maschinenscheins – immer noch nicht ausreichend verfügbar</li><li>Maschinenschein nicht mehr obligatorisch – Schulen wissen das oft nicht</li><li>Probleme beim Akquirieren von Referent:innen</li></ul></div><div class="tile y"><h4>RLSB und NLQ</h4><ul class="il"><li>Fachmoderation und Fachberatung unterstützen die Kompetenzzentren</li><li>NLQ: Qualifikationsmaßnahme für fachfremd Unterrichtende im Fach Technik (3 Jahre, 20 Lehrkräfte)</li></ul></div></div><p class="cite">Stand 2024 (Seminarfolien WiSe 2023/24 und 2024/25).</p>`),
+    S_('MakerSpaces', `<ul class="il big2"><li>Allgemeinbildende und berufsbildende Schulen haben Interesse</li><li>Innovative Schulen arbeiten viel in Projekten: Alemannenschule Wutöschingen, Lernbüros (z. B. Oskar-Schindler-Gesamtschule Hildesheim), Frei-Day</li><li>KGS Gronau: Der Maschinenraum wurde zum MakerSpace</li><li>Naive Umsetzung: erst teure Anschaffungen, dann der Versuch, damit zu arbeiten</li><li>Badges als Leistungsdokumentation</li></ul>`),
+    S_('MakerSpace statt Robotik-Fachraum', `<p>Im Schulalltag wird ein MakerSpace oft als Raum mit Robotern, 3D-Druckern und Lasercuttern verstanden – und landet als teurer Fachraum im Katalog. Gemeint ist: Menschen kommen zusammen, entwickeln Ideen und setzen sie mit vorhandenen Werkzeugen und Materialien um.</p>${FIG.robotik}`),
+    S_('Technik-Badges mit „Open Badges“', `<div class="grid3"><div class="tile"><h4>Dokumentation</h4><p>von Kompetenzen</p></div><div class="tile"><h4>institutionsübergreifend</h4><p>nicht an eine Schule gebunden</p></div><div class="tile y"><h4>Nachweis</h4><p>kann als Nachweis verwendet werden</p></div></div>`),
+    S_('Digitale Lernmaterialien selbst entwickeln', `<p class="big">Nicht mehr „Kann ich das bauen?“, sondern „Ist das gut – und darf ich das teilen?“</p>${FIG.digital}<div class="grid2"><div class="tile g"><h4>Chancen</h4><ul class="il"><li>passgenau zu Unterricht und KC</li><li>direkte Rückmeldung, Differenzierung</li><li>teilbar als OER</li></ul></div><div class="tile r"><h4>Grenzen</h4><ul class="il"><li>fachliche Prüfung bleibt bei der Lehrkraft</li><li>Datenschutz: keine Konten, keine Schülerdaten</li><li>Urheberrecht: nur klar lizenzierte Inhalte</li></ul></div></div>`),
+    S_('KI-Lernplattformen', `<div class="grid3"><div class="tile"><h4>KI-Kompetenz als Lernziel</h4><p>z. B. AI Badge in drei Leveln für die Jahrgänge 7–9</p></div><div class="tile"><h4>Schul-KI</h4><p>Zugänge für Schüler:innen über die Lehrkräfte, z. B. fobizz</p></div><div class="tile y"><h4>Offene Fragen</h4><p>Datenschutz, Prüfungskultur, Verlernen</p></div></div>`),
+    S_('Gespräch', `<ul class="il big2"><li>Was davon hast du in Praktika oder in deiner eigenen Schulzeit erlebt?</li><li>Welche Entwicklung hältst du für die wichtigste?</li><li>Was bedeutet das für deinen späteren Technikunterricht?</li></ul>`),
+    S_('Referat und Diskussion', `<p class="huge">Bühne frei</p><div class="flow"><div class="st"><b>Einleitung</b><span>Fragestellung</span></div><div class="ar">→</div><div class="st"><b>Klärung</b><span>Begriffe, Positionen</span></div><div class="ar">→</div><div class="st"><b>Hauptteil</b><span>Quellen, Praxis, Kritik</span></div><div class="ar">→</div><div class="st"><b>Fazit</b><span>Ansätze für die Diskussion</span></div><div class="ar">→</div><div class="st"><b>Diskussion</b><span>Fragen mit Impulsen</span></div></div>`),
+    S_('Nach Termin 3: Ausarbeitung', `<div class="grid2"><div class="tile y"><h4>Weg A · Referat</h4><p>Ausarbeitung mit Diskussionsergebnissen und Ausblick (über 10 Seiten) – Abgabe zum Ende des Semesters</p></div><div class="tile g"><h4>Weg B · Vortrag</h4><p>keine Ausarbeitung – Diskussionsergebnisse kurz festhalten</p></div></div><p class="big">Aufgabenpaket 3 auf der Lernplattform: Fazit zum Gespräch und Gliederung der Ausarbeitung.</p>${KURSSEITE}`)
   ],
   paket: { teile: [
-    { t: 'Teil A · MakerSpace', ids: ['s5a2', 's5a3'], slides: [4, 5] },
-    { t: 'Teil B · Digitale Lernmaterialien', ids: ['s5a4', 's5a5'], slides: [6, 7] },
-    { t: 'Teil C · Leistungsbewertung', ids: ['s6a1', 's6a2', 's6a4', 's6a3', 's6a5'], slides: [9, 12] },
-    { t: 'Teil D · Diskussionsergebnisse und Ausarbeitung', ids: ['s7a3'], slides: [13, 13] }
+    { t: 'Gespräch: aktuelle Entwicklungen', ids: ['a3_gespraech'], slides: [2, 12] },
+    { t: 'Referat und Ausarbeitung', ids: ['a3_ausarbeitung'], slides: [13, 14] }
   ] } }
 ];
 
@@ -997,7 +761,7 @@ function buildTask(t, nr) {
   const ctx = { changed: () => { saveSoon(); paint(); } };
   const body = CHECK_TYPES.includes(t.type) ? checkTask(t, ctx, paint) : TYPES[t.type](t, ctx);
   card.append(...[
-    h('div', { class: 'th' }, h('h3', null, 'Aufgabe ' + nr), h('span', { class: 'kind ' + kind[0] }, kind[1]), h('span', { style: 'font-weight:600' }, t.title || ''), state),
+    h('div', { class: 'th' }, h('h3', null, nr), h('span', { class: 'kind ' + kind[0] }, kind[1]), h('span', { style: 'font-weight:600' }, t.title || ''), state),
     t.q ? h('p', { class: 'q', html: t.q }) : null,
     t.info ? h('details', { class: 'info' }, h('summary', null, 'Hilfe zur Aufgabe'), h('div', { class: 'ib', html: t.info })) : null,
     t.hint ? h('div', { class: 'note', html: '<b>Tipp:</b> ' + t.hint }) : null,
@@ -1138,6 +902,7 @@ CHECKS.sort = t => {
 const NAV = [{ id: 'start', nav: 'Start', no: '•', kind: 'start' }]
   .concat(TERMINE.map(T => ({ id: T.id, nav: 'Termin ' + T.nr, no: String(T.nr), kind: 'termin', T })))
   .concat([{ id: 'test', nav: 'Abschluss-Check', no: '✓', kind: 'test' }, { id: 'material', nav: 'Material', no: '§', kind: 'material' }, { id: 'export', nav: 'Export', no: '↓', kind: 'export' }]);
+function numberer(T) { let nr = 0; return t => t.extra ? `Zusatz zu ${T.nr}.${nr}` : `Aufgabe ${T.nr}.${++nr}`; }
 const paketTasks = T => T.paket.teile.flatMap(p => p.ids.map(id => TASK[id]));
 const datumText = d => d ? new Date(d + 'T12:00:00').toLocaleDateString('de-DE', { weekday: 'short', day: '2-digit', month: '2-digit', year: 'numeric' }) : '';
 function paketOffen(T) { const d = TERMINE_DATEN[T.id]; if (!d) return true; const t = new Date(d + 'T00:00:00'); return new Date() >= t; }
@@ -1202,14 +967,14 @@ function viewTermin(T, tab) {
       modnav());
   }
   const open = paketOffen(T);
-  let nr = 0;
+  const no = numberer(T);
   return h('div', null, head,
     h('div', { class: 'paket' }, h('div', null, h('b', null, `Aufgabenpaket ${T.nr}`), h('span', null, next ? `Bearbeiten nach Termin ${T.nr}, fertig bis Termin ${next.nr}${TERMINE_DATEN[next.id] ? ' (' + datumText(TERMINE_DATEN[next.id]) + ')' : ''}.` : 'Bearbeiten nach Termin 3, fertig bis zur Abgabe der Ausarbeitung.')),
       h('div', null, 'Vor dem Termin: Ergebnisse unter ', h('a', { href: '#export' }, 'Export'), ` als Word oder PDF speichern und schicken (Auswahl „Paket ${T.nr}“).`)),
     open ? T.paket.teile.map(part => h('div', null,
       h('div', { class: 'sec' }, part.t),
       part.slides ? h('p', { class: 'cite' }, 'Input dazu: ', h('a', { href: '#' + T.id, onclick: e => { e.preventDefault(); present(T, part.slides[0]); } }, `Folien ${part.slides[0] + 1}–${part.slides[1] + 1} ansehen`)) : null,
-      part.ids.map(id => (nr++, buildTask(TASK[id], `${T.nr}.${nr}`))))) : h('div', { class: 'note' }, `Dieses Paket wird nach Termin ${T.nr} (${datumText(d)}) freigeschaltet.`),
+      part.ids.map(id => buildTask(TASK[id], no(TASK[id]))))) : h('div', { class: 'note' }, `Dieses Paket wird nach Termin ${T.nr} (${datumText(d)}) freigeschaltet.`),
     modnav());
 }
 
@@ -1263,11 +1028,11 @@ function viewStart() {
     h('div', { class: 'note' }, 'Bei Krankheit: Abmeldung bis 7:00 Uhr am selben Tag per Mail.'),
     h('div', { class: 'sec' }, 'So arbeitest du hier'),
     h('div', { class: 'legend' },
-      h('div', null, h('span', { class: 'kind check' }, 'Selbstcheck'), h('span', null, 'Feste Lösung, sofortige Rückmeldung. Nach zwei Versuchen kannst du die Lösung ansehen.')),
-      h('div', null, h('span', { class: 'kind write' }, 'Schreibauftrag'), h('span', null, 'Deine Antwort landet im Export. Danach kannst du sie mit dem Erwartungshorizont vergleichen.')),
-      h('div', null, h('span', { class: 'kind talk' }, 'Gesprächsimpuls'), h('span', null, 'Notizen für das Gespräch im nächsten Termin.'))),
+      h('div', null, h('span', { class: 'kind write' }, 'Schreibauftrag'), h('span', null, 'Die Aufgaben von den Folien. Deine Antwort landet im Export; danach kannst du sie mit dem Erwartungshorizont vergleichen.')),
+      h('div', null, h('span', { class: 'kind talk' }, 'Gesprächsimpuls'), h('span', null, 'Deine Meinung, begründet – Grundlage für das Gespräch im nächsten Termin.')),
+      h('div', null, h('span', { class: 'kind check' }, 'Selbstcheck'), h('span', null, 'Zusatz zur Aufgabe davor: feste Lösung, sofortige Rückmeldung.'))),
     h('div', { class: 'sec' }, 'Vor Termin 1 (freiwillig)'),
-    START_TASKS.map((t, i) => buildTask(t, `0.${i + 1}`)),
+    START_TASKS.map((t, i) => buildTask(t, `Aufgabe 0.${i + 1}`)),
     h('div', { class: 'sec' }, 'Links'),
     h('div', { class: 'grid2' }, COURSE.links.map(([t, u, s]) => h('div', { class: 'tile' }, h('h4', null, t), h('a', { href: u, target: '_blank', rel: 'noopener' }, s)))),
     modnav());
@@ -1293,7 +1058,7 @@ function viewTest() {
     S.test.attempts.push({ score, max: TEST.length, at: new Date().toISOString() }); save(); refreshChrome();
     const items = run.order.map(qi => { const q = TEST[qi]; const ok = run.ans[qi] === q.ans; return h('div', { class: 'ri' + (ok ? '' : ' wrong') }, h('b', null, q.q), h('div', null, ok ? '✓ ' + q.opts[q.ans] : `Deine Antwort: ${q.opts[run.ans[qi]]} · richtig: ${q.opts[q.ans]}`)); });
     run = null;
-    wrap.replaceChildren(head, h('div', { class: 'card score' }, h('span', { class: 'big' }, `${score}/${TEST.length}`), h('div', null, h('p', null, score >= 8 ? 'Stark – du hast die Grundbegriffe sicher.' : score >= 5 ? 'Solide. Schau dir die markierten Fragen noch einmal an.' : 'Geh die Themen mit den falschen Antworten noch einmal durch.'), h('div', { class: 'btnrow' }, h('button', { class: 'btn ghost', type: 'button', onclick: start }, 'Neuer Versuch'), h('a', { class: 'btn', href: '#export' }, 'Zum Export')))), h('div', { class: 'rev' }, items), modnav());
+    wrap.replaceChildren(head, h('div', { class: 'card score' }, h('span', { class: 'big' }, `${score}/${TEST.length}`), h('div', null, h('p', null, score >= Math.ceil(TEST.length * 0.8) ? 'Stark – du hast die Grundbegriffe sicher.' : score >= Math.ceil(TEST.length * 0.5) ? 'Solide. Schau dir die markierten Fragen noch einmal an.' : 'Geh die Themen mit den falschen Antworten noch einmal durch.'), h('div', { class: 'btnrow' }, h('button', { class: 'btn ghost', type: 'button', onclick: start }, 'Neuer Versuch'), h('a', { class: 'btn', href: '#export' }, 'Zum Export')))), h('div', { class: 'rev' }, items), modnav());
   }
   draw(); return wrap;
 }
@@ -1352,8 +1117,8 @@ function buildReport(scope) {
   const date = new Date().toLocaleDateString('de-DE');
   const item = (t, no) => CHECK_TYPES.includes(t.type) ? { no, title: t.title, check: true, status: S.chk[t.id] && S.chk[t.id].done ? (S.chk[t.id].assisted ? 'mit Lösungshilfe' : 'gelöst') : 'offen' } : { no, title: t.title, q: strip(t.q), lines: answerLines(t) };
   const secs = [];
-  if (!scope || scope === 'start') secs.push({ title: 'Vor Termin 1', items: START_TASKS.map((t, i) => item(t, `0.${i + 1}`)) });
-  TERMINE.forEach(T => { if (scope && scope !== T.id) return; let nr = 0; secs.push({ title: `Aufgabenpaket ${T.nr}: ${T.title}`, items: T.paket.teile.flatMap(p => p.ids.map(id => item(TASK[id], `${T.nr}.${++nr}`))) }); });
+  if (!scope || scope === 'start') secs.push({ title: 'Vor Termin 1', items: START_TASKS.map((t, i) => item(t, `Aufgabe 0.${i + 1}`)) });
+  TERMINE.forEach(T => { if (scope && scope !== T.id) return; const no = numberer(T); secs.push({ title: `Aufgabenpaket ${T.nr}: ${T.title}`, items: T.paket.teile.flatMap(p => p.ids.map(id => item(TASK[id], no(TASK[id])))) }); });
   return { date, name: S.name || '', secs, best: bestTest(), o: overall(), scope };
 }
 const DOCX_TPL_TITLE = 'Technikdidaktisches Kolloquium – meine Ergebnisse';
@@ -1365,8 +1130,8 @@ function makeDocx(r) {
   r.secs.forEach(s => {
     B.push(wP(s.title, { style: 'berschrift1' }));
     s.items.forEach(it => {
-      if (it.check) { B.push(wP([{ t: `Aufgabe ${it.no} – ${it.title} (Selbstcheck): `, b: true }, it.status])); return; }
-      B.push(wP(`Aufgabe ${it.no} – ${it.title}`, { style: 'berschrift2' }));
+      if (it.check) { B.push(wP([{ t: `${it.no} – ${it.title} (Selbstcheck): `, b: true }, it.status])); return; }
+      B.push(wP(`${it.no} – ${it.title}`, { style: 'berschrift2' }));
       if (it.q) B.push(wP(it.q, { style: 'Hinweis' }));
       if (it.lines.length) it.lines.forEach(l => B.push(wP(l))); else B.push(wP('(noch nicht bearbeitet)', { style: 'Hinweis' }));
     });
@@ -1395,8 +1160,8 @@ function makePDF(r) {
   y = 32; txt(DOCX_TPL_TITLE + (r.scope && r.scope !== 'start' ? ` – Paket ${r.scope.slice(1)}` : ''), 17, 'bold', [3, 85, 145]);
   txt(`Name: ${r.name || '—'}   ·   Stand: ${r.date}   ·   Fortschritt: ${r.o.d}/${r.o.t} Aufgaben`, 10);
   r.secs.forEach(s => { y += 3; need(14); txt(s.title, 13, 'bold', [3, 85, 145]);
-    s.items.forEach(it => { if (it.check) { txt(`Aufgabe ${it.no} – ${it.title} (Selbstcheck): ${it.status}`, 10); return; }
-      need(12); txt(`Aufgabe ${it.no} – ${it.title}`, 11, 'bold'); if (it.q) txt(it.q, 9, 'italic', [86, 104, 122]);
+    s.items.forEach(it => { if (it.check) { txt(`${it.no} – ${it.title} (Selbstcheck): ${it.status}`, 10); return; }
+      need(12); txt(`${it.no} – ${it.title}`, 11, 'bold'); if (it.q) txt(it.q, 9, 'italic', [86, 104, 122]);
       if (it.lines.length) it.lines.forEach(l => txt(l, 10)); else txt('(noch nicht bearbeitet)', 9, 'italic', [86, 104, 122]); }); });
   if (!r.scope) { y += 3; txt('Abschluss-Check', 13, 'bold', [3, 85, 145]); txt(r.best ? `Bester Versuch: ${r.best.score} von ${r.best.max} Punkten` : 'noch nicht bearbeitet', 10); }
   txt('Plattform: CC BY-NC-SA 4.0, Daniel Beyrodt', 8, 'italic', [86, 104, 122]);
