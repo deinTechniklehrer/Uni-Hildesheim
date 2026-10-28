@@ -548,39 +548,46 @@ const AUFGABEN = [
   eh: ['Abgleich über die Handlungsbereiche des KC RS (S. 7): „Arbeiten und Produzieren“ ↔ Arbeit und Produktion; „Information und Kommunikation“ ↔ gleichnamig; „Energie und Technik“ ↔ Teil von Versorgung und Entsorgung.', 'Bauen und Wohnen sowie Transport und Verkehr haben keinen eigenen Handlungsbereich – prüfe, ob sie in den Kompetenzen versteckt vorkommen.', 'Neu im KC: „Natur und Technik“ – im mpTu-Schema kein eigenes Feld.'] },
 
 { id: 'a2_thema', type: 'pick', title: 'Mein Thema für Referat oder Vortrag',
-  q: 'Wähle ein Thema aus der Liste oder schlage ein eigenes vor und begründe kurz deine Wahl.', other: true,
+  q: 'Wähle ein Thema aus der Liste oder schlage ein eigenes vor und begründe kurz deine Wahl. Schreib in die Begründung auch, ob du Weg A (Referat, 20 Min. + Ausarbeitung) oder Weg B (Vortrag, 40 Min.) gehst. Dein Referat hältst du in Termin 4.', other: true,
   opts: ['Leistungsbewertung (mündlich/schriftlich) und Leistungskontrollen im Technikunterricht', 'Guter Unterricht – guter Technikunterricht', 'Fachraumkonzepte', 'Binnendifferenzierung im Technikunterricht', 'Förderansätze für den Technikunterricht – Inklusion', 'exreTu (expliziter reflexiver Technikunterricht)', 'Interessen- und Motivationsforschung Technikunterricht (und MINT)', 'Das Neustädter Modell', 'Initiativen zur Technikförderung (z. B. JeT, n-21)', 'Die Reparaturaufgabe im Technikunterricht', 'Kostenlose Unterrichtsmaterialien (z. B. Siemens Stiftung)', 'Moderne Entwicklungen des Technikunterrichts', 'Außerschulische Lernorte als Ergänzung zum Technikunterricht', 'Technikunterricht im föderalen Vergleich', 'Technikunterricht im internationalen Vergleich', 'Spenden und Unterstützung durch Firmen und Stiftungen', 'MakerSpace: Technikunterricht durch Making Education?', 'Digitale Lernmaterialien für den Technikunterricht selbst entwickeln'] },
 
-{ id: 'a2_plan', type: 'fields', title: 'Referat oder Vortrag planen',
-  q: 'Plane deinen Beitrag für Termin 3. Schick mir den Plan mit dem Export von Paket 2.',
+{ id: 'a3_plan', type: 'fields', title: 'Referat oder Vortrag planen',
+  q: 'Plane deinen Beitrag für Termin 4. Schick mir den Plan mit dem Export von Paket 3 – und die Präsentation als PDF vor Beginn von Termin 4.',
   info: `<p><b>Aufbau</b> nach den Hinweisen für Studierende: Einleitung (Fragestellung) · Gliederung · Begriffsdefinitionen · wissenschaftliche Ausführungen oder Positionen · kritische Auseinandersetzung (z. B. Praxisberichte) · Fazit mit Ansätzen für die Diskussion · Diskussionsfragen mit Impulsen.</p><p><b>Gute Diskussionsfragen</b> provozieren Widerspruch oder Nachdenken und sind relevant für die Praxis. Besonders geeignet: Fragen zur Diskrepanz zwischen wissenschaftlichen Erkenntnissen und der Praxis in der Schule.</p><p><b>Formal:</b> Quellen korrekt angeben (Internetquellen mit Datum des letzten Zugriffs, nicht nur als Link), Zitation z. B. nach ISO 690, Quellenangaben auf der jeweiligen Folie.</p>`,
   fields: [['weg', 'Mein Weg: Referat (20 Min. + Ausarbeitung) oder Vortrag (40 Min.)', 1], ['frage', 'Wissenschaftliche Fragestellung', 1], ['q1', 'Quelle 1 (vollständige Angabe)', 1], ['q2', 'Quelle 2', 1], ['q3', 'Quelle 3', 1], ['gliederung', 'Gliederung'], ['thesen', 'Fazit und Diskussionsfragen mit Impulsen']] },
 
-/* ---------- Paket 3: Diskussionsergebnisse und Ausarbeitung ---------- */
+/* ---------- Paket 3 und 4 ---------- */
 { id: 'a3_gespraech', type: 'text', title: 'Aktuelle Entwicklungen: dein Fazit',
   q: 'Halte nach dem Gespräch fest: Welche Entwicklung im Technikunterricht hältst du für die wichtigste – und was bedeutet sie für deinen späteren Unterricht?' },
 
-{ id: 'a3_ausarbeitung', type: 'fields', title: 'Diskussionsergebnisse und Ausblick',
+{ id: 'a4_ausarbeitung', type: 'fields', title: 'Diskussionsergebnisse und Ausblick',
   q: 'Halte die Ergebnisse der Diskussion zu deinem Referat fest und plane die Ausarbeitung (über 10 Seiten). Beim Vortrag (40 Min.) entfällt die Ausarbeitung – halte dann nur die Diskussionsergebnisse fest.',
   info: `<p><b>Möglicher Aufbau der Ausarbeitung:</b> Einleitung (Fragestellung) · Begriffsdefinitionen · theoretische Grundlagen · Hypothesen (Fragestellung) · inhaltliche Überprüfung · Ergebnisse, Schlussfolgerungen · Reflexion des methodischen Vorgehens · Fazit zur Fragestellung.</p><p><b>Diskussion integrieren:</b> Ziel ist, die Diskrepanz zwischen Fachwissenschaft und schulischer Praxis darzustellen. Begriffe und Grundlagen = Theorieteil des Referats; Diskussionsfragen und ihre Intention unter „Hypothesen“; der Diskussionsinhalt ist die inhaltliche Überprüfung; in der Reflexion bewertest du die Auswahl der Diskussionsfragen.</p><p><b>Formal:</b> Inhalts-, Literatur- und Abbildungsverzeichnis, übersichtliches Layout, Zitation z. B. nach ISO 690, Eigenständigkeitserklärung.</p>`,
   fields: [['erg', 'Diskussionsergebnisse'], ['offen', 'Offene Fragen'], ['ausblick', 'Ausblick: Was bedeutet das für deinen späteren Technikunterricht?'], ['gliederung', 'Gliederung der Ausarbeitung']] }
 ];
 
 /* ================= TERMINE: Präsentation im Termin, Aufgabenpaket danach =================
-   Aufbau wie im Kurs WiSe 2023/24: Einführung, Aufgaben 1 (Technikbegriff), Aufgaben 2 (mpTu), Gespräch aktuelle Entwicklungen, Referat. */
+   Aufbau wie im Kurs WiSe 2023/24: Einführung + Aufgaben 1, Besprechung + Aufgaben 2 (mpTu), Gespräch aktuelle Entwicklungen, Referat/Vortrag. */
 const TASK = {};
 AUFGABEN.forEach(t => TASK[t.id] = t);
 START_TASKS.forEach(t => TASK[t.id] = t);
 
 /* Datum je Termin als 'JJJJ-MM-TT' eintragen. Steht ein Datum in der Zukunft, ist das Aufgabenpaket bis dahin gesperrt. null = immer offen. */
-const TERMINE_DATEN = { t1: null, t2: null, t3: null };
+const TERMINE_DATEN = { t1: null, t2: null, t3: null, t4: null };
 
 const S_ = (t, h) => ({ t, h });
 const AUF = (nr, text) => `<div class="slauf"><b class="t">Aufgabe ${nr}</b>${text}</div>`;
 const agenda = (items, cur) => `<ol class="agenda">${items.map((x, i) => `<li${i === cur ? ' class="cur"' : ''}><b>Termin ${i + 1}</b><span>${x}</span></li>`).join('')}</ol>`;
-const AG = ['Einführung · Technikbegriff · Technik im Fächerkanon', 'Besprechung Paket 1 · Der mehrperspektivische Technikunterricht', 'Besprechung Paket 2 · Aktuelle Entwicklungen · Referat und Diskussion'];
+const AG = ['Einführung · Technikbegriff · Technik im Fächerkanon', 'Besprechung Paket 1 · Der mehrperspektivische Technikunterricht', 'Besprechung Paket 2 · Aktuelle Entwicklungen im Technikunterricht', 'Referat oder Vortrag und Diskussion'];
 const THEMEN = ['Leistungsbewertung (mündlich/schriftlich) und Leistungskontrollen im Technikunterricht', 'Guter Unterricht → guter Technikunterricht', 'Fachraumkonzepte', 'Binnendifferenzierung im Technikunterricht', 'Förderansätze für den Technikunterricht → Inklusion', 'exreTu (expliziter reflexiver Technikunterricht)', 'Interessen- und Motivationsforschung Technikunterricht (und MINT)', 'Das Neustädter Modell', 'Initiativen zur Technikförderung (z. B. JeT, n-21)', 'Die Reparaturaufgabe im Technikunterricht', 'Kostenlose Unterrichtsmaterialien (z. B. Siemens Stiftung)', 'Moderne Entwicklungen des Technikunterrichts', 'Außerschulische Lernorte als Ergänzung', 'Technikunterricht im föderalen Vergleich', 'Technikunterricht im internationalen Vergleich', 'Spenden und Unterstützung durch Firmen und Stiftungen', 'MakerSpace: Technikunterricht durch Making Education?', 'Digitale Lernmaterialien selbst entwickeln'];
 const KURSSEITE = `<p class="big">Kursseite: <a href="https://t1p.de/tdk-26" target="_blank" rel="noopener">t1p.de/tdk-26</a></p><p class="muted">Dort: Präsentationen als PDF und in der Spalte „Aufgaben“ der Link zu dieser Lernplattform.</p>`;
+
+const BEWERTUNG = `<p class="cite">Orientierung, keine vollständige Abbildung des Gutachtens. Die Verteilung ist nicht fix; gravierende Mängel in einem Bereich können zum Nichtbestehen führen.</p>
+<div class="grid2"><div><b>Referat / Vortrag</b><table class="mt" style="min-width:0"><tbody>
+<tr><td>Formale Bewertung</td><td>10 %</td></tr><tr><td>Wissenschaftliche Fragestellung</td><td>15 %</td></tr><tr><td>Aufbau und Gliederung</td><td>10 %</td></tr><tr><td>Argumentation</td><td>25 %</td></tr><tr><td>Sprachliche Darstellung</td><td>15 %</td></tr><tr><td>Diskussion (kritisch, wissenschaftlich fundiert)</td><td>10 %</td></tr><tr><td>Quellen- und Literaturbasis</td><td>10 %</td></tr><tr><td>Einleitung und Fazit</td><td>5 %</td></tr></tbody></table></div>
+<div><b>Ausarbeitung</b><table class="mt" style="min-width:0"><tbody>
+<tr><td>Formale Bewertung</td><td>10 %</td></tr><tr><td>Fragestellung</td><td>20 %</td></tr><tr><td>Aufbau und Gliederung</td><td>20 %</td></tr><tr><td>Argumentation und sprachliche Darstellung</td><td>30 %</td></tr><tr><td>Literaturbasis</td><td>10 %</td></tr><tr><td>Einleitung und Fazit</td><td>10 %</td></tr></tbody></table></div></div>
+<p class="cite">Quelle: Hinweise für Studierende zu Vortrag/Referat und zur wissenschaftlichen Arbeit (Technikdidaktisches Kolloquium, D. Beyrodt), auf der TaskCard.</p>`;
 
 const TERMINE = [
 { id: 't1', nr: 1, file: 'praesentationen/TdK_Termin-1_Einfuehrung-Technikbegriff', title: 'Einführung und Technikbegriff', lead: 'Was ist ein Kolloquium, wie bekommst du deine Leistungspunkte – und was ist eigentlich Technik?',
@@ -591,7 +598,7 @@ const TERMINE = [
     S_('Inhalt', `<ol class="il big2"><li>Der Technikbegriff / „Grundbegriffe technischer Bildung“</li><li>Der mehrperspektivische Technikunterricht</li><li>Gespräch: aktuelle Entwicklungen im Technikunterricht</li><li>Referat und Diskussion zu einem Wahlthema</li></ol>`),
     S_('Leistungspunktvergabe', `<div class="grid3"><div class="tile"><span class="k">3 LP</span><p>aktive Teilnahme: Aufgaben, Gespräche, Referat</p></div><div class="tile y"><span class="k">A</span><p>Referat (20 Min.) + Diskussion + Ausarbeitung mit Diskussionsergebnissen und Ausblick (über 10 Seiten)</p></div><div class="tile g"><span class="k">B</span><p>Vortrag (40 Min.) + Diskussion, keine Ausarbeitung</p></div></div><p class="muted">In beiden Fällen: Präsentation als PDF vor Beginn einreichen. Bei Krankheit: Abmeldung bis 7:00 Uhr am selben Tag per Mail.</p>`),
     S_('Was ist Technik?', `<p class="huge">Was ist Technik – für dich?</p><p class="muted">Spontan, in zwei Sätzen.</p>`),
-    S_('Termine', `<div class="flow"><div class="st"><b>Termin 1</b><span>Einführung · Aufgabenpaket 1 bekommen</span></div><div class="ar">→</div><div class="st"><b>Termin 2</b><span>Aufgabenpaket 1 besprechen · Aufgabenpaket 2</span></div><div class="ar">→</div><div class="st"><b>Termin 3</b><span>Aufgabenpaket 2 besprechen · Gespräch über aktuelle Entwicklungen · Referat + Diskussion</span></div><div class="ar">→</div><div class="st"><b>Danach</b><span>Ausarbeitung (Weg A)</span></div></div><p class="muted">Zwischen den Terminen bearbeitest du die Aufgaben auf der Lernplattform und schickst sie vorher als Word oder PDF.</p>`),
+    S_('Termine', `<div class="flow"><div class="st"><b>Termin 1</b><span>Einführung · Aufgabenpaket 1 bekommen</span></div><div class="ar">→</div><div class="st"><b>Termin 2</b><span>Aufgabenpaket 1 besprechen · Aufgabenpaket 2</span></div><div class="ar">→</div><div class="st"><b>Termin 3</b><span>Aufgabenpaket 2 besprechen · Gespräch über aktuelle Entwicklungen</span></div><div class="ar">→</div><div class="st"><b>Termin 4</b><span>dein Referat oder Vortrag + Diskussion</span></div><div class="ar">→</div><div class="st"><b>Danach</b><span>Ausarbeitung (Weg A)</span></div></div><p class="muted">Zwischen den Terminen bearbeitest du die Aufgaben auf der Lernplattform und schickst sie vorher als Word oder PDF.</p>`),
     S_('Mögliche Seminarthemen', `<ul class="il cols2">${THEMEN.map(t => `<li>${t}</li>`).join('')}</ul><p class="muted">Auch ein eigenes Thema ist möglich.</p>`),
     S_('Ein Computer …', `<div class="quote"><p>„Ein Computer wird erst wirklicher Computer, wenn er zum Teil einer Mensch-Maschine-Einheit geworden ist. Wenn Text geschrieben wird, tut das nicht allein der Mensch, aber es ist auch nicht allein der Computer, der den Text schreibt; erst die Arbeitseinheit von Mensch und Computer bringt die Textverarbeitung zuwege. Da freilich im benutzten Computer immer schon die Arbeit anderer Menschen verkörpert ist […], bezeichne ich sie als soziotechnisches System.“</p><cite>Ropohl (2009): Allgemeine Technologie. Eine Systemtheorie der Technik, S. 58</cite></div>`),
     S_('Ropohls Technikbegriff', FIG.ropohlDef + AUF('1.1', 'Beschreibe in eigenen Worten, wie Ropohl „Technik“ definiert. <b>Bedingung:</b> Schüler:innen der 6. Klasse sollen deine Definition verstehen.')),
@@ -609,7 +616,7 @@ const TERMINE = [
     { t: 'Technik im Fächerkanon', ids: ['a1_intentionen', 'a1_lesch', 'a1_schulversuch', 'a1_physik', 'a1_vdi', 'a1_nwt', 'a1_kanon'], slides: [11, 14] }
   ] } },
 
-{ id: 't2', nr: 2, file: 'praesentationen/TdK_Termin-2_Mehrperspektivischer-Technikunterricht', title: 'Der mehrperspektivische Technikunterricht', lead: 'Wir besprechen Aufgabenpaket 1. Danach geht es um den mehrperspektivischen Technikunterricht (mpTu) – und um dein Referat.',
+{ id: 't2', nr: 2, file: 'praesentationen/TdK_Termin-2_Mehrperspektivischer-Technikunterricht', title: 'Der mehrperspektivische Technikunterricht', lead: 'Wir besprechen Aufgabenpaket 1. Danach geht es um den mehrperspektivischen Technikunterricht (mpTu) – und um dein Thema für Termin 4.',
   leit: ['Was unterscheidet Erkenntnis- von Zielperspektiven?', 'Wie mehrperspektivisch ist das Kerncurriculum?', 'Welches Thema nimmst du für dein Referat?'],
   slides: [
     S_('Termin 2', agenda(AG, 1)),
@@ -620,15 +627,15 @@ const TERMINE = [
     S_('Erkenntnisperspektiven im Kerncurriculum', AUF('2.2', 'Analysiere, in welcher Form die Erkenntnisperspektiven nach Schmayl im Kerncurriculum Technik für die Realschule wiederzufinden sind.')),
     S_('Inhaltsfelder im Kerncurriculum', AUF('2.3', 'Vergleiche, welche Inhaltsfelder des mehrperspektivischen Technikunterrichts im Kerncurriculum Technik für die Realschule vorkommen und welche nicht.<br><span class="cite">Auf der nächsten Folie findest du eine Übersicht der Inhaltsfelder des mpTu.</span>')),
     S_('Mehrperspektivische Technikdidaktik: Inhaltsfelder', FIG.matrix),
-    S_('Dein Referat in Termin 3', `<div class="grid2"><div class="tile y"><h4>Weg A · Referat</h4><p>20 Min. + Diskussion + Ausarbeitung (über 10 Seiten)</p></div><div class="tile g"><h4>Weg B · Vortrag</h4><p>40 Min. + Diskussion, keine Ausarbeitung</p></div></div>` + AUF('2.4', 'Wähle ein Thema aus der Liste der Seminarthemen oder schlage ein eigenes vor.') + AUF('2.5', 'Plane deinen Beitrag: Fragestellung, Quellen, Gliederung, Diskussionsfragen.')),
-    S_('Bis Termin 3: Aufgabenpaket 2', `<div class="grid2"><div class="tile"><h4>mpTu · Aufgaben 2.1–2.3</h4><p>Erkenntnis- und Zielperspektive, Perspektiven im KC, Inhaltsfelder im KC</p></div><div class="tile y"><h4>Referat · Aufgaben 2.4–2.5</h4><p>Thema wählen, Beitrag planen</p></div></div>${KURSSEITE}`)
+    S_('Dein Referat in Termin 4', `<div class="grid2"><div class="tile y"><h4>Weg A · Referat</h4><p>20 Min. + Diskussion + Ausarbeitung (über 10 Seiten)</p></div><div class="tile g"><h4>Weg B · Vortrag</h4><p>40 Min. + Diskussion, keine Ausarbeitung</p></div></div>` + AUF('2.4', 'Wähle ein Thema aus der Liste der Seminarthemen oder schlage ein eigenes vor. Entscheide dich für Weg A oder B.') + `<p class="muted">Den Beitrag planst du nach Termin 3 in Aufgabenpaket 3.</p>`),
+    S_('Bis Termin 3: Aufgabenpaket 2', `<div class="grid2"><div class="tile"><h4>mpTu · Aufgaben 2.1–2.3</h4><p>Erkenntnis- und Zielperspektive, Perspektiven im KC, Inhaltsfelder im KC</p></div><div class="tile y"><h4>Referat · Aufgabe 2.4</h4><p>Thema wählen, Weg A oder B</p></div></div>${KURSSEITE}`)
   ],
   paket: { teile: [
     { t: 'Der mehrperspektivische Technikunterricht', ids: ['a2_begriffe', 'a2_sort', 'a2_kc', 'a2_felder'], slides: [3, 7] },
-    { t: 'Vorbereitung auf Termin 3: Referat', ids: ['a2_thema', 'a2_plan'], slides: [8, 8] }
+    { t: 'Dein Referat in Termin 4', ids: ['a2_thema'], slides: [8, 8] }
   ] } },
 
-{ id: 't3', nr: 3, file: 'praesentationen/TdK_Termin-3_Aktuelle-Entwicklungen-Referat', title: 'Aktuelle Entwicklungen, Referat und Diskussion', lead: 'Wir besprechen Aufgabenpaket 2, sprechen über aktuelle Entwicklungen im Technikunterricht – und du hältst dein Referat.',
+{ id: 't3', nr: 3, file: 'praesentationen/TdK_Termin-3_Aktuelle-Entwicklungen', title: 'Aktuelle Entwicklungen im Technikunterricht', lead: 'Wir besprechen Aufgabenpaket 2 und sprechen über aktuelle Entwicklungen im Technikunterricht. Danach bereitest du dein Referat für Termin 4 vor.',
   leit: ['Wo steht der Technikunterricht in Niedersachsen?', 'Warum wird ein MakerSpace selten zum guten Konzept, wenn er als Robotik-Fachraum startet?', 'Was macht gute selbst entwickelte digitale Lernmaterialien aus?'],
   slides: [
     S_('Termin 3', agenda(AG, 2)),
@@ -644,21 +651,30 @@ const TERMINE = [
     S_('Digitale Lernmaterialien selbst entwickeln', `<p class="big">Nicht mehr „Kann ich das bauen?“, sondern „Ist das gut – und darf ich das teilen?“</p>${FIG.digital}<div class="grid2"><div class="tile g"><h4>Chancen</h4><ul class="il"><li>passgenau zu Unterricht und KC</li><li>direkte Rückmeldung, Differenzierung</li><li>teilbar als OER</li></ul></div><div class="tile r"><h4>Grenzen</h4><ul class="il"><li>fachliche Prüfung bleibt bei der Lehrkraft</li><li>Datenschutz: keine Konten, keine Schülerdaten</li><li>Urheberrecht: nur klar lizenzierte Inhalte</li></ul></div></div>`),
     S_('KI-Lernplattformen', `<div class="grid3"><div class="tile"><h4>KI-Kompetenz als Lernziel</h4><p>z. B. AI Badge in drei Leveln für die Jahrgänge 7–9</p></div><div class="tile"><h4>Schul-KI</h4><p>Zugänge für Schüler:innen über die Lehrkräfte, z. B. fobizz</p></div><div class="tile y"><h4>Offene Fragen</h4><p>Datenschutz, Prüfungskultur, Verlernen</p></div></div>`),
     S_('Gespräch', `<ul class="il big2"><li>Was davon hast du in Praktika oder in deiner eigenen Schulzeit erlebt?</li><li>Welche Entwicklung hältst du für die wichtigste?</li><li>Was bedeutet das für deinen späteren Technikunterricht?</li></ul>`),
-    S_('Referat und Diskussion', `<p class="huge">Bühne frei</p><div class="flow"><div class="st"><b>Einleitung</b><span>Fragestellung</span></div><div class="ar">→</div><div class="st"><b>Klärung</b><span>Begriffe, Positionen</span></div><div class="ar">→</div><div class="st"><b>Hauptteil</b><span>Quellen, Praxis, Kritik</span></div><div class="ar">→</div><div class="st"><b>Fazit</b><span>Ansätze für die Diskussion</span></div><div class="ar">→</div><div class="st"><b>Diskussion</b><span>Fragen mit Impulsen</span></div></div>`),
-    S_('Nach Termin 3: Ausarbeitung', `<div class="grid2"><div class="tile y"><h4>Weg A · Referat</h4><p>Ausarbeitung mit Diskussionsergebnissen und Ausblick (über 10 Seiten) – Abgabe zum Ende des Semesters</p></div><div class="tile g"><h4>Weg B · Vortrag</h4><p>keine Ausarbeitung – Diskussionsergebnisse kurz festhalten</p></div></div><p class="big">Aufgabenpaket 3 auf der Lernplattform: Fazit zum Gespräch und Gliederung der Ausarbeitung.</p>${KURSSEITE}`)
+    S_('Dein Referat in Termin 4', `<div class="flow"><div class="st"><b>Einleitung</b><span>Fragestellung</span></div><div class="ar">→</div><div class="st"><b>Klärung</b><span>Begriffe, Positionen</span></div><div class="ar">→</div><div class="st"><b>Hauptteil</b><span>Quellen, Praxis, Kritik</span></div><div class="ar">→</div><div class="st"><b>Fazit</b><span>Ansätze für die Diskussion</span></div><div class="ar">→</div><div class="st"><b>Diskussion</b><span>Fragen mit Impulsen</span></div></div>` + AUF('3.2', 'Plane deinen Beitrag: Fragestellung, Quellen, Gliederung, Diskussionsfragen mit Impulsen.') + `<p class="muted">Präsentation als PDF vor Beginn von Termin 4 einreichen.</p>`),
+    S_('Bis Termin 4: Aufgabenpaket 3', `<div class="grid2"><div class="tile"><h4>Gespräch · Aufgabe 3.1</h4><p>Dein Fazit zu den aktuellen Entwicklungen</p></div><div class="tile y"><h4>Referat · Aufgabe 3.2</h4><p>Beitrag planen, Präsentation erstellen</p></div></div>${KURSSEITE}`)
   ],
   paket: { teile: [
     { t: 'Gespräch: aktuelle Entwicklungen', ids: ['a3_gespraech'], slides: [2, 12] },
-    { t: 'Referat und Ausarbeitung', ids: ['a3_ausarbeitung'], slides: [13, 14] }
+    { t: 'Referat vorbereiten', ids: ['a3_plan'], slides: [13, 13] }
+  ] } },
+
+{ id: 't4', nr: 4, file: 'praesentationen/TdK_Termin-4_Referat-und-Diskussion', title: 'Referat oder Vortrag und Diskussion', lead: 'Du hältst dein Referat oder deinen Vortrag, danach diskutieren wir. Die Ergebnisse fließen in die Ausarbeitung.',
+  leit: ['Was ist deine Fragestellung?', 'Welche Diskrepanz zwischen Wissenschaft und Schulpraxis zeigt sich?', 'Was nimmst du für deinen späteren Technikunterricht mit?'],
+  slides: [
+    S_('Termin 4', agenda(AG, 3)),
+    S_('Ablauf', `<div class="grid2"><div class="tile y"><h4>Weg A · Referat</h4><p>20 Min. + Diskussion + Ausarbeitung (über 10 Seiten)</p></div><div class="tile g"><h4>Weg B · Vortrag</h4><p>40 Min. + Diskussion, keine Ausarbeitung</p></div></div><p class="big">Die Präsentation liegt als PDF vor.</p>`),
+    S_('Bühne frei', `<p class="huge">Bühne frei</p><div class="flow"><div class="st"><b>Einleitung</b><span>Fragestellung</span></div><div class="ar">→</div><div class="st"><b>Klärung</b><span>Begriffe, Positionen</span></div><div class="ar">→</div><div class="st"><b>Hauptteil</b><span>Quellen, Praxis, Kritik</span></div><div class="ar">→</div><div class="st"><b>Fazit</b><span>Ansätze für die Diskussion</span></div><div class="ar">→</div><div class="st"><b>Diskussion</b><span>Fragen mit Impulsen</span></div></div>`),
+    S_('Diskussion', `<ul class="il big2"><li>Deine Diskussionsfragen mit Impulsen</li><li>Wo klaffen Wissenschaft und Schulpraxis auseinander?</li><li>Was bedeutet das für deinen späteren Technikunterricht?</li></ul>`),
+    S_('Bewertungsgrundlagen', BEWERTUNG),
+    S_('Rückblick auf das Kolloquium', `<div class="grid2"><div class="tile"><h4>Technikbegriff</h4><p>Ropohl, Kerncurriculum, Technik im Fächerkanon</p></div><div class="tile"><h4>Mehrperspektivischer Technikunterricht</h4><p>Erkenntnis- und Zielperspektiven, Inhaltsfelder</p></div><div class="tile"><h4>Aktuelle Entwicklungen</h4><p>Lagebild, MakerSpaces, digitale Lernmaterialien, KI</p></div><div class="tile y"><h4>Dein Thema</h4><p>Referat oder Vortrag und Diskussion</p></div></div>`),
+    S_('Nach Termin 4: Ausarbeitung', `<div class="grid2"><div class="tile y"><h4>Weg A · Referat</h4><p>Ausarbeitung mit Diskussionsergebnissen und Ausblick (über 10 Seiten) – Abgabe zum Ende des Semesters</p></div><div class="tile g"><h4>Weg B · Vortrag</h4><p>keine Ausarbeitung – Diskussionsergebnisse kurz festhalten</p></div></div><p class="big">Aufgabenpaket 4 auf der Lernplattform: Diskussionsergebnisse, Ausblick, Gliederung.</p>${KURSSEITE}`)
+  ],
+  paket: { teile: [
+    { t: 'Diskussionsergebnisse und Ausarbeitung', ids: ['a4_ausarbeitung'], slides: [1, 6] }
   ] } }
 ];
 
-const BEWERTUNG = `<p class="cite">Orientierung, keine vollständige Abbildung des Gutachtens. Die Verteilung ist nicht fix; gravierende Mängel in einem Bereich können zum Nichtbestehen führen.</p>
-<div class="grid2"><div><b>Referat / Vortrag</b><table class="mt" style="min-width:0"><tbody>
-<tr><td>Formale Bewertung</td><td>10 %</td></tr><tr><td>Wissenschaftliche Fragestellung</td><td>15 %</td></tr><tr><td>Aufbau und Gliederung</td><td>10 %</td></tr><tr><td>Argumentation</td><td>25 %</td></tr><tr><td>Sprachliche Darstellung</td><td>15 %</td></tr><tr><td>Diskussion (kritisch, wissenschaftlich fundiert)</td><td>10 %</td></tr><tr><td>Quellen- und Literaturbasis</td><td>10 %</td></tr><tr><td>Einleitung und Fazit</td><td>5 %</td></tr></tbody></table></div>
-<div><b>Ausarbeitung</b><table class="mt" style="min-width:0"><tbody>
-<tr><td>Formale Bewertung</td><td>10 %</td></tr><tr><td>Fragestellung</td><td>20 %</td></tr><tr><td>Aufbau und Gliederung</td><td>20 %</td></tr><tr><td>Argumentation und sprachliche Darstellung</td><td>30 %</td></tr><tr><td>Literaturbasis</td><td>10 %</td></tr><tr><td>Einleitung und Fazit</td><td>10 %</td></tr></tbody></table></div></div>
-<p class="cite">Quelle: Hinweise für Studierende zu Vortrag/Referat und zur wissenschaftlichen Arbeit (Technikdidaktisches Kolloquium, D. Beyrodt), auf der TaskCard.</p>`;
 
 /* ---------- Word-Export (.docx) ohne Bibliothek: einfacher ZIP-Schreiber + WordprocessingML ---------- */
 const CRC_T = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
@@ -969,7 +985,7 @@ function viewTermin(T, tab) {
   const open = paketOffen(T);
   const no = numberer(T);
   return h('div', null, head,
-    h('div', { class: 'paket' }, h('div', null, h('b', null, `Aufgabenpaket ${T.nr}`), h('span', null, next ? `Bearbeiten nach Termin ${T.nr}, fertig bis Termin ${next.nr}${TERMINE_DATEN[next.id] ? ' (' + datumText(TERMINE_DATEN[next.id]) + ')' : ''}.` : 'Bearbeiten nach Termin 3, fertig bis zur Abgabe der Ausarbeitung.')),
+    h('div', { class: 'paket' }, h('div', null, h('b', null, `Aufgabenpaket ${T.nr}`), h('span', null, next ? `Bearbeiten nach Termin ${T.nr}, fertig bis Termin ${next.nr}${TERMINE_DATEN[next.id] ? ' (' + datumText(TERMINE_DATEN[next.id]) + ')' : ''}.` : `Bearbeiten nach Termin ${T.nr}, fertig bis zur Abgabe der Ausarbeitung.`)),
       h('div', null, 'Vor dem Termin: Ergebnisse unter ', h('a', { href: '#export' }, 'Export'), ` als Word oder PDF speichern und schicken (Auswahl „Paket ${T.nr}“).`)),
     open ? T.paket.teile.map(part => h('div', null,
       h('div', { class: 'sec' }, part.t),
@@ -1012,7 +1028,7 @@ function viewStart() {
   const road = TERMINE.map(T => { const p = modProgress(NAV.find(x => x.id === T.id)); const d = TERMINE_DATEN[T.id]; return h('li', { class: p.total && p.done === p.total ? 'done' : '' }, h('span', { class: 'n' }, String(T.nr)), h('div', null, h('b', null, `Termin ${T.nr}${d ? ' · ' + datumText(d) : ''}: ${T.title}`), h('span', null, `${T.slides.length} Folien im Termin · Aufgabenpaket ${T.nr} danach (${p.done}/${p.total} erledigt)`)), h('div', { class: 'rbtn' }, h('a', { class: 'btn ghost', href: '#' + T.id }, 'Folien'), h('a', { class: 'btn', href: '#' + T.id + '-aufgaben' }, 'Aufgaben'))); });
   return h('div', null,
     h('section', { class: 'hero' },
-      h('div', null, h('img', { class: 'logo', src: LOGO, alt: 'deinTechniklehrer' }), h('div', { class: 'eyebrow' }, COURSE.sub), h('h1', null, COURSE.title), h('p', { class: 'lead' }, 'Drei Termine mit Input und Gespräch. Dazwischen bearbeitest du hier ein Aufgabenpaket und schickst die Ergebnisse vor dem nächsten Termin.'), h('p', { class: 'cite' }, 'Dozent: ' + COURSE.dozent)),
+      h('div', null, h('img', { class: 'logo', src: LOGO, alt: 'deinTechniklehrer' }), h('div', { class: 'eyebrow' }, COURSE.sub), h('h1', null, COURSE.title), h('p', { class: 'lead' }, 'Vier Termine: drei mit Input und Gespräch, im vierten hältst du dein Referat oder deinen Vortrag. Dazwischen bearbeitest du hier ein Aufgabenpaket und schickst die Ergebnisse vor dem nächsten Termin.'), h('p', { class: 'cite' }, 'Dozent: ' + COURSE.dozent)),
       h('div', { class: 'reveal' }, h('div', { class: 'eyebrow' }, 'Frage zum Start'), h('h3', { style: 'margin:4px 0 10px' }, 'Was ist ein Kolloquium?'), rv, h('div', { class: 'btnrow' }, h('button', { class: 'btn yellow', type: 'button', onclick: e => { rv.hidden = false; e.target.remove(); } }, 'Auflösen')))),
     h('div', { class: 'card' }, h('div', { class: 'fields' }, h('label', { for: 'st-name' }, 'Dein Name (erscheint im Export)', nameIn))),
     h('div', { class: 'sec' }, 'Ablauf'),
@@ -1021,8 +1037,8 @@ function viewStart() {
     h('div', { class: 'sec' }, 'Leistungspunkte'),
     h('div', { class: 'grid3' },
       h('div', { class: 'tile' }, h('span', { class: 'k' }, '3 LP'), h('p', null, '= 90 Stunden Arbeitszeit bei 2 SWS, davon 30 Stunden Präsenz')),
-      h('div', { class: 'tile y' }, h('span', { class: 'k' }, 'A'), h('p', null, h('b', null, 'Referat'), ' (20 Min.) + Diskussion in Termin 3 + Ausarbeitung (über 10 Seiten), Abgabe zum Ende des Semesters')),
-      h('div', { class: 'tile g' }, h('span', { class: 'k' }, 'B'), h('p', null, h('b', null, 'Vortrag'), ' (40 Min.) + Diskussion in Termin 3 – die Ausarbeitung entfällt'))),
+      h('div', { class: 'tile y' }, h('span', { class: 'k' }, 'A'), h('p', null, h('b', null, 'Referat'), ' (20 Min.) + Diskussion in Termin 4 + Ausarbeitung (über 10 Seiten), Abgabe zum Ende des Semesters')),
+      h('div', { class: 'tile g' }, h('span', { class: 'k' }, 'B'), h('p', null, h('b', null, 'Vortrag'), ' (40 Min.) + Diskussion in Termin 4 – die Ausarbeitung entfällt'))),
     h('p', null, 'In beiden Fällen reichst du die Präsentation als PDF vor Beginn ein. Dazu kommt die aktive Mitarbeit in Aufgaben und Gesprächen.'),
     h('details', { class: 'info' }, h('summary', null, 'Bewertungsgrundlagen (Hinweise für Studierende)'), h('div', { class: 'ib', html: BEWERTUNG })),
     h('div', { class: 'note' }, 'Bei Krankheit: Abmeldung bis 7:00 Uhr am selben Tag per Mail.'),
@@ -1042,7 +1058,7 @@ function viewStart() {
 let run = null;
 function viewTest() {
   const wrap = h('div');
-  const head = h('header', { class: 'pagehead' }, h('div', { class: 'eyebrow' }, 'Zum Schluss'), h('h1', null, 'Abschluss-Check'), h('p', { class: 'lead' }, `${TEST.length} Fragen zu allen drei Terminen. Die Antworten werden direkt ausgewertet; dein bestes Ergebnis erscheint im Export.`));
+  const head = h('header', { class: 'pagehead' }, h('div', { class: 'eyebrow' }, 'Zum Schluss'), h('h1', null, 'Abschluss-Check'), h('p', { class: 'lead' }, `${TEST.length} Fragen zu den Inhalten der Termine 1 bis 3. Die Antworten werden direkt ausgewertet; dein bestes Ergebnis erscheint im Export.`));
   function start() { run = { order: shuffle(TEST.map((_, i) => i)), i: 0, ans: {} }; draw(); }
   function draw() {
     if (!run) { const best = bestTest(); wrap.replaceChildren(head, h('div', { class: 'card' }, best ? h('p', null, `Bester Versuch bisher: ${best.score} von ${best.max} Punkten.`) : h('p', null, 'Noch kein Versuch.'), h('div', { class: 'btnrow' }, h('button', { class: 'btn yellow', type: 'button', onclick: start }, best ? 'Neuer Versuch' : 'Check starten'))), modnav()); return; }
