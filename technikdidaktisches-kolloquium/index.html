@@ -1193,7 +1193,7 @@ function viewTermin(T, tab) {
     return h('div', null, head,
       h('div', { class: 'leit' }, h('b', null, 'Leitfragen'), h('ol', null, T.leit.map(x => h('li', null, x)))),
       h('div', { class: 'btnrow', style: 'margin-bottom:8px' }, h('button', { class: 'btn yellow', type: 'button', onclick: () => present(T, 0) }, '▶ Präsentation starten'),
-        h('button', { class: 'btn ghost', type: 'button', onclick: () => fetchSave(T.file + '.pptx') }, 'PowerPoint (.pptx)'), h('button', { class: 'btn ghost', type: 'button', onclick: () => fetchSave(T.file + '.pdf') }, 'PDF')),
+        pptxLink(T, 'btn ghost', 'PowerPoint (.pptx)'), h('button', { class: 'btn ghost', type: 'button', onclick: () => fetchSave(T.file + '.pdf') }, 'PDF')),
       h('p', { class: 'cite' }, 'Präsentation im Browser: Vollbild, weiter mit Pfeiltasten oder Leertaste, Esc beendet. Die PowerPoint-Datei enthält dieselben Folien.'),
       h('div', { class: 'sec' }, 'Folien'),
       T.slides.map((s, i) => h('section', { class: 'slidecard' }, h('div', { class: 'sch' }, h('span', { class: 'sn' }, String(i + 1)), h('h3', null, s.t), h('button', { class: 'btn ghost sm', type: 'button', onclick: () => present(T, i) }, 'ab hier zeigen')), h('div', { class: 'sb', html: s.h }))),
@@ -1304,11 +1304,16 @@ function viewMaterial() {
   return h('div', null,
     h('header', { class: 'pagehead' }, h('div', { class: 'eyebrow' }, 'Literatur und Quellen'), h('h1', null, 'Material'), h('p', { class: 'lead' }, 'Zwei Werke stehen unter offener Lizenz und liegen hier zum Download. Die übrigen Texte bekommst du per Mail; Erlasse und Kerncurricula findest du online.')),
     h('div', { class: 'sec' }, 'Präsentationen'),
-    h('div', { class: 'lit' }, TERMINE.map(T => h('div', { class: 'li' }, h('div', null, `Termin ${T.nr}: ${T.title}`, h('small', null, `${T.slides.length} Folien · CC BY-NC-SA 4.0`)), h('div', { class: 'btnrow', style: 'margin:0' }, h('button', { class: 'btn ghost sm', type: 'button', onclick: () => fetchSave(T.file + '.pptx') }, 'PPTX'), h('button', { class: 'btn ghost sm', type: 'button', onclick: () => fetchSave(T.file + '.pdf') }, 'PDF'))))),
+    h('div', { class: 'lit' }, TERMINE.map(T => h('div', { class: 'li' }, h('div', null, `Termin ${T.nr}: ${T.title}`, h('small', null, `${T.slides.length} Folien · CC BY-NC-SA 4.0`)), h('div', { class: 'btnrow', style: 'margin:0' }, pptxLink(T, 'btn ghost sm', 'PPTX'), h('button', { class: 'btn ghost sm', type: 'button', onclick: () => fetchSave(T.file + '.pdf') }, 'PDF'))))),
     h('div', { class: 'sec' }, 'Literatur und Quellen'),
     h('div', { class: 'lit' }, LIT.map(l => h('div', { class: 'li' }, h('div', null, l.t, h('small', null, l.s)), l.f ? h('button', { class: 'btn ghost', type: 'button', onclick: () => fetchSave(l.f) }, 'PDF laden') : h('span', { class: 'avail ' + AV[l.a][0] }, AV[l.a][1])))),
     h('div', { class: 'merke' }, h('b', { class: 't' }, 'Quellen prüfen'), 'Erlasse und Kerncurricula immer in der aktuellen Fassung nutzen: Schulverwaltungsblatt (SVBl.), NI-VORIS und nibis.de.'),
     modnav());
+}
+const GH_RAW = 'https://github.com/deintechniklehrer/Uni-Hildesheim/raw/main/technikdidaktisches-kolloquium/';
+function pptxLink(T, cls, label) {
+  const f = T.file + '.pptx';
+  return window.claude ? h('a', { class: cls, href: GH_RAW + f, target: '_blank', rel: 'noopener' }, label) : h('a', { class: cls, href: f, download: f.split('/').pop() }, label);
 }
 async function fetchSave(path) {
   if (!window.claude) { const a = h('a', { href: path, download: path.split('/').pop() }); document.body.append(a); a.click(); a.remove(); return; }
